@@ -1,3 +1,54 @@
 \chapter{Plataforma web Tile-in-ONE}
+\label{tio}
+Diversos sistemas foram desenvolvidos ao longo das diferentes fases do experimento, cada um com um propósito específico~\cite{CHEP2010-DASHBOARD}. A análise \emph{online} tem início com a aquisição e decisão acerca do armazenamento dos dados adquiridos, que é responsabilidade do grupo TDAQ (do inglês, \emph{Trigger and Data Acquisition})~\cite{jenni2003atlas}. A reconstrução dos dados pelo software para análise \emph{offline} ATHENA~\cite{ATHENA} marca o início da análise \emph{offline}. Em seguida, o DQMF (do inglês, \emph{Data Quality Monitoring System})~\cite{DQMF} é aplicado e gera automaticamente estados para os PMTs, indicando a qualidade do tubo fotomultiplicador e reduzindo a quantidade de canais que precisam ser analisados. Nesta etapa, gráficos são gerados para auxiliar o grupo de qualidade de dados do TileCal em sua análise \emph{offline}. Um sistema web foi desenvolvido para integrar os resultados gráficos gerados durante a etapa de reconstrução, guiando o grupo de qualidade de dados em suas análises. A figura~\ref{dashboard} ilustra sistemas integrados por uma única interface web: a figura~\ref{fig:dashboard_1} corresponde a lista de dados reconstruídos e quais gráficos já estão disponíveis para a colaboração, indicando que a atuação do ATHENA foi concluída; a figura~\ref{fig:dashboard_2} exibe informação detalhada sobre um determinado módulo, acessado pela interface ilustrada anteriormente. Através deste sistema web é possível inserir comentários relacionados a performance do detector; e a figura~\ref{fig:dashboard_3} ilustra alguns gráficos gerados durante a etapa de reconstrução dos dados.
+\begin{figure}[!ht]
+  \centering
+  \subfigure[Lista dos dados adquiridos.]{
+    \includegraphics[width=10cm]{images/screen-capture-5.png}
+    \label{fig:dashboard_1}
+  }
+  \mbox{
+    \subfigure[Estados gerados automaticamente pelo DQMF e acesso a informações detalhadas.]{
+      \includegraphics[width=6.5cm]{images/screen-capture-6.png}
+      \label{fig:dashboard_2}
+    }
+    \subfigure[Gráficos gerados para um determinado módulo.]{
+      \includegraphics[width=6.5cm]{images/screen-capture-7.png}
+      \label{fig:dashboard_3}
+    }
+  }
+  \caption{\emph{Dashboard Web System}, desenvolvido em 2010 para integrar as os dados adquiridos e as análises do grupo de QD do TileCal. Mais detalhes em~\cite{CHEP2010-DASHBOARD}}
+  \label{dashboard}
+\end{figure}
+
+Para uma referência histórica, a lista de canais definidos como defeituosos pela colaboração (\emph{Bad Channels List}) é armazenada no banco de dados de condicionamento, comum a todos os experimentos que compõem o LHC, o COOL DB~\cite{COOL_DB}. Os sistemas MCWS (do inglês, \emph{Monitoring \& Calibration Web System})~\cite{MCWS-CHEP-2012} e DCS (do inglês, \emph{Detector Control System})~\cite{DCS-CHEP-2009} apoiam o grupo de qualidade de dados na análise dos quase 10.000 PMTs do calorímetro de telhas. O MCWS foi desenvolvido para exibir a lista de canais defeituosos de maneira gráfica e permite que comentários sobre o estado do detector sejam compartilhados. O sistema web DCS foi desenvolvido para monitorar as fontes de alta tensão que alimentam os PMTs.
+
+É evidente que o cenário descrito é composto por diversas ferramentas (web) para apoiar em diferentes aspectos as análises e operação de forma mais eficiente do TileCal. Tais sistemas foram desenvolvidos em diferentes fases do detector, envolvendo diferentes colaboradores, que não necessariamente ainda encontram-se envolvidos em atividades da colaboração. Além disso, a manutenção de tais ferramentas não é garantida pelos mesmos colaboradores contribuintes. Para a colaboração, seria mais fácil reunir todas as ferramentas existentes em uma única interface, que utilizasse preferencialmente a mesma tecnologia, permitindo inclusive, reutilização de códigos fonte. Tais requisitos foram contemplados com o projeto e desenvolvimento da Plataforma web Tile-in-ONE.
+
     \section{Fluxo de dados}
+
+    A Plataforma Tile-in-ONE foi projetada para integrar as diferentes análises realizadas pela colaboração TileCal. Ao fornecer uma estrutura onde os colaboradores podem desenvolver códigos fonte diretamente através da web, ela integra diferentes ferramentas em um único lugar. Isso garante a escolha da mesma tecnologia para todas as ferramentas desenvolvidas (linguagem Python~\cite{PYTHON}), o que torna a manutenção da plataforma mais fácil. Além disso, existe o incentivo natural para reutilização de códigos, uma vez que os desenvolvimentos encontram-se disponíveis para toda colaboração. Outra funcionalidade oferecida pela plataforma é o encapsulamento em pacotes de configurações para acessar bases de dados importantes para as análises. Isso permite que colaboradores novos não percam tempo aprendendo a acessar a informação, mas foquem na análise propriamente dita.
+
+    A figura~\ref{fig:dataflow} ilustra o fluxo de dados do Tile-in-ONE. A plataforma oferece a funcionalidade de desenvolvimento de códigos pela qual os colaboradores podem escrever seus próprios programas. Também é permitida a edição de códigos salvos ou escritos por outros usuários. Uma vez que o desenvolvimento do código é concluído, o desenvolvedor pode submeter seu código que será manipulado no lado do servidor. Este, por sua vez, irá direcionar o código em questão para uma outra máquina (nesse contexto, máquinas \emph{slaves}), dependendo dos dados identificados pela plataforma que o código fonte a ser executado deseja acessar. Cada máquina \emph{slave} está configurada para acessar um determinado repositório de dados utilizado para as análises da colaboração. Isso permite que os desenvolvedores se abstraiam de configurações de acesso a tais repositórios. A motivação para efetuar a execução do código fonte em outra máquina que não no servidor é evitar que ocorra sobrecarga no servidor principal e o mais importante: caso o código fonte falhe durante a execução, o servidor onde a plataforma está hospedado não fica comprometido. A figura~\ref{fig:dataflow} ilustra ainda, em vermelho, onde esta tese de mestrado irá atuar. O objetivo é criar uma etapa antes da submissão de novos códigos para máquinas \emph{slave}, atuando, desta forma, como uma camada de segurança cujo intuito é prever quais códigos vão falhar sem a necessidade de executá-los. Esta camada consiste em um novo desenvolvimento e portanto, no momento, qualquer código pode ser submetido para ser executado na máquina \emph{slave}.
+
+    Uma vez que o servidor web escolhe uma máquina \emph{slave} esta tenta executar o código fonte submetido e retorna para o servidor web, de maneira estruturada, o que ocorreu durante a execução. Neste momento, o desenvolvedor do código fonte pode utilizar objetos gráficos também fornecidos pela plataforma para exibir os resultados recuperados através de seus códigos fonte. Enfim, o código fonte, a resposta obtida com a execução na máquina \emph{slave} e os objetos gráficos são encapsulados em \emph{Plugins} e disponibilizados em \emph{Dashboards} para toda colaboração.
+
+    A figura~\ref{fig:infrastructure} ilustra a infraestrutura atual da plataforma web Tile-in-ONE. Destaca-se em vermelho onde este mestrado pretende atuar.
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=8cm]{images/infrastructure.png}
+      \caption{Esquemático representando a infraestrutura da plataforma Tile-in-ONE. Em vermelho, a nova camada a ser desenvolvida.}
+      \label{fig:infrastructure}
+    \end{figure}
+
     \section{Novo desenvolvimento}
+
+    A plataforma Tile-in-ONE está atualmente sendo utilizada pelos grupos de calibração e qualidade de dados do TileCal. Uma preocupação que surgiu ao longo do ano de 2014 foi a execução bem sucedida de códigos fonte sem avaliação prévia. Cada código que enfrenta falhas durante sua execução na máquina \emph{slave} acaba consumindo recursos computacionais que podem comprometer o fluxo de dados da plataforma como um todo. A solução para tal questão levantada é estudada neste mestrado, fazendo uso de técnicas de mineração de códigos fonte, como abordado no capítulo~\ref{code_mining}.
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=7.5cm, height=24cm]{images/Tile-in-one_dataflow.png}
+      \caption{Fluxo de dados da plataforma web Tile-in-ONE.}
+      \label{fig:dataflow}
+    \end{figure}

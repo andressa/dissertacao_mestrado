@@ -19,6 +19,11 @@
   Calorimeter Technical Design Report}\/}, Tech. rep., CERN, 1996, CERN/LHCC
   96--42.
 
+\bibitem{CHEP2010-DASHBOARD}
+\MakeUppercase{ Balabram, C. M. F. F. F. G. A. S.~L.}, \enquote{Web System for
+  Data Quality Assessment of Tile Calorimeter During the ATLAS Operation}, {\em
+  Journal of Physics: Conference Series (JPCS)\/}, v.~331 - part 4, 2011.
+
 \bibitem{CERN}
 \enquote{{The European Laboratory for Particle Physics}}, \\Acessado em janeiro
   de 2016. {\tt http://www.cern.ch}.
@@ -49,5 +54,42 @@
 \bibitem{ATLAS_FACTS}
 \enquote{{ATLAS \emph{Factsheet}}}, {\\Acessado em janeiro de 2016. \\
   \url{http://www.atlas.ch/pdf/fact_sheet_1page.pdf}}.
+
+\bibitem{jenni2003atlas}
+\MakeUppercase{ Jenni, P., Nessi, M., Nordberg, M., \MakeLowercase{et~al.}},
+  \enquote{ATLAS high-level trigger, data-acquisition and controls: Technical
+  Design Report}, {\em Technical Design Report ATLAS. CERN, Genebra\/}, v.~42,
+  2003.
+
+\bibitem{ATHENA}
+\MakeUppercase{ {P. Calafiura and W. Lavrijsen and others}}, \enquote{{The
+  athena control framework in production, new developments and lessons
+  learned}}, {\em Journal of Physics: Conference Series\/}, pp.~456--458, 2004.
+
+\bibitem{DQMF}
+\MakeUppercase{ Corso-Radu, A., Hadavand, H., Hauschild, M.,
+  \MakeLowercase{et~al.}}, \enquote{Data Quality Monitoring Framework for the
+  ATLAS Experiment at the LHC}, {\em IEEE Xplore Digital Library\/}, v.~55,
+  2008.
+
+\bibitem{COOL_DB}
+\MakeUppercase{ Verducci, M.}, \enquote{ATLAS conditions database experience
+  with the LCG COOL conditions database project}, {\em Journal of Physics:
+  Conference Series (JPCS)\/}, v.~119 - part 4, 2008.
+
+\bibitem{MCWS-CHEP-2012}
+\MakeUppercase{ Sivolella, A., Maidantchik, C.}, \enquote{The Monitoring and
+  Calibration Web Systems for the ATLAS Tile Calorimeter Data Quality
+  Analysis}, {\em Journal of Physics: Conference Series 052037, Computing High
+  Energy Physics, New York, USA\/}, v.~396, pp.~8, May 2012.
+
+\bibitem{DCS-CHEP-2009}
+\MakeUppercase{ Maidantchik, C., Ferreira, F., Grael, F.}, \enquote{DCS Web
+  System}, {\em Journal of Physics: Conference Series, Computing High Energy
+  Physics, Praga, Rep. Tcheca\/}, pp.~8, March 2009.
+
+\bibitem{PYTHON}
+\enquote{{Python Programming Language}}, \\Acessado em janeiro de 2016. {\\
+  \url{http://www.python.org/}}.
 
 \end{thebibliography}
