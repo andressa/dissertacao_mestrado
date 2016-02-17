@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 \newcommand{\enquote}[1]{``#1''}
 
 \bibitem{CDS}
@@ -8,6 +8,16 @@
 \bibitem{ATLASPHOTOS}
 \enquote{ATLAS Photos}, \\Acessado em janeiro de 2016. {\tt
   http://www.atlas.ch/photos/}.
+
+\bibitem{ATLAS}
+\MakeUppercase{ {ATLAS Collaboration}}, {\em {ATLAS: Technical Proposal for a
+  General-Purpose pp Experiment at the Large Hadron Collider at CERN}\/}, Tech.
+  rep., CERN, 1994, CERN/LHCC 94--43.
+
+\bibitem{TDR_Tile}
+\MakeUppercase{ {ATLAS/Tile Calorimeter Collaboration}}, {\em {Tile Calorimeter
+  Calorimeter Technical Design Report}\/}, Tech. rep., CERN, 1996, CERN/LHCC
+  96--42.
 
 \bibitem{CERN}
 \enquote{{The European Laboratory for Particle Physics}}, \\Acessado em janeiro
@@ -25,11 +35,6 @@
 \MakeUppercase{ {The ALICE Collaboration}}, \enquote{The {ALICE} experiment at
   the {CERN} {LHC}}, {\em Journal of Instrumentation\/}, v.~3, n.~08, Aug.
   2008.
-
-\bibitem{ATLAS}
-\MakeUppercase{ {ATLAS Collaboration}}, {\em {ATLAS: Technical Proposal for a
-  General-Purpose pp Experiment at the Large Hadron Collider at CERN}\/}, Tech.
-  rep., CERN, 1994, CERN/LHCC 94--43.
 
 \bibitem{CMS}
 \MakeUppercase{ {The CMS Collaboration}}, \enquote{The {CMS} experiment at the

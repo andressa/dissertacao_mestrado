@@ -39,7 +39,44 @@
     \end{figure}
     O sistema de calorimetria do LHC foi projetado para absorver a energia das partículas que cruzam o detector, sendo o calorímetro hadrônico de telhas (em inglês \emph{Tile Calorimeter} ou TileCal) é o foco deste mestrado.
 
-
     \section{Calorímetro Hadrônico de Telhas (TileCal)}
+    O TileCal~\cite{TDR_Tile} é composto por três barris: um central (que se divide em duas partições: LBA e LBC) e dois estendidos (cada um correspondendo a mais duas partições, EBA e EBC, respectivamente), como ilustrado na figura~\ref{TILECAL_BARRELS}. Cada partição é igualmente dividida em 64 partes (módulos). Os módulos do TileCal são compostos de ferro como mediadores passivos e telhas cintilantes como material ativo. A estrutura absorvedora é coberta de placas de aço de várias dimensões, conectadas a uma estrutura maciça de suporte. A principal inovação deste detector é a posição perpendicular das telhas em relação aos feixes do LHC.
+
+    \begin{figure}[htbp]
+      \centering
+        \includegraphics[width=10.0cm]{images/TileCal_barrels.png}
+        \caption{Calorímetro de Telhas do ATLAS (com suas 4 partições na cor
+          verde) envolvendo o calorímetro de argônio líquido. O Sistema Magnético
+        e a Câmara de Múons não estão ilustrados nesta figura. Adaptado de~\cite{ATLAS}.}
+      \label{TILECAL_BARRELS}
+    \end{figure}
+
+    A passagem de partículas ionizadas pelo TileCal produz luz no espectro. Sua
+    intensidade é proporcional à energia depositada pela partícula. A luz produzida
+    se propaga através das telhas para suas bordas onde é absorvida por fibras
+    óticas e deslocada, por reflexão interna total, até os canais de leitura
+    eletrônica ou fotomultiplicadores (em inglês \emph{PhotoMulTipliers Tubes} ou
+    PMTs), onde é convertido em um sinal de corrente. Um PMT pode ser idealizado
+    como um pulso de corrente. A figura~\ref{TILECAL_PMT-FIG} ilustra a estrutura
+    de absorção e amostragem do TileCal sendo possível identificar tubos
+    fotomultiplicadores.
+
+    \begin{figure}[htbp]
+      \centering
+        \includegraphics[width=7.0cm]{images/tilecal_pmt.png}
+        \caption{Estrutura de absorção e amostragem do TileCal. Extraído de~\cite{TDR_Tile}}
+      \label{TILECAL_PMT-FIG}
+    \end{figure}
+
+    Os módulos do barril central do detector comportam 45 canais cada, enquanto os módulos dos barris estendidos comportam 32 canais. Radialmente, cada módulo do TileCal ainda é segmentado em três camadas (A, BC e D), conhecidas como células. Estas são formadas pelo agrupamento de fibras até cada PMT. Um esboço da geometria das células é apresentado na figura~\ref{TILECAL_CELLS-FIG}. Cada módulo contém 11 linhas transversas de telhas.
+
+    \begin{figure}[htbp]
+      \centering
+        \includegraphics[width=12.0cm]{images/tilecal_cells.png}
+        \caption{Esboço das células do TileCal. Extraído de~\cite{ATLAS}.}
+      \label{TILECAL_CELLS-FIG}
+    \end{figure}
+
+    
         \subsection{Análise \emph{Online} e \emph{Offline}}
         \subsection{A colaboração TileCal}
