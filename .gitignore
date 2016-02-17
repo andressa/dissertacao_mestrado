@@ -1,5 +1,4 @@
 *.abx
-*.bbl
 *.fdb_latexmk
 *.fls
 *.lof
@@ -11,3 +10,5 @@
 *.aux
 *.blg
 *.lot
+*.dvi
+*.DS_Store

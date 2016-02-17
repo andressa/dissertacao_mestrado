@@ -1,0 +1,36 @@
+\begin{thebibliography}{1}
+\newcommand{\enquote}[1]{``#1''}
+
+\bibitem{CDS}
+\enquote{{CDS - CERN Document Server}}, \\Acessado em janeiro de 2016. {\tt
+  cds.cern.ch}.
+
+\bibitem{CERN}
+\enquote{{The European Laboratory for Particle Physics}}, \\Acessado em janeiro
+  de 2016. {\tt http://www.cern.ch}.
+
+\bibitem{LHC}
+\enquote{{The Large Hadron Collider}}, \\Acessado em janeiro de 2016. {\tt
+  http://lhc.web.cern.ch}.
+
+\bibitem{ALICE}
+\MakeUppercase{ {The ALICE Collaboration}}, \enquote{The {ALICE} experiment at
+  the {CERN} {LHC}}, {\em Journal of Instrumentation\/}, v.~3, n.~08, Aug.
+  2008.
+
+\bibitem{ATLAS}
+\MakeUppercase{ {ATLAS Collaboration}}, {\em {ATLAS: Technical Proposal for a
+  General-Purpose pp Experiment at the Large Hadron Collider at CERN}\/}, Tech.
+  rep., CERN, 1994, CERN/LHCC 94--43.
+
+\bibitem{CMS}
+\MakeUppercase{ {The CMS Collaboration}}, \enquote{The {CMS} experiment at the
+  {CERN} {LHC}}, {\em Journal of Instrumentation\/}, v.~3, n.~08, Ago 2008.
+
+\bibitem{SZUMLAK2010}
+\MakeUppercase{ Szumlak, T.}, \enquote{{The LHCb experiment}}, {\em Acta
+  Physica Polonica. Series B: Elementary Particle Physics, Nuclear Physics,
+  Statistical Physics, Theory of Relativity, Field Theory\/}, v.~41, n.~7,
+  pp.~1661--1668, 2010.
+
+\end{thebibliography}
