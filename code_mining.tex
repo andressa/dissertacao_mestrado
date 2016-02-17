@@ -36,7 +36,7 @@ A seção~\ref{categories} aborda quais são os atributos comumente utilizados quan
     \begin{enumerate}
       \item{\emph{Alert Characteristics} (AC): abordagem que leva em consideração os alertas gerados por analisadores estáticos (sub-seção~\ref{static_analysis});}
       \item{\emph{Code Characteristics} (CC): abordagem considera medidas estatísticas e de qualidade do código fonte atributos de entrada (sub-seção~\ref{halstead});}
-      \item{\emph{Source code repository metrics} (SCR): atributos retirados de repositórios de códgios. Nesta abordagem, leva-se em consideração versionamentos (histórico de \emph{bugs} inseridos no projeto), comentários de atualizações e documentação sobre requisitos por exemplo;}
+      \item{\emph{Source code repository metrics} (SCR): atributos retirados de repositórios de códigos. Nesta abordagem, leva-se em consideração versionamentos (histórico de \emph{bugs} inseridos no projeto), comentários de atualizações e documentação sobre requisitos por exemplo;}
       \item{\emph{Bug database metrics} (BDM): Neste caso, existe uma base de dados para o projeto contendo todos as falhas já surgidas e consertadas. O objetivo dessa abordagem é identificar padrões que podem voltar a acontecer no projeto;}
       \item{\emph{Dynamic analyses metric} (DA): esta abordagem armazena resultados obtidos com análise dinâmica de códigos, mediante diversas execuções (ver seção~\ref{static_analysis})}.
     \end{enumerate}
@@ -44,10 +44,63 @@ A seção~\ref{categories} aborda quais são os atributos comumente utilizados quan
     Tais categorias são descritas detalhadamente em~\cite{Heckman:2008}.
 
     Este mestrado utiliza as duas primeiras abordagens, descritas nas próximas sub-seções.
+
         \subsection{Analisadores Estáticos}
         \label{static_analysis}
+
+        Em engenharia de software existem dois tipos de análise (complementares) que podem ser feitas para validar e testar o produto em concepção~\cite{1646907}:
+        \begin{itemize}
+          \item{\textbf{Estática}: neste caso apenas a estrutura do código é analisada, mas o código não é executado;
+          }
+          \item{\textbf{Dinâmica}: para esta análise, é preciso levantar um plano de testes, executá-los e avaliar os resultados. Ou seja, é necessário executar o código diversas vezes;
+          }
+        \end{itemize}
+
+        Como o objetivo deste mestrado é analisar códigos fonte sem executá-los,  utilizar analisadores estáticos torna-se atraente, por definição.
+
+        Na década de 80, diversas ferramentas que aplicam análise estática de código começaram a ser desenvolvidas para auxiliar desenvolvedores na implementação de códigos com menos \emph{bugs}~\cite{Tischler:1983:SAP:1006140.1006182}. Mas logo um inconveniente surge~\cite{YukselS13}: a quantidade de alertas gerados pelas ferramentas de análise estática de código (SCAT, do inglês, \emph{Static Code Analysis Tools}) é grande e muitos deles não são acionáveis. Diz-se acionável um alerta que realmente vai impedir o sucesso na execução de um determinado código. Essa classificação é feita manualmente pelo desenvolvedor (que neste caso é o especialista): se o especialista entende que determinado alerta é importante e precisa ser consertado antes da execução do programa, tal alerta é definido como \emph{acionável}. Caso contrário, ele é definido como \emph{não acionável}(~\cite{4815348},~\cite{Heckman:2008:EBE:1414004.1414013}).
+
+        Empiricamente, existem cerca de 40 alertas para cada mil linhas de código (KLOC, do inglês, \emph{Kilo Lines of Code})~\cite{Heckman:2008:EBE:1414004.1414013}. Desta estimativa, podem ser não acionáveis 30-100\%, como observado em~\cite{Aggarwal:2006:ISD:1169228.1170032},~\cite{4026864},~\cite{Heckman:2008:EBE:1414004.1414013},~\cite{4228664},~\cite{Kim:2007:WIF:1287624.1287633},~\cite{Kremenek:2003:ZUS:1760267.1760289}. Tais números desestimulam desenvolvedores e projetistas a aplicar ferramentas de análise estática de código no processo de desenvolvimento de software, embora entende-se a sua importância no quesito qualidade adquirida. Por outro lado, um alerta definido pelo especialista como \emph{acionável} nem sempre vai impedir a execução bem sucedida do código. Ou seja, se por um lado os analisadores estáticos geram muitos alertas (\emph{não acionáveis}), nada garante que o alerta \emph{acionável} indica que o programa contém \emph{bugs} e vai falhar durante a tentativa de execução. Em outras palavras, um analisador estático pode não gerar nenhum alerta e mesmo assim, durante a tentativa de execução, o código ainda pode falhar.
+
+        Para este mestrado, analisadores estáticos serão utilizados em uma segunda etapa, já que a classificação dos alertas gerados não significa exatamente que o código não pode ser executado. Uma vez que um código for classificado como \emph{não executável}, o objetivo seguinte será identificar quais alertas gerados por um analisador estático são acionáveis, para guiar o desenvolvedor no seu conserto, antes da execução de tal código. 
+
+
         \subsection{Medidas estatísticas e de qualidade}
         \label{halstead}
 
+        Em computação, ``Halstead Metrics''~\cite{Halstead:1977:ESS:540137} foram medidas de qualidade e estatísticas definidas por Maurice Halstead e publicadas em 1977.
+
+        As medidas estatísticas (de Halstead) que podem ser extraídas de um código fonte são:
+        \begin{itemize}
+          \item{$\eta_1$: quantidade de operadores distintos no código;}
+          \item{$\eta_2$: quantidade de operandos distintos no código;}
+          \item{$N_1$: total de operadores;}
+          \item{$N_2$: total de operandos;}
+        \end{itemize}
+
+        Destas, outras medidas estatísticas são também definidas por Halstead:
+        \begin{itemize}
+          \item{Vocabulário: $\eta = \eta_1 + \eta_2$;}
+          \item{Tamanho: $N = N_1 + N_2$;}
+          \item{Volume: $V = N log_2 \eta$;}
+          \item{Dificuldade: $D = \frac{\eta_1}{2} . \frac{N_2}{\eta_2}$;}
+          \item{Esforço: $E = D . V$;}
+          \item{Estimativa de tempo de execução (em segundos): $ T = \frac{E}{18}$;}
+          \item{Estimativa de potenciais \emph{bugs}: $ B = \frac{V}{3000} $};
+        \end{itemize}
+
+        Outra característica que pode ser retirada de códigos fonte é a sua complexidade. Define-se como ``Cyclomatic Complexity'' (do inglês, complexidade ciclomática)~\cite{maccabe1983structured} o número de decisões que um determinado bloco de código contém mais uma unidade. Este número (também conhecido como \emph{McCabe number}) representa o número de caminhos independentes percorridos durante a execução de um código, quando se monta uma árvore abstrata de sintaxe (AST, do inglês, \emph{abstract syntax tree})~\cite{jones03pattern}.
+
+        O índice de manutenabilidade (ou MI, do inglês \emph{Maintainability Index}) é uma medida em software que indica o quão fácil é a manutenção de um determinado código. O MI é calculado de diferentes maneiras, dependendo da abordagem que se deseja utilizar. Entretanto, a fórmula clássica~\cite{242525} envolve o número de linhas totais em um código fonte (SLOC, do inglês, \emph{source lines of code}), a complexidade ciclomática (neste contexto, CC) e o volume de Halstead (HV): \\ $MI = 171 - 5.2 ln _{HV} - 0.23 _{CC} - 16.2 ln _{SLOC}$.\\Os autores chegaram nesta fórmula através de um número de códigos fornecidos pela HP, escritos em linguagens de programação C e Pascal. Para cada código, um especialista (engenheiro de software) atribuiu uma nota (de 1 a 100) indicando o quão fácil seria fazer alterações ou correções posteriores ao determinado código (quanto maior a nota, mais fácil é sua manutenção). Consequentemente, 40 faixas de valores foram identificadas e através de uma regressão estatística, eventualmente, a fórmula exposta foi encontrada como um índice de manutenabilidade.
+
+        As medidas descritas nesta sub-seção serão utilizadas neste mestrado, mediante análise de quais seriam mais importantes para o problema que se deseja resolver.
+
     \section{Analisadores estáticos e Mineração de códigos no CERN}
     \label{code_mining_cern}
+    O CERN oferece um ambiente para desenvolvimento de softwares bastante particular. Estima-se que centenas de projetos de softwares estão sendo desenvolvidos, com propósitos específicos, desde programas que auxiliam o trabalho da equipe de recursos humanos até os que monitoram o desempenho dos diversos experimentos do colisor de partículas. Apesar do setor de TI do CERN ter estipulado algumas regras para a política de segurança, muitos projetos de software pequenos não as seguem a risca. Isso implica em vulnerabilidades de programas utilizados em ambientes de produção no CERN.
+
+    As regras de segurança estipuladas não são tão rígidas para estimular o meio acadêmico no avança das pesquisas científicas. Da mesma maneira, analisadores estáticos para assegurar a qualidade no desenvolvimento de códigos livres não são impostos para a comunidade presente. Existem ferramentas disponíveis e com documentação e suporte da equipe de TI, mas nenhum projeto é obrigado a utilizá-las. No caso deste projeto de mestrado, a linguagem computacional utilizada é o Python, sendo o \emph{PyLint}~\cite{pylint} uma ferramenta de análise estática cuja utilização é incentivada pelo CERN~\cite{cern_recomendations_tools}.
+
+    Recentemente, o setor de segurança em computação do CERN contratou um serviço (\emph{Coverity}~\cite{Bessey:2010:FBL:1646353.1646374}) para garantir qualidade no desenvolvimento de novas funcionalidades no seu principal produto de análises físicas (o ROOT~\cite{BRUN}). O ROOT é utilizado por cerca de 10.000 pesquisadores e a integridade do software passou a ser vista como algo valioso. Um \emph{bug} perpetuado no ROOT pode ter um impacto muito negativo nas análises de resultados dos dados gerados pelo LHC. Assim que incorporado, o \emph{Coverity} já foi capaz de identificar mais de 40.000 falhas em aproximadamente 50 milhões de linhas de códigos~\cite{coverity_numbers}. Um ponto negativo observado por desenvolvedores do ROOT é o tempo necessário para executar o analisador estático: são 28 horas para cada 2 milhões de linhas de código. É válido observar que a ferramenta escolhida para o ROOT não atende as necessidades deste projeto de mestrado: o \emph{Coverity} atende códigos escritos em linguagem C/C++ enquanto os códigos do Tile-in-ONE (seção~\ref{tio}) são implementados em Python. Além disso, deseja-se aplicar mineração de dados em códigos fonte em um ambiente web.
+
+    Em física de altas energias não existem artigos que indiquem a aplicação de mineração de dados em códigos fonte.

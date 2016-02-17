@@ -177,4 +177,113 @@
   alert characteristics for false positive mitigation models}, {\em North
   Carolina State University TR-2008- 23\/}, October 2008.
 
+\bibitem{1646907}
+\MakeUppercase{ Fairley, R.}, \enquote{Tutorial: Static Analysis and Dynamic
+  Testing of Computer Software}, {\em Computer\/}, v.~11, n.~4, pp.~14--23,
+  April 1978.
+
+\bibitem{Tischler:1983:SAP:1006140.1006182}
+\MakeUppercase{ Tischler, R., Schaufler, R., Payne, C.}, \enquote{Static
+  Analysis of Programs As an Aid to Debugging}, {\em SIGSOFT Softw. Eng.
+  Notes\/}, v.~8, n.~4, pp.~155--158, March 1983.
+
+\bibitem{YukselS13}
+\MakeUppercase{ Yuksel, U., Sözer, H.}, \enquote{Automated Classification of
+  Static Code Analysis Alerts: A Case Study.}
+\newblock In: {\em ICSM\/}, pp. 532--535, IEEE Computer Society, 2013.
+
+\bibitem{4815348}
+\MakeUppercase{ Heckman, S., Williams, L.}, \enquote{A Model Building Process
+  for Identifying Actionable Static Analysis Alerts}.
+\newblock In: {\em Software Testing Verification and Validation, 2009. ICST
+  '09. International Conference on\/}, pp. 161--170, April 2009.
+
+\bibitem{Heckman:2008:EBE:1414004.1414013}
+\MakeUppercase{ Heckman, S., Williams, L.}, \enquote{On Establishing a
+  Benchmark for Evaluating Static Analysis Alert Prioritization and
+  Classification Techniques}.
+\newblock In: {\em Proceedings of the Second ACM-IEEE International Symposium
+  on Empirical Software Engineering and Measurement\/}, {\em ESEM '08\/}, pp.
+  41--50, ACM: New York, NY, USA, 2008.
+
+\bibitem{Aggarwal:2006:ISD:1169228.1170032}
+\MakeUppercase{ Aggarwal, A., Jalote, P.}, \enquote{Integrating Static and
+  Dynamic Analysis for Detecting Vulnerabilities}.
+\newblock In: {\em Proceedings of the 30th Annual International Computer
+  Software and Applications Conference - Volume 01\/}, {\em COMPSAC '06\/}, pp.
+  343--350, IEEE Computer Society: Washington, DC, USA, 2006.
+
+\bibitem{4026864}
+\MakeUppercase{ Boogerd, C., Moonen, L.}, \enquote{Prioritizing Software
+  Inspection Results using Static Profiling}.
+\newblock In: {\em Source Code Analysis and Manipulation, 2006. SCAM '06. Sixth
+  IEEE International Workshop on\/}, pp. 149--160, Sept 2006.
+
+\bibitem{4228664}
+\MakeUppercase{ Kim, S., Ernst, M.}, \enquote{Prioritizing Warning Categories
+  by Analyzing Software History}.
+\newblock In: {\em Mining Software Repositories, 2007. ICSE Workshops MSR '07.
+  Fourth International Workshop on\/}, pp. 27--27, May 2007.
+
+\bibitem{Kim:2007:WIF:1287624.1287633}
+\MakeUppercase{ Kim, S., Ernst, M.~D.}, \enquote{Which Warnings Should I Fix
+  First?}
+\newblock In: {\em Proceedings of the the 6th Joint Meeting of the European
+  Software Engineering Conference and the ACM SIGSOFT Symposium on The
+  Foundations of Software Engineering\/}, {\em ESEC-FSE '07\/}, pp. 45--54,
+  ACM: New York, NY, USA, 2007.
+
+\bibitem{Kremenek:2003:ZUS:1760267.1760289}
+\MakeUppercase{ Kremenek, T., Engler, D.}, \enquote{Z-ranking: Using
+  Statistical Analysis to Counter the Impact of Static Analysis
+  Approximations}.
+\newblock In: {\em Proceedings of the 10th International Conference on Static
+  Analysis\/}, {\em SAS'03\/}, pp. 295--315, Springer-Verlag: Berlin,
+  Heidelberg, 2003.
+
+\bibitem{Halstead:1977:ESS:540137}
+\MakeUppercase{ Halstead, M.~H.}, {\em Elements of Software Science (Operating
+  and Programming Systems Series)\/}.
+\newblock Elsevier Science Inc.: New York, NY, USA, 1977.
+
+\bibitem{maccabe1983structured}
+\MakeUppercase{ MacCabe, T., McCabe, Associates, \MakeLowercase{et~al.}}, {\em
+  Structured testing\/}.
+\newblock {\em Tutorial Texts Series\/}, IEEE Computer Society Press, 1983.
+
+\bibitem{jones03pattern}
+\MakeUppercase{ Jones, J.}, \enquote{Abstract Syntax Tree Implementation
+  Idioms}.
+\newblock In: {\em Proceedings of the 10th Conference on Pattern Languages of
+  Programs (PLoP2003)\/}, 2003.
+
+\bibitem{242525}
+\MakeUppercase{ Oman, P., Hagemeister, J.}, \enquote{Metrics for assessing a
+  software system's maintainability}.
+\newblock In: {\em Software Maintenance, 1992. Proceerdings., Conference on\/},
+  pp. 337--344, Nov 1992.
+
+\bibitem{pylint}
+\enquote{PyLint - Static Analysis Tool for Python}, \\Acessado em janeiro de
+  2016. \url{http://www.pylint.org/}.
+
+\bibitem{cern_recomendations_tools}
+\enquote{CERN IT Security Recomended Tools}, \\Acessado em janeiro de 2016.
+  \url{https://security.web.cern.ch/security/recommendations/en/code_tools.shtml}.
+
+\bibitem{Bessey:2010:FBL:1646353.1646374}
+\MakeUppercase{ Bessey, A., Block, K., Chelf, B., \MakeLowercase{et~al.}},
+  \enquote{A Few Billion Lines of Code Later: Using Static Analysis to Find
+  Bugs in the Real World}, {\em Commun. ACM\/}, v.~53, n.~2, pp.~66--75, Feb.
+  2010.
+
+\bibitem{BRUN}
+\MakeUppercase{ Brun, R., Rademakers, F.}, \enquote{ROOT-an object oriented
+  data analysis framework}.
+\newblock In: {\em World Scientific Publishing\/}, 2005.
+
+\bibitem{coverity_numbers}
+\enquote{Coverity efects at CERN}, \\Acessado em janeiro de 2016.
+  \url{http://www.coverity.com/press-releases/cern-chooses-coverity-to-ensure-accuracy-of-large-hadron-collider-software/}.
+
 \end{thebibliography}
