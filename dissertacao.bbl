@@ -24,6 +24,13 @@
   Data Quality Assessment of Tile Calorimeter During the ATLAS Operation}, {\em
   Journal of Physics: Conference Series (JPCS)\/}, v.~331 - part 4, 2011.
 
+\bibitem{CODEMINING2015}
+\MakeUppercase{ Prakash, A., Ashoka, D., Aradya, V.}, \enquote{Application of
+  Data Mining Techniques for Defect Detection and Classification}.
+\newblock In: {\em Proceeding of 3rd International Conference on Frontiers of
+  Intelligent Computing: Theory and Applications. FICTA 2014. Advances in
+  Intelligent Systems and Computing 327.\/}, v.~1, pp. 387--395, 2015.
+
 \bibitem{CERN}
 \enquote{{The European Laboratory for Particle Physics}}, \\Acessado em janeiro
   de 2016. {\tt http://www.cern.ch}.
@@ -91,5 +98,83 @@
 \bibitem{PYTHON}
 \enquote{{Python Programming Language}}, \\Acessado em janeiro de 2016. {\\
   \url{http://www.python.org/}}.
+
+\bibitem{IEEE-Software-McConnel}
+\MakeUppercase{ McConnel, S.}, \enquote{An ounce of prevention}, {\em IEEE
+  software\/}, May/June 2001.
+
+\bibitem{BASKARAN2010}
+\MakeUppercase{ Kumaresh, S., Baskaran, R.}, \enquote{Defect Analysis and
+  Prevention for Software Process Quality Improvement}, {\em International
+  Journal of Computer Applications (0975 - 8887)\/}, v.~8, n.~7, October 2010.
+
+\bibitem{ODC1992}
+\MakeUppercase{ Chillarege, R., Bhandari, I., Chaar, J.,
+  \MakeLowercase{et~al.}}, \enquote{Orthogonal Defect Classification - A
+  Concept for In-Process Measurements}, {\em IEEE Transactions on Software
+  Engineering\/}, v.~18, n.~11, November 1992.
+
+\bibitem{6906040}
+\MakeUppercase{ Velmourougan, S., Dhavachelvan, P., Baskaran, R.,
+  \MakeLowercase{et~al.}}, \enquote{Software Development Life Cycle Model to
+  Improve Maintainability of Software Applications}.
+\newblock In: {\em Advances in Computing and Communications (ICACC), 2014
+  Fourth International Conference on\/}, pp. 270--273, Aug 2014.
+
+\bibitem{IBM}
+\enquote{{IBM}}, \\Acessado em janeiro de 2016. \\
+  \url{http://www.ibm.com/us-en/}.
+
+\bibitem{HCL}
+\enquote{{HCL}}, \\Acessado em janeiro de 2016. \\ \url{http://www.hcl.com/}.
+
+\bibitem{4222731}
+\MakeUppercase{ Xie, T., Pei, J., Hassan, A.}, \enquote{Mining Software
+  Engineering Data}.
+\newblock In: {\em Software Engineering - Companion, 2007. ICSE 2007 Companion.
+  29th International Conference on\/}, pp. 172--173, May 2007.
+
+\bibitem{4659248}
+\MakeUppercase{ Hassan, A.}, \enquote{The road ahead for Mining Software
+  Repositories}.
+\newblock In: {\em Frontiers of Software Maintenance, 2008. FoSM 2008.\/}, pp.
+  48--57, Sept 2008.
+
+\bibitem{130589}
+\MakeUppercase{ Khatoon, S., Li, G., Mahmood, A.}, \enquote{Comparison and
+  evaluation of source code mining tools and techniques: A qualitative
+  approach}.
+\newblock v.~17, pp. 459--484, May 2013.
+
+\bibitem{Li05pr-miner:automatically}
+\MakeUppercase{ Li, Z., Zhou, Y.}, \enquote{PR-Miner: automatically extracting
+  implicit programming rules and detecting violations in large software code}.
+\newblock In: {\em In Proc. 10th European Software Engineering Conference held
+  jointly with 13th ACM SIGSOFT International Symposium on Foundations of
+  Software Engineering (ESEC/FSE 2005)\/}, pp. 306--315, ACM Press, 2005.
+
+\bibitem{4222586}
+\MakeUppercase{ Krishna~Ramanathan, M., Grama, A., Jagannathan, S.},
+  \enquote{Path-Sensitive Inference of Function Precedence Protocols}.
+\newblock In: {\em Software Engineering, 2007. ICSE 2007. 29th International
+  Conference on\/}, pp. 240--250, May 2007.
+
+\bibitem{Chang:2007:FWN:1273463.1273486}
+\MakeUppercase{ Chang, R.-Y., Podgurski, A., Yang, J.}, \enquote{Finding What's
+  Not There: A New Approach to Revealing Neglected Conditions in Software}.
+\newblock In: {\em Proceedings of the 2007 International Symposium on Software
+  Testing and Analysis\/}, {\em ISSTA '07\/}, pp. 163--173, ACM: New York, NY,
+  USA, 2007.
+
+\bibitem{Heckman:2011:SLR:1945085.1945215}
+\MakeUppercase{ Heckman, S., Williams, L.}, \enquote{A Systematic Literature
+  Review of Actionable Alert Identification Techniques for Automated Static
+  Code Analysis}, {\em Inf. Softw. Technol.\/}, v.~53, n.~4, pp.~363--387,
+  April 2011.
+
+\bibitem{Heckman:2008}
+\MakeUppercase{ Heckman, S., Williams, L.}, \enquote{A measurement framework of
+  alert characteristics for false positive mitigation models}, {\em North
+  Carolina State University TR-2008- 23\/}, October 2008.
 
 \end{thebibliography}

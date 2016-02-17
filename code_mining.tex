@@ -1,6 +1,53 @@
 \chapter{Mineração de códigos fonte para identificação de falhas}
 \label{code_mining}
-    \section{Seleção de categorias}
+Em desenvolvimento de software é comum observar que quanto maior for o tempo de permanência de um erro no código mais custosa torna-se a sua correção e manutenção de um projeto~\cite{IEEE-Software-McConnel}. Falhas em códigos fonte são definidas como ``Imperfeições durante o desenvolvimento de software que como consequência impedem que o programa atinja as expectativas desejadas."~\cite{BASKARAN2010}. Entende-se ainda que muitos defeitos são introduzidos durante o processo de desenvolvimento como um todo, não somente no seu início ou fim. Assim sendo, identificar falhas antecipadamente torna-se parte essencial em desenvolvimento de software, que significa qualidade na entrega final do produto.~\cite{ODC1992}.
+
+O SDLC (do inglês, \emph{software development life cycle} ou ciclo de vida do desenvolvimento de software)~\cite{6906040} indica que o desenvolvimento de software pode ser descrito em cinco etapas:
+\begin{enumerate}
+  \item{Levantamento de Requisitos}
+  \item{Projeto}
+  \item{Implementação}
+  \item{Teste}
+  \item{Implantação}
+\end{enumerate}
+
+A figura~\ref{fig:bug_insertion} ilustra em quais etapas do ciclo de vida de desenvolvimento do software são inseridos erros em projetos. Entidades presentes na área de engenharia de computação (tais como a IBM~\cite{IBM} e HCL~\cite{HCL}) confirmam que cerca de 35\% das falhas identificadas em códigos fonte são inseridas na fase de implementação~\cite{CODEMINING2015}.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=8cm]{images/bug_insertion_sdlc.png}
+  \caption{Estimativa do percentual de erros inseridos durante fases do SDLC. (Fonte: \emph{Computer Finance Magazine}. Dados extraídos de~\cite{CODEMINING2015})}
+  \label{fig:bug_insertion}
+\end{figure}
+
+Atualmente, diferentes técnicas tem sido utilizadas para identificação antecipada de erros em códigos fonte. A análise estática, por exemplo, é bastante utilizada na área de programação desde a década de 80. As características desta análise são abordadas em~\ref{static_analysis}. Em conjunto com analisadores estáticos, pode-se aplicar técnicas de mineração de dados, fazendo uma combinação entre a área de engenharia de software e inteligência computacional. No artigo~\cite{4222731}, publicado em 2007, os autores abordam como a mineração de dados pode contribuir com a área de engenharia de software, na medida que técnicas de inteligência computacional, quando aplicadas, melhoram a qualidade de projetos. Nesta mesma direção, a MSR (em inglês, \emph{Mining Software Repositories} ou mineração de repositórios de códigos) passa a ser amplamente abordada devido a disponibilidade gratuita de inúmeros repositórios públicos de controle de versionamento, rastreamento de erros inseridos e até mesmo documentações~\cite{4659248}.
+
+Aplicar mineração de dados em códigos fonte desperta interesse na comunidade científica, uma vez que códigos são tipicamente estruturados e semanticamente ricos em termos de construtores de programação (tais como variáveis, funções, objetos estruturados e rotinas bem definidas). Os objetivos são diversos: vão desde a tentativa de descobrir o que um determinado software faz (sem necessariamente executá-lo) até manutenção de projetos ou análises de desenvolvimento~\cite{130589}.
+
+Como citado, a identificação antecipada de erros inseridos durante a implementação de códigos fonte é atraente do ponto de vista de qualidade de produto. A utilização de mineração de códigos é uma das aplicações mais ativas em engenharia de software atualmente. Neste caso, o objetivo é obter ferramentas que não só identifiquem falhas (ou \emph{bugs}) mas também sua localização exata nas linhas de códigos do projeto, de tal forma que o seu conserto seja facilitado~\cite{130589}. Para alcançar esse objetivo, uma direção de bastante destaque consiste na mineração de padrões, que uma vez pré-definidos, são aplicadas em diversos repositórios de projetos já existentes com o objetivo de encontrar anomalias comuns que violam regras (~\cite{Li05pr-miner:automatically},~\cite{4222586},~\cite{Chang:2007:FWN:1273463.1273486}).
+
+Outro objetivo dominante na mineração de códigos é a tentativa de identificar fragmentos clonados. A não reutilização de códigos dificulta a manutenção do software e ainda, pode proliferar \emph{bugs} em diferentes partes de um projeto.
+
+A seção~\ref{categories} aborda quais são os atributos comumente utilizados quando mineração de dados é aplicada a códigos fonte. Esta seção é composta por duas sub-seções (~\ref{static_analysis} e~\ref{halstead}) que abordam em que situações tais características foram utilizadas na aplicação de mineração de códigos neste mestrado; A seção~\ref{code_mining_cern} investiga a aplicação de mineração de dados em códigos fonte no CERN.
+
+    \section{Seleção de atributos}
+    \label{categories}
+    Uma revisão feita por Heckman~\cite{Heckman:2011:SLR:1945085.1945215} com 21 artigos sobre mineração de dados em códigos fonte, identifica cinco categorias comumente utilizadas como entradas:
+    \begin{enumerate}
+      \item{\emph{Alert Characteristics} (AC): abordagem que leva em consideração os alertas gerados por analisadores estáticos (sub-seção~\ref{static_analysis});}
+      \item{\emph{Code Characteristics} (CC): abordagem considera medidas estatísticas e de qualidade do código fonte atributos de entrada (sub-seção~\ref{halstead});}
+      \item{\emph{Source code repository metrics} (SCR): atributos retirados de repositórios de códgios. Nesta abordagem, leva-se em consideração versionamentos (histórico de \emph{bugs} inseridos no projeto), comentários de atualizações e documentação sobre requisitos por exemplo;}
+      \item{\emph{Bug database metrics} (BDM): Neste caso, existe uma base de dados para o projeto contendo todos as falhas já surgidas e consertadas. O objetivo dessa abordagem é identificar padrões que podem voltar a acontecer no projeto;}
+      \item{\emph{Dynamic analyses metric} (DA): esta abordagem armazena resultados obtidos com análise dinâmica de códigos, mediante diversas execuções (ver seção~\ref{static_analysis})}.
+    \end{enumerate}
+
+    Tais categorias são descritas detalhadamente em~\cite{Heckman:2008}.
+
+    Este mestrado utiliza as duas primeiras abordagens, descritas nas próximas sub-seções.
         \subsection{Analisadores Estáticos}
+        \label{static_analysis}
         \subsection{Medidas estatísticas e de qualidade}
+        \label{halstead}
+
     \section{Analisadores estáticos e Mineração de códigos no CERN}
+    \label{code_mining_cern}
