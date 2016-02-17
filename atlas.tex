@@ -77,6 +77,38 @@
       \label{TILECAL_CELLS-FIG}
     \end{figure}
 
-    
         \subsection{Análise \emph{Online} e \emph{Offline}}
+        Existem dois tipos de análises, comuns a todos os experimentos do LHC. O experimento ATLAS, sozinho, gera um volume de dados na ordem de 3,2 PetaBytes ao ano~\cite{ATLAS_FACTS}, que precisam ser processados e analisados. Nesse caso, é impraticável armazenar os dados adquiridos pelo experimento em sua totalidade para posterior análise. Por esse motivo, análises referentes a atividades anteriores ao armazenamento em mídia permanente são definidas como \emph{online}. Já as análises que ocorrem a partir do acesso de informações em bases de dados são definidas como sendo \emph{offline}.
+
+        As soluções abordadas neste mestrado estão contextualizadas no processo de análise \emph{offline} do TileCal.
+
+        As análises \emph{online} e \emph{offline} serão descritas detalhadamente na seção~\ref{tio}.
+
         \subsection{A colaboração TileCal}
+        O TileCal é composto ainda por diferentes grupos, responsáveis por atividades específicas no experimento. Cada grupo desempenha uma etapa no processo de trabalho do calorímetro. São eles:
+
+        \begin{description}
+          \item[DAQ (do inglês, \emph{Data Acquisition} ou aquisição de dados)]
+            responsável pela aquisição dos sinais resultantes das interações
+            físicas no detector;
+          \item[DCS (do inglês, \emph{Detector Control System}, ou sistema de
+            controle do detector)] responsável pela manutenção das fontes de alta e
+            baixa tensão do TileCal, placas mãe e sistema de refrigeração;
+          \item[DQ (do inglês, \emph{Data Quality}, ou qualidade de dados)]
+            responsável por avaliar o funcionamento do detector garantindo
+            confiabilidade nos dados adquiridos que serão analisados;
+          \item[Calibração (do inglês, \emph{Calibration})] responsável pela
+            calibração das células do calorímetro e validação da escala
+            eletromagnética, a fim de corrigir desvios que ocorrem ao longo do
+            tempo devido a desgastes ocorridos
+            pela exposição do detector a altos níveis de radiação;
+          \item[Computação e Software] responsável por realizar a organização e
+            desenvolvimento da simulação, reconstrução, digitalização e
+            desenvolvimento de filtros de alto nível;
+          \item[Dados e Processamento (do inglês, \emph{Data and Processing})]
+            responsável por coletar informações dos grupos de qualidade de dados e
+            calibração a fim de decidir que alterações nos dados de condições serão
+            realizadas. Responsável também por analisar os dados físicos.
+        \end{description}
+
+        Existem, portanto, seis grupos no TileCal onde o compartilhamento de informações entre eles faz-se necessário: se um PMT não está sendo corretamente alimentado, a qualidade dos dados adquiridos pode ficar comprometida. Tal situação exige o compartilhamento de informações do grupo e DQ, por exemplo.
