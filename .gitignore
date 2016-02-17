@@ -12,3 +12,4 @@
 *.lot
 *.dvi
 *.DS_Store
+images/*.pdf

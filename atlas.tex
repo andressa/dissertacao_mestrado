@@ -9,12 +9,36 @@
         \caption{Representação aérea do LHC e seus detectores no CERN. Extraído de~\cite{CDS}.}
       \label{LHC}
     \end{figure}
-    Quando partículas são eletricamente carregadas e submetidas a pulsos eletromagnéticos no interior de tubos tem-se o processo de aceleração de partículas. Neste processo, as partículas adquirem aceleração ao serem envolFundado em 1954, o CERN (em francês \emph{Centre Européen pour la Recherché Nucléaire}~\cite{CERN}) é o maior centro de pesquisa na área de física de partículas de altas energias no mundo. Atualmente, conta com a participação de 38 países membros e outros países colaboradores, entre eles o Brasil.
+    Quando partículas são eletricamente carregadas e submetidas a pulsos eletromagnéticos no interior de tubos tem-se o processo de aceleração de partículas. Neste processo, as partículas adquirem aceleração ao serem envolvidas a campos eletromagnéticos variantes~\cite{GRIFFITHS}. Em aceleradores circulares, partículas são injetadas e circulam no anel até atingirem a energia desejada. Diversos experimentos podem ser realizados em determinados pontos de colisão ao longo da circunferência. O perímetro do acelerador circular é diretamente proporcional a energia necessária na colisão. Ao atingir a energia desejada, os feixes de partículas aceleradas em sentidos opostos colidem e, nesse caso, detectores em formato cilíndrico são os mais utilizados. Cada colisão gera informações que devem ser analisadas por especialistas, com objetivos distintos, tais como: identificação de sub-partículas, observação de fenômenos e a comprovação ou a eliminação de teorias físicas. Nos pontos de colisão, detectores são montados para observação e coleta de dados. Existem, por exemplo, detectores de calorimetria, para identificar a energia depositada pelas partículas colisionadas; detectores de traços, para observar trajetórias após colisões; e detectores de múons, responsáveis por absorver tais partículas.
+
 
     A figura~\ref{LHC} ilustra uma representação aérea do LHC. Existem quatro detectores de partículas instalados em pontos de colisão ao longo da extensão do LHC, altamente especializados: ALICE~\cite{ALICE}, ATLAS~\cite{ATLAS}, CMS~\cite{CMS} e LHCb~\cite{SZUMLAK2010}.
     Os detectores ilustrados permitem obter informações detalhadas sobre a trajetória das partículas resultantes das colisões ocorridas e características energéticas, sendo possível identificar partículas. O ATLAS é o maior dos detectores do LHC.
 
     \section{Experimento ATLAS}
+    O ATLAS (em inglês \emph{A Toroidal LHC AparatuS})~\cite{ATLAS} é um detector em formato cilíndrico. O detector pesa aproximadamente 7.000 toneladas, com 44 metros de comprimento por 24 metros de altura. A figura~\ref{ATLAS} ilustra os diversos subsistemas que compõem o detector ATLAS.
+
+    Cada subsistema apresenta uma característica específica de acordo com suas funcionalidades. São eles, da parte interna para a externa:
+    \begin{itemize}
+      \item{Detector Interno (ID)}, responsável por registrar as trajetórias
+        das partículas resultantes da colisão, bem como o momento e o sinal
+        da carga, se for o caso;
+      \item{Sistema de Calorimetria}, composto pelos calorímetros
+        eletromagnético (LAr) e hadrônico de telhas (TileCal). Os calorímetros citados são responsáveis por medirem a energia das partículas resultantes;
+      \item{Sistema Magnético}, responsável por desviar partículas carregadas
+        para medir o momento;
+      \item{o Espectrômetro de Múons}, responsável por medir a trajetória de
+        uma determinada partícula denominada Múon.
+    \end{itemize}
+
+    \begin{figure}[htbp]
+      \centering
+        \includegraphics[width=12.0cm,height=8cm]{images/ATLAS_esquema.eps}
+        \caption{Esquema do detector ATLAS. Adaptado de~\cite{ATLASPHOTOS}}
+      \label{ATLAS}
+    \end{figure}
+    O sistema de calorimetria do LHC foi projetado para absorver a energia das partículas que cruzam o detector, sendo o calorímetro hadrônico de telhas (em inglês \emph{Tile Calorimeter} ou TileCal) é o foco deste mestrado.
+
 
     \section{Calorímetro Hadrônico de Telhas (TileCal)}
         \subsection{Análise \emph{Online} e \emph{Offline}}

@@ -5,6 +5,10 @@
 \enquote{{CDS - CERN Document Server}}, \\Acessado em janeiro de 2016. {\tt
   cds.cern.ch}.
 
+\bibitem{ATLASPHOTOS}
+\enquote{ATLAS Photos}, \\Acessado em janeiro de 2016. {\tt
+  http://www.atlas.ch/photos/}.
+
 \bibitem{CERN}
 \enquote{{The European Laboratory for Particle Physics}}, \\Acessado em janeiro
   de 2016. {\tt http://www.cern.ch}.
@@ -12,6 +16,10 @@
 \bibitem{LHC}
 \enquote{{The Large Hadron Collider}}, \\Acessado em janeiro de 2016. {\tt
   http://lhc.web.cern.ch}.
+
+\bibitem{GRIFFITHS}
+\MakeUppercase{ Griffths, D.}, {\em {Introduction to Elementary Particles}\/}.
+\newblock John Wiley \& Sons, 1987.
 
 \bibitem{ALICE}
 \MakeUppercase{ {The ALICE Collaboration}}, \enquote{The {ALICE} experiment at
