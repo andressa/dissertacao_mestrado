@@ -2,10 +2,39 @@
 \label{metodologia}
 Este capítulo descreve o processo de estudo utilizado para este mestrado. 
 
-As seções~\ref{aquisicao} e~\ref{selection} descrevem, respectivamente, o conjunto de dados adquirido e os atributos que foram previamente selecionados; A seção~\ref{ensemble} descreve os algorítimos de máquina de aprendizado utilizados;
+As seções~\ref{dataset} e~\ref{selection} descrevem, respectivamente, o conjunto de dados adquiridos e os atributos que foram previamente selecionados; A seção~\ref{ensemble} descreve os algorítimos de máquina de aprendizado utilizados;
 
-    \section{Aquisição de dados}
-    \label{aquisicao}
+    \section{Base de dados}
+    \label{dataset}
+    O Tile-in-ONE encontra-se em produção, sendo utilizado pelos grupos de calibração e qualidade de dados do TileCal desde 2014. Em seu banco de dados, existe um total de 512 códigos de Plugins, desenvolvidos pelos colaboradores através da plataforma web. A figura~\ref{fig:developed_source_codes} corresponde a quantidade de códigos fonte implementados no período de Junho de 2014 a Dezembro de 2015.
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=17cm]{images/total_source_codes.png}
+      \caption{Total de códigos fonte escritos (512) entre Junho/2014 e Dezembro/2015.}
+      \label{fig:developed_source_codes}
+    \end{figure}
+
+    Dos 512 códigos que compõem o conjunto de dados, quase 30\% não obtiveram sucesso ao serem enviados para uma máquina \emph{slave}. De acordo com a figura~\ref{fig:slave_machine_results}, percebe-se que 8,59\% não retornaram nenhum tipo de resposta para o servidor principal, o que pode significar que a máquina \emph{slave} escolhida para executar o código fonte em questão estava sem comunicação. Isso não significa necessariamente que o código fonte é \emph{não executável}, uma vez que ele nem sequer chegou na máquina \emph{slave}. Os 21,09\% restantes correspondem a programas que falharam durante a tentativa de execução. Mas novamente, não é possível afirmar neste momento que tais códigos são \emph{não executáveis}. Se por ventura, algum desses tentou acessar um banco de dados (externo a plataforma) que no momento da execução estava inacessível, a máquina \emph{slave} retornou falha e, neste caso, o problema não foi o código fonte. Talvez no futuro, esse tipo de informação possa se tornar uma entrada para o classificador: caso o código fonte esteja acessando uma fonte externa ele pode ser penalizado.
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=8cm]{images/slave_machines_results.png}
+      \caption{Retornos obtidos após tentativa de executar códigos fonte em máquinas \emph{slave}.}
+      \label{fig:slave_machine_results}
+    \end{figure}
+
+    Após avaliar os 512 códigos, e comparar com a aplicação do analisador estático (PyLint), percebe-se que 82,02\% dos códigos são \emph{executáveis}, mas em quase 20\% dos casos o PyLint gera algum tipo de alerta. Do restante, menos de 1\% é \emph{não executável} devido a erros de sintaxe em Python, mas podem ser facilmente identificados ao executar o analisador estático. Dos outros quase 17\% \emph{não executáveis}, cerca de 5\% não podem ser identificados apenas com a aplicação do Pylint. A figura~\ref{fig:targets} ilustra esses percentuais.
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=8cm]{images/targets.png}
+      \caption{Percentuais de alvos do conjunto de códigos fonte.}
+      \label{fig:targets}
+    \end{figure}
+
+    Em suma, a aplicação do analisador estático não é suficiente para classificar um código como \emph{executável} ou \emph{não executável}. Uma ferramenta adicional faz-se necessária.
+
 
     \section{Seleção de categorias}
     \label{selection}
