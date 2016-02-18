@@ -107,9 +107,9 @@ A seção~\ref{categories} aborda quais são os atributos comumente utilizados quan
 
     \section{Métodos \emph{ensemble} em Árvores de Decisão}
     \label{ensemble}
-    Árvore de decisão (DT, do inglês, \emph{Decision Tree})~\cite{Rokach:2008:DMD:1796114} é um algorítimo de aprendizado de máquina supervisionado. O termo ``supervisionado'' indica que, durante a fase de treinamento, as classes (ou alvos) são conhecidas. Desta maneira, o classificador aprende com casos em que se sabe a resposta (\emph{executável}/\emph{não executável}).
+    Árvore de decisão (DT, do inglês, \emph{Decision Tree})~\cite{Rokach:2008:DMD:1796114} é um algoritmo de aprendizado de máquina supervisionado. O termo ``supervisionado'' indica que, durante a fase de treinamento, as classes (ou alvos) são conhecidas. Desta maneira, o classificador aprende com casos em que se sabe a resposta (\emph{executável}/\emph{não executável}).
 
-    Basicamente, o treinamento de uma árvore de decisão divide e agrupa o conjunto de treino em dois ou mais grupos homogêneos, sucessivamente. Para as divisões, o algorítimo se encarrega de escolher qual é o atributo mais significativo, ou seja, qual atributo irá tornar a divisão o mais homogênea (ou pura) possível. Tal processo consiste no que se conhece como \emph{splitting}.
+    Basicamente, o treinamento de uma árvore de decisão divide e agrupa o conjunto de treino em dois ou mais grupos homogêneos, sucessivamente. Para as divisões, o algoritmo se encarrega de escolher qual é o atributo mais significativo, ou seja, qual atributo irá tornar a divisão o mais homogênea (ou pura) possível. Tal processo consiste no que se conhece como \emph{splitting}.
 
     A figura[XXX] ilustra um exemplo clássico de árvore de decisão. Ele representa uma árvore que decide se uma pessoa vai ou não jogar tênis. Os atributos utilizados são condições do tempo (ensolarado, nublado ou chuvoso), umidade (alta ou baixa) e vento (forte ou fraco).
 
@@ -126,8 +126,9 @@ A seção~\ref{categories} aborda quais são os atributos comumente utilizados quan
 
     \emph{Ensemble} são conjuntos de classificadores que combinam seus resultados individuais (por votação ou média ponderada) para classificar novas amostras~\cite{Seni:2010:EMD:1841412}. Uma das áreas mais ativas na área de aprendizado de máquina supervisionado tem sido \emph{ensemble}~\cite{Dietterich:2000:EMM:648054.743935}. Geralmente, classificadores \emph{ensemble} apresentam maior acurácia que classificadores individuais. A razão estatística para isso é que a variância de um somatório é menor que a variância individual. Computacionalmente, o treinamento pode dar-se de maneira mais rápida, uma vez que, em alguns casos é possível paralelizar a fase de treinamento.
 
-    Classificadores \emph{ensemble} podem ser gerados para qualquer algorítimo, inclusive árvores de decisão. Tais classificadores são descritos nas sub-seções a seguir.
+    Classificadores \emph{ensemble} podem ser gerados para qualquer algoritmo, inclusive árvores de decisão. Tais classificadores são descritos nas sub-seções a seguir.
 
-    \subsection{Bagged Trees}
+    \subsection{Bagged Trees (\emph{\textbf{B}ootstrap \textbf{Agg}regating})}
+
     \subsection{Random Forest}
     \subsection{Boosted Decision Trees}
