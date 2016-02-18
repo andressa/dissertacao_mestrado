@@ -104,3 +104,30 @@ A seção~\ref{categories} aborda quais são os atributos comumente utilizados quan
     Recentemente, o setor de segurança em computação do CERN contratou um serviço (\emph{Coverity}~\cite{Bessey:2010:FBL:1646353.1646374}) para garantir qualidade no desenvolvimento de novas funcionalidades no seu principal produto de análises físicas (o ROOT~\cite{BRUN}). O ROOT é utilizado por cerca de 10.000 pesquisadores e a integridade do software passou a ser vista como algo valioso. Um \emph{bug} perpetuado no ROOT pode ter um impacto muito negativo nas análises de resultados dos dados gerados pelo LHC. Assim que incorporado, o \emph{Coverity} já foi capaz de identificar mais de 40.000 falhas em aproximadamente 50 milhões de linhas de códigos~\cite{coverity_numbers}. Um ponto negativo observado por desenvolvedores do ROOT é o tempo necessário para executar o analisador estático: são 28 horas para cada 2 milhões de linhas de código. É válido observar que a ferramenta escolhida para o ROOT não atende as necessidades deste projeto de mestrado: o \emph{Coverity} atende códigos escritos em linguagem C/C++ enquanto os códigos do Tile-in-ONE (seção~\ref{tio}) são implementados em Python. Além disso, deseja-se aplicar mineração de dados em códigos fonte em um ambiente web.
 
     Em física de altas energias não existem artigos que indiquem a aplicação de mineração de dados em códigos fonte.
+
+    \section{Métodos \emph{ensemble} em Árvores de Decisão}
+    \label{ensemble}
+    Árvore de decisão (DT, do inglês, \emph{Decision Tree})~\cite{Rokach:2008:DMD:1796114} é um algorítimo de aprendizado de máquina supervisionado. O termo ``supervisionado'' indica que, durante a fase de treinamento, as classes (ou alvos) são conhecidas. Desta maneira, o classificador aprende com casos em que se sabe a resposta (\emph{executável}/\emph{não executável}).
+
+    Basicamente, o treinamento de uma árvore de decisão divide e agrupa o conjunto de treino em dois ou mais grupos homogêneos, sucessivamente. Para as divisões, o algorítimo se encarrega de escolher qual é o atributo mais significativo, ou seja, qual atributo irá tornar a divisão o mais homogênea (ou pura) possível. Tal processo consiste no que se conhece como \emph{splitting}.
+
+    A figura[XXX] ilustra um exemplo clássico de árvore de decisão. Ele representa uma árvore que decide se uma pessoa vai ou não jogar tênis. Os atributos utilizados são condições do tempo (ensolarado, nublado ou chuvoso), umidade (alta ou baixa) e vento (forte ou fraco).
+
+    Ainda sobre a figura[XXX], o conhecimento de algumas nomenclaturas é necessário. Elas serão referenciadas mais adiante. São elas:
+    \begin{itemize}
+        \item{O nó raiz (representado pela cor azul) representa todo o conjunto de treino e é onde as divisões em grupos heterogêneos começa.}
+        \item{Os nós que continuam dividindo os sub-conjuntos restantes (em cinza) são denominados nós de decisão.}
+        \item{Quando a divisão cessa, tem-se folhas (em verde). As folhas indicam a decisão tomada pela árvore treinada.}
+    \end{itemize}
+
+    Uma das vantagens em se utilizar árvores de decisão para classificação é a sua fácil compreensão. Para pessoas sem conhecimentos em inteligência computacional, o treinamento de classificadores e os resultados obtidos são de fácil compreensão. Além disso, a representação gráfica é intuitiva e permite que hipóteses sejam rapidamente relacionadas.
+
+    Entretanto, existe uma desvantagem que faz com que árvores de decisão não sejam consideradas classificadores fortes: o fato de dividir conjuntos em sub-conjuntos homogêneos faz com que o classificador gerado fique especialista no conjunto de treino (\emph{overfit}). Ou seja, a árvore gerada sempre dependerá do conjunto de treino utilizado. O método \emph{ensemble} contorna essa questão levantada.
+
+    \emph{Ensemble} são conjuntos de classificadores que combinam seus resultados individuais (por votação ou média ponderada) para classificar novas amostras~\cite{Seni:2010:EMD:1841412}. Uma das áreas mais ativas na área de aprendizado de máquina supervisionado tem sido \emph{ensemble}~\cite{Dietterich:2000:EMM:648054.743935}. Geralmente, classificadores \emph{ensemble} apresentam maior acurácia que classificadores individuais. A razão estatística para isso é que a variância de um somatório é menor que a variância individual. Computacionalmente, o treinamento pode dar-se de maneira mais rápida, uma vez que, em alguns casos é possível paralelizar a fase de treinamento.
+
+    Classificadores \emph{ensemble} podem ser gerados para qualquer algorítimo, inclusive árvores de decisão. Tais classificadores são descritos nas sub-seções a seguir.
+
+    \subsection{Bagged Trees}
+    \subsection{Random Forest}
+    \subsection{Boosted Decision Trees}
