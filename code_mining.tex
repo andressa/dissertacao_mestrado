@@ -130,5 +130,14 @@ A seção~\ref{categories} aborda quais são os atributos comumente utilizados quan
 
     \subsection{Bagged Trees (\emph{\textbf{B}ootstrap \textbf{Agg}regating})}
 
+    Apesar do nome, \emph{Bagged Trees} pode ser utilizado com qualquer algoritmo base. Neste tipo de \emph{ensemble}, um sub-conjunto com N elementos do conjunto de treino é selecionado para o treinamento de um classificador. Em seguida, um novo sub-conjunto com outros N elementos é utilizado para gerar um outro classificador. Esse procedimento é repetido, até que um número total e pré-definido de classificadores seja gerado. A classificação final dá-se por voto majoritário. A figura~\ref{fig:bagged_pseudocode} ilustra um pseudo-código que descreve como \emph{Bagged Trees} é treinado e utilizado para classificações.
+
+    \begin{figure}[htbp]
+      \centering
+        \includegraphics[width=9.0cm]{images/bagged_pseudocode.png}
+        \caption{\emph{Bagged Trees} pseudo-código. Retirado de ~\cite{Rokach:2008:DMD:1796114}.}
+      \label{fig:bagged_pseudocode}
+    \end{figure}
+
     \subsection{Random Forest}
     \subsection{Boosted Decision Trees}

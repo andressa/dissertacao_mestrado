@@ -31,6 +31,11 @@
   Intelligent Computing: Theory and Applications. FICTA 2014. Advances in
   Intelligent Systems and Computing 327.\/}, v.~1, pp. 387--395, 2015.
 
+\bibitem{Rokach:2008:DMD:1796114}
+\MakeUppercase{ Rokach, L., Maimon, O.}, {\em Data Mining with Decision Trees:
+  Theroy and Applications\/}.
+\newblock World Scientific Publishing Co., Inc.: River Edge, NJ, USA, 2008.
+
 \bibitem{CERN}
 \enquote{{The European Laboratory for Particle Physics}}, \\Acessado em janeiro
   de 2016. {\tt http://www.cern.ch}.
@@ -285,11 +290,6 @@
 \bibitem{coverity_numbers}
 \enquote{Coverity efects at CERN}, \\Acessado em janeiro de 2016.
   \url{http://www.coverity.com/press-releases/cern-chooses-coverity-to-ensure-accuracy-of-large-hadron-collider-software/}.
-
-\bibitem{Rokach:2008:DMD:1796114}
-\MakeUppercase{ Rokach, L., Maimon, O.}, {\em Data Mining with Decision Trees:
-  Theroy and Applications\/}.
-\newblock World Scientific Publishing Co., Inc.: River Edge, NJ, USA, 2008.
 
 \bibitem{Seni:2010:EMD:1841412}
 \MakeUppercase{ Seni, G., Elder, J.}, {\em Ensemble Methods in Data Mining:
