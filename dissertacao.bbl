@@ -303,4 +303,8 @@
   Classifier Systems\/}, {\em MCS '00\/}, pp. 1--15, Springer-Verlag: London,
   UK, UK, 2000.
 
+\bibitem{Breiman:2001:RF:570181.570182}
+\MakeUppercase{ Breiman, L.}, \enquote{Random Forests}, {\em Mach. Learn.\/},
+  v.~45, n.~1, pp.~5--32, Oct. 2001.
+
 \end{thebibliography}

@@ -129,6 +129,7 @@ A seção~\ref{categories} aborda quais são os atributos comumente utilizados quan
     Classificadores \emph{ensemble} podem ser gerados para qualquer algoritmo, inclusive árvores de decisão. Tais classificadores são descritos nas sub-seções a seguir.
 
     \subsection{Bagged Trees (\emph{\textbf{B}ootstrap \textbf{Agg}regating})}
+    \label{bagged}
 
     Apesar do nome, \emph{Bagged Trees} pode ser utilizado com qualquer algoritmo base. Neste tipo de \emph{ensemble}, um sub-conjunto com N elementos do conjunto de treino é selecionado para o treinamento de um classificador. Em seguida, um novo sub-conjunto com outros N elementos é utilizado para gerar um outro classificador. Esse procedimento é repetido, até que um número total e pré-definido de classificadores seja gerado. A classificação final dá-se por voto majoritário. A figura~\ref{fig:bagged_pseudocode} ilustra um pseudo-código que descreve como \emph{Bagged Trees} é treinado e utilizado para classificações.
 
@@ -140,4 +141,14 @@ A seção~\ref{categories} aborda quais são os atributos comumente utilizados quan
     \end{figure}
 
     \subsection{Random Forest}
+    \label{randomforest}
+    Alguns autores consideram \emph{Random Forest} como uma variação de \emph{Bagged Trees}~\cite{Dietterich:2000:EMM:648054.743935}. Este classificador \emph{ensemble} é apresentado por Breiman em~\cite{Breiman:2001:RF:570181.570182}.
+
+    A primeira diferença é que \emph{Random Forest} só utiliza árvores de decisão como algoritmo base. Outra diferença entre os dois algoritmos é a quantidade de atributos utilizados durante o treinamento dos classificadores: neste caso, nem todos os atributos são utilizados. Escolhe-se a quantidade de atributos que será utilizada e a cada nova árvore, um sub-conjunto diferente de atributos é utilizado. Isso permite analisar a contribuição de cada atributo no treinamento de cada árvore.
+
+    O termo \emph{Out of Bag (OOB)} também é introduzido por Breiman. Assim, tem-se uma nova medida para erro: cerca de um terço do conjunto de treino é separada e utilizada a cada rodada como um conjunto de teste. É a partir desta medida que a análise de contribuição dos atributos torna-se possível.
+
+    Similar ao \emph{Bagged Trees}, o resultado final dá-se por voto majoritário.
+
     \subsection{Boosted Decision Trees}
+    \label{bdt}
