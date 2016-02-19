@@ -150,5 +150,22 @@ A seção~\ref{categories} aborda quais são os atributos comumente utilizados quan
 
     Similar ao \emph{Bagged Trees}, o resultado final dá-se por voto majoritário.
 
-    \subsection{Boosted Decision Trees}
+    \subsection{Boosted Decision Trees (BDT)}
     \label{bdt}
+    Este é outro algoritmo \emph{ensemble} que não exige apenas árvores de decisão como classificador base. Diferentemente dos casos anteriores, todo o conjunto de treino é utilizado para gerar o classificador. Mas, a cada rodada, verifica-se quais amostras foram erroneamente classificadas e atribui-se um peso a elas. Desta maneira, na próxima iteração, os casos equivocados estarão evidenciados. A figura~\ref{fig:bdt_example} ilustra o que ocorre com o conjunto de treino a cada rodada: dadas duas classes, verde e vermelha, ao gerar o primeiro classificador, temos 3 amostras erroneamente classificadas (\emph{misclassifieds}). Em outras palavras, temos 3 amostras que pertencem a classe verde, mas o classificador gerado atribuiu a classe vermelha a elas. Em uma próxima iteração, tais amostras serão multiplicadas por um fator que influenciará o treinamento. O resultado final ocorre por voto majoritário.
+
+    É interessante observar na figura~\ref{fig:bdt_result} que a combinação de diversos classificadores gera um classificador refinado.
+
+    \begin{figure}[!ht]
+    \centering
+    \subfigure[Exemplo do que ocorre com o conjunto de treino durante as iterações do BDT]{
+      \includegraphics[width=8cm]{images/bdt_example.png}
+      \label{fig:bdt_example}
+    }
+    \subfigure[O resultado final é por voto majoritário.]{
+      \includegraphics[width=8cm]{images/bdt_result.png}
+      \label{fig:bdt_result}
+    }
+    \caption{Ilustração do método BDT. Baseado em~\cite{Duda:2000:PC:954544}.}
+    \label{bdt_training}
+  \end{figure}
