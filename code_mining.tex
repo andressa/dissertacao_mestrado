@@ -1,6 +1,6 @@
 \chapter{Mineração de códigos fonte para identificação de falhas}
 \label{code_mining}
-Em desenvolvimento de software é comum observar que quanto maior for o tempo de permanência de um erro no código mais custosa torna-se a sua correção e manutenção de um projeto~\cite{IEEE-Software-McConnel}. Falhas em códigos fonte são definidas como ``Imperfeições durante o desenvolvimento de software que como consequência impedem que o programa atinja as expectativas desejadas."~\cite{BASKARAN2010}. Entende-se ainda que muitos defeitos são introduzidos durante o processo de desenvolvimento como um todo, não somente no seu início ou fim. Assim sendo, identificar falhas antecipadamente torna-se parte essencial em desenvolvimento de software, que significa qualidade na entrega final do produto.~\cite{ODC1992}.
+Em desenvolvimento de software é comum observar que quanto maior for o tempo de permanência de um erro no código mais custosa torna-se a sua correção e manutenção em um projeto~\cite{IEEE-Software-McConnel}. Falhas em códigos fonte são definidas como ``Imperfeições durante o desenvolvimento de software que como consequência impedem que o programa atinja as expectativas desejadas."~\cite{BASKARAN2010}. Entende-se ainda que muitos defeitos são introduzidos durante o processo de desenvolvimento como um todo, não somente no seu início ou fim. Assim sendo, identificar falhas antecipadamente torna-se parte essencial em desenvolvimento de software, que significa qualidade na entrega final do produto.~\cite{ODC1992}.
 
 O SDLC (do inglês, \emph{software development life cycle} ou ciclo de vida do desenvolvimento de software)~\cite{6906040} indica que o desenvolvimento de software pode ser descrito em cinco etapas:
 \begin{enumerate}
@@ -11,7 +11,7 @@ O SDLC (do inglês, \emph{software development life cycle} ou ciclo de vida do de
   \item{Implantação}
 \end{enumerate}
 
-A figura~\ref{fig:bug_insertion} ilustra em quais etapas do ciclo de vida de desenvolvimento do software são inseridos erros em projetos. Entidades presentes na área de engenharia de computação (tais como a IBM~\cite{IBM} e HCL~\cite{HCL}) confirmam que cerca de 35\% das falhas identificadas em códigos fonte são inseridas na fase de implementação~\cite{CODEMINING2015}.
+A figura~\ref{fig:bug_insertion} ilustra em quais etapas do ciclo de vida de desenvolvimento do software são inseridos. Entidades presentes na área de engenharia de computação (tais como a IBM~\cite{IBM} e HCL~\cite{HCL}) confirmam que cerca de 35\% das falhas identificadas em códigos fonte são inseridas na fase de implementação~\cite{CODEMINING2015}.
 
 \begin{figure}[h]
   \centering
@@ -20,7 +20,7 @@ A figura~\ref{fig:bug_insertion} ilustra em quais etapas do ciclo de vida de des
   \label{fig:bug_insertion}
 \end{figure}
 
-Atualmente, diferentes técnicas tem sido utilizadas para identificação antecipada de erros em códigos fonte. A análise estática, por exemplo, é bastante utilizada na área de programação desde a década de 80. As características desta análise são abordadas em~\ref{static_analysis}. Em conjunto com analisadores estáticos, pode-se aplicar técnicas de mineração de dados, fazendo uma combinação entre a área de engenharia de software e inteligência computacional. No artigo~\cite{4222731}, publicado em 2007, os autores abordam como a mineração de dados pode contribuir com a área de engenharia de software, na medida que técnicas de inteligência computacional, quando aplicadas, melhoram a qualidade de projetos. Nesta mesma direção, a MSR (em inglês, \emph{Mining Software Repositories} ou mineração de repositórios de códigos) passa a ser amplamente abordada devido a disponibilidade gratuita de inúmeros repositórios públicos de controle de versionamento, rastreamento de erros inseridos e até mesmo documentações~\cite{4659248}.
+Atualmente, diferentes técnicas tem sido utilizadas para identificação antecipada de erros em códigos fonte. A análise estática, por exemplo, é bastante utilizada na área de programação desde a década de 80. As características desta análise são abordadas em~\ref{static_analysis}. Em conjunto com analisadores estáticos, pode-se aplicar técnicas de mineração de dados, fazendo uma combinação entre a área de engenharia de software e inteligência computacional. No artigo~\cite{4222731}, publicado em 2007, os autores abordam como a mineração de dados pode contribuir com a área de engenharia de software, a medida que técnicas de inteligência computacional, quando aplicadas, melhoram a qualidade de projetos. Nesta mesma direção, a MSR (em inglês, \emph{Mining Software Repositories} ou mineração de repositórios de códigos) passa a ser amplamente abordada devido a disponibilidade gratuita de inúmeros repositórios públicos de controle de versionamento, rastreamento de erros inseridos e até mesmo documentações~\cite{4659248}.
 
 Aplicar mineração de dados em códigos fonte desperta interesse na comunidade científica, uma vez que códigos são tipicamente estruturados e semanticamente ricos em termos de construtores de programação (tais como variáveis, funções, objetos estruturados e rotinas bem definidas). Os objetivos são diversos: vão desde a tentativa de descobrir o que um determinado software faz (sem necessariamente executá-lo) até manutenção de projetos ou análises de desenvolvimento~\cite{130589}.
 
@@ -28,14 +28,25 @@ Como citado, a identificação antecipada de erros inseridos durante a implementaç
 
 Outro objetivo dominante na mineração de códigos é a tentativa de identificar fragmentos clonados. A não reutilização de códigos dificulta a manutenção do software e ainda, pode proliferar \emph{bugs} em diferentes partes de um projeto.
 
-A seção~\ref{categories} aborda quais são os atributos comumente utilizados quando mineração de dados é aplicada a códigos fonte. Esta seção é composta por duas sub-seções (~\ref{static_analysis} e~\ref{halstead}) que abordam em que situações tais características foram utilizadas na aplicação de mineração de códigos neste mestrado; A seção~\ref{code_mining_cern} investiga a aplicação de mineração de dados em códigos fonte no CERN.
+A seção~\ref{code_mining_cern} investiga a aplicação de mineração de dados em códigos fonte no CERN; A seção~\ref{categories} aborda quais são os atributos comumente utilizados quando mineração de dados é aplicada em códigos fonte. Esta seção é composta por duas sub-seções (~\ref{static_analysis} e~\ref{halstead}) que abordam em que situações tais atributos foram utilizados na aplicação de mineração de códigos neste contexto;  Por fim, a seção~\ref{ensemble} descreve métodos de aprendizado de máquina que foram utilizados neste mestrado na tentativa de classificar de códigos fonte em \emph{executáveis/não executáveis}.
+
+\section{Analisadores estáticos e Mineração de códigos no CERN}
+    \label{code_mining_cern}
+    O CERN oferece um ambiente para desenvolvimento de software bastante particular. Estima-se que centenas de projetos de software estão sendo desenvolvidos, com propósitos específicos, desde programas que auxiliam o trabalho da equipe de recursos humanos até os que monitoram o desempenho dos diversos experimentos do colisor de partículas. Apesar do setor de TI do CERN ter estipulado algumas regras para a política de segurança, muitos projetos de software pequenos não as seguem a risca. Isso implica em vulnerabilidades de programas utilizados em ambientes de produção no CERN.
+
+    As regras de segurança estipuladas não são tão rígidas para estimular o meio acadêmico no avanço das pesquisas científicas. Da mesma maneira, analisadores estáticos para assegurar a qualidade no desenvolvimento de códigos livres não são impostos para a comunidade presente. Existem ferramentas disponíveis e com documentação e suporte da equipe de TI, mas nenhum projeto é obrigado a utilizá-las. No caso deste projeto de mestrado, a linguagem computacional utilizada é o Python, sendo o \emph{PyLint}~\cite{pylint} uma ferramenta de análise estática cuja utilização é incentivada pelo CERN~\cite{cern_recomendations_tools}.
+
+    Recentemente, o setor de segurança em computação do CERN contratou um serviço (\emph{Coverity}~\cite{Bessey:2010:FBL:1646353.1646374}) para garantir qualidade no desenvolvimento de novas funcionalidades no seu principal produto de análises físicas (o ROOT~\cite{BRUN}). O ROOT é utilizado por cerca de 10.000 pesquisadores e a integridade do software passou a ser vista como algo valioso. Um \emph{bug} perpetuado no ROOT pode ter um impacto muito negativo nas análises de resultados dos dados gerados pelo LHC. Assim que incorporado, o \emph{Coverity} já foi capaz de identificar mais de 40.000 falhas em aproximadamente 50 milhões de linhas de códigos~\cite{coverity_numbers}. Um ponto negativo observado por desenvolvedores do ROOT é o tempo necessário para executar o analisador estático: são 28 horas para cada 2 milhões de linhas de código. É válido observar que a ferramenta escolhida para o ROOT não atende as necessidades deste projeto de mestrado: o \emph{Coverity} atende códigos escritos em linguagem C/C++ enquanto os códigos do Tile-in-ONE (seção~\ref{tio}) são implementados em Python. Além disso, deseja-se aplicar mineração de dados em códigos fonte em um ambiente web.
+
+    Em física de altas energias não existem artigos que indiquem a aplicação de mineração de dados em códigos fonte.
+
 
     \section{Escolha de atributos}
     \label{categories}
-    Uma revisão feita por Heckman~\cite{Heckman:2011:SLR:1945085.1945215} com 21 artigos sobre mineração de dados em códigos fonte, identifica cinco categorias comumente utilizadas como entradas:
+    Uma revisão feita por Heckman~\cite{Heckman:2011:SLR:1945085.1945215} com 21 artigos sobre mineração de dados em códigos fonte, identifica cinco categorias comumente utilizadas como atributos:
     \begin{enumerate}
       \item{\emph{Alert Characteristics} (AC): abordagem que leva em consideração os alertas gerados por analisadores estáticos (sub-seção~\ref{static_analysis});}
-      \item{\emph{Code Characteristics} (CC): abordagem considera medidas estatísticas e de qualidade do código fonte atributos de entrada (sub-seção~\ref{halstead});}
+      \item{\emph{Code Characteristics} (CC): abordagem que considera medidas estatísticas e de qualidade do código fonte como atributos de entrada para algoritmos de máquina de aprendizado(sub-seção~\ref{halstead});}
       \item{\emph{Source code repository metrics} (SCR): atributos retirados de repositórios de códigos. Nesta abordagem, leva-se em consideração versionamentos (histórico de \emph{bugs} inseridos no projeto), comentários de atualizações e documentação sobre requisitos por exemplo;}
       \item{\emph{Bug database metrics} (BDM): Neste caso, existe uma base de dados para o projeto contendo todos as falhas já surgidas e consertadas. O objetivo dessa abordagem é identificar padrões que podem voltar a acontecer no projeto;}
       \item{\emph{Dynamic analyses metric} (DA): esta abordagem armazena resultados obtidos com análise dinâmica de códigos, mediante diversas execuções (ver seção~\ref{static_analysis})}.
@@ -62,13 +73,12 @@ A seção~\ref{categories} aborda quais são os atributos comumente utilizados quan
 
         Empiricamente, existem cerca de 40 alertas para cada mil linhas de código (KLOC, do inglês, \emph{Kilo Lines of Code})~\cite{Heckman:2008:EBE:1414004.1414013}. Desta estimativa, podem ser não acionáveis 30-100\%, como observado em~\cite{Aggarwal:2006:ISD:1169228.1170032},~\cite{4026864},~\cite{Heckman:2008:EBE:1414004.1414013},~\cite{4228664},~\cite{Kim:2007:WIF:1287624.1287633},~\cite{Kremenek:2003:ZUS:1760267.1760289}. Tais números desestimulam desenvolvedores e projetistas a aplicar ferramentas de análise estática de código no processo de desenvolvimento de software, embora entende-se a sua importância no quesito qualidade adquirida. Por outro lado, um alerta definido pelo especialista como \emph{acionável} nem sempre vai impedir a execução bem sucedida do código. Ou seja, se por um lado os analisadores estáticos geram muitos alertas (\emph{não acionáveis}), nada garante que o alerta \emph{acionável} indica que o programa contém \emph{bugs} e vai falhar durante a tentativa de execução. Em outras palavras, um analisador estático pode não gerar nenhum alerta e mesmo assim, durante a tentativa de execução, o código ainda pode falhar.
 
-        Para este mestrado, analisadores estáticos serão utilizados em uma segunda etapa, já que a classificação dos alertas gerados não significa exatamente que o código não pode ser executado. Uma vez que um código for classificado como \emph{não executável}, o objetivo seguinte será identificar quais alertas gerados por um analisador estático são acionáveis, para guiar o desenvolvedor no seu conserto, antes da execução de tal código. 
-
+        Para este mestrado, um dos atributos utilizados corresponde a geração ou não de alertas pelo analisador estático. Adicionalmente, outras medidas estatísticas e de qualidade, descritas a seguir, compõem a lista inicial de atributos extraídos de códigos fonte(tabela~\ref{tab:initialattributes}).
 
         \subsection{Medidas estatísticas e de qualidade}
         \label{halstead}
 
-        Em computação, ``Halstead Metrics''~\cite{Halstead:1977:ESS:540137} foram medidas de qualidade e estatísticas definidas por Maurice Halstead e publicadas em 1977.
+        Em computação, ``Halstead Metrics''~\cite{Halstead:1977:ESS:540137} são medidas de qualidade e estatísticas definidas por Maurice Halstead e publicadas em 1977.
 
         As medidas estatísticas (de Halstead) que podem ser extraídas de um código fonte são:
         \begin{itemize}
@@ -89,21 +99,32 @@ A seção~\ref{categories} aborda quais são os atributos comumente utilizados quan
           \item{Estimativa de potenciais \emph{bugs}: $ B = \frac{V}{3000} $};
         \end{itemize}
 
-        Outra característica que pode ser retirada de códigos fonte é a sua complexidade. Define-se como ``Cyclomatic Complexity'' (do inglês, complexidade ciclomática)~\cite{maccabe1983structured} o número de decisões que um determinado bloco de código contém mais uma unidade. Este número (também conhecido como \emph{McCabe number}) representa o número de caminhos independentes percorridos durante a execução de um código, quando se monta uma árvore abstrata de sintaxe (AST, do inglês, \emph{abstract syntax tree})~\cite{jones03pattern}.
+        Outra característica que pode ser extraída de códigos fonte é a sua complexidade. Define-se como ``Cyclomatic Complexity'' (do inglês, complexidade ciclomática)~\cite{maccabe1983structured} o número de decisões que um determinado bloco de código contém mais uma unidade. Este número (também conhecido como \emph{McCabe number}) representa o número de caminhos independentes percorridos durante a execução de um código, quando se monta uma árvore abstrata de sintaxe (AST, do inglês, \emph{abstract syntax tree})~\cite{jones03pattern}.
 
-        O índice de manutenabilidade (ou MI, do inglês \emph{Maintainability Index}) é uma medida em software que indica o quão fácil é a manutenção de um determinado código. O MI é calculado de diferentes maneiras, dependendo da abordagem que se deseja utilizar. Entretanto, a fórmula clássica~\cite{242525} envolve o número de linhas totais em um código fonte (SLOC, do inglês, \emph{source lines of code}), a complexidade ciclomática (neste contexto, CC) e o volume de Halstead (HV): \\ $MI = 171 - 5.2 ln _{HV} - 0.23 _{CC} - 16.2 ln _{SLOC}$.\\Os autores chegaram nesta fórmula através de um número de códigos fornecidos pela HP, escritos em linguagens de programação C e Pascal. Para cada código, um especialista (engenheiro de software) atribuiu uma nota (de 1 a 100) indicando o quão fácil seria fazer alterações ou correções posteriores ao determinado código (quanto maior a nota, mais fácil é sua manutenção). Consequentemente, 40 faixas de valores foram identificadas e através de uma regressão estatística, eventualmente, a fórmula exposta foi encontrada como um índice de manutenabilidade.
+        O índice de manutenabilidade (ou MI, do inglês \emph{Maintainability Index}) é uma medida em software que indica o quão fácil é a manutenção de um determinado código. O MI é calculado de diferentes maneiras, dependendo da abordagem que se deseja utilizar. Entretanto, a fórmula clássica~\cite{242525} envolve o número de linhas totais em um código fonte (SLOC, do inglês, \emph{source lines of code}), a complexidade ciclomática (neste contexto, CC) e o volume de Halstead (HV): \\ $MI = 171 - 5.2 ln _{HV} - 0.23 _{CC} - 16.2 ln _{SLOC}$.\\Os autores chegaram nesta fórmula através de um número de códigos fornecidos pela HP, escritos em linguagens de programação C e Pascal. Para cada código, um especialista (engenheiro de software) atribuiu uma nota (de 1 a 100) indicando o quão fácil seria fazer alterações ou correções posteriores ao determinado código (quanto maior a nota, mais fácil é sua manutenção). Consequentemente, 40 faixas de valores foram identificadas e através de uma regressão estatística, eventualmente, a fórmula exposta foi encontrada como um índice de manutenabilidade. Existe ainda o LLOC (do inglês, \emph{Logic Lines of Code}), que indica a quantidade de linhas com operadores lógicos no código e é outra medida que pode ser extraída como um atributo de códigos fonte.
 
-        As medidas descritas nesta sub-seção serão utilizadas neste mestrado, mediante análise de quais seriam mais importantes para o problema que se deseja resolver.
-
-    \section{Analisadores estáticos e Mineração de códigos no CERN}
-    \label{code_mining_cern}
-    O CERN oferece um ambiente para desenvolvimento de softwares bastante particular. Estima-se que centenas de projetos de softwares estão sendo desenvolvidos, com propósitos específicos, desde programas que auxiliam o trabalho da equipe de recursos humanos até os que monitoram o desempenho dos diversos experimentos do colisor de partículas. Apesar do setor de TI do CERN ter estipulado algumas regras para a política de segurança, muitos projetos de software pequenos não as seguem a risca. Isso implica em vulnerabilidades de programas utilizados em ambientes de produção no CERN.
-
-    As regras de segurança estipuladas não são tão rígidas para estimular o meio acadêmico no avança das pesquisas científicas. Da mesma maneira, analisadores estáticos para assegurar a qualidade no desenvolvimento de códigos livres não são impostos para a comunidade presente. Existem ferramentas disponíveis e com documentação e suporte da equipe de TI, mas nenhum projeto é obrigado a utilizá-las. No caso deste projeto de mestrado, a linguagem computacional utilizada é o Python, sendo o \emph{PyLint}~\cite{pylint} uma ferramenta de análise estática cuja utilização é incentivada pelo CERN~\cite{cern_recomendations_tools}.
-
-    Recentemente, o setor de segurança em computação do CERN contratou um serviço (\emph{Coverity}~\cite{Bessey:2010:FBL:1646353.1646374}) para garantir qualidade no desenvolvimento de novas funcionalidades no seu principal produto de análises físicas (o ROOT~\cite{BRUN}). O ROOT é utilizado por cerca de 10.000 pesquisadores e a integridade do software passou a ser vista como algo valioso. Um \emph{bug} perpetuado no ROOT pode ter um impacto muito negativo nas análises de resultados dos dados gerados pelo LHC. Assim que incorporado, o \emph{Coverity} já foi capaz de identificar mais de 40.000 falhas em aproximadamente 50 milhões de linhas de códigos~\cite{coverity_numbers}. Um ponto negativo observado por desenvolvedores do ROOT é o tempo necessário para executar o analisador estático: são 28 horas para cada 2 milhões de linhas de código. É válido observar que a ferramenta escolhida para o ROOT não atende as necessidades deste projeto de mestrado: o \emph{Coverity} atende códigos escritos em linguagem C/C++ enquanto os códigos do Tile-in-ONE (seção~\ref{tio}) são implementados em Python. Além disso, deseja-se aplicar mineração de dados em códigos fonte em um ambiente web.
-
-    Em física de altas energias não existem artigos que indiquem a aplicação de mineração de dados em códigos fonte.
+        A tabela~\ref{tab:initialattributes} lista os atributos inicialmente extraídos e uma breve descrição. Uma análise de relevância e correlação foi realizada. Os resultados são apresentados na seção~\ref{selection}.
+        
+    \begin{table}[]
+    \centering
+    \caption{Lista inicial de atributos}
+    \label{tab:initialattributes}
+    \begin{tabular}{@{}|l|c|l|@{}}
+    \toprule
+    \multicolumn{1}{|c|}{\textbf{\#}} & \textbf{Atributo}                       & \multicolumn{1}{c|}{\textbf{Descrição}}                            \\ \midrule
+    1                                 & Complexidade Ciclomática                & Número de declarações                                              \\ \midrule
+    2                                 & Índice de Manutenabilidade              & Corresponde à organização do código                                \\ \midrule
+    3                                 & Vocabulário de Hasltead                 & \# de operadores + \# de operandos únicos                          \\ \midrule
+    4                                 & Tamanho de Halstead                     & \# de operadores + \# total de operandos                           \\ \midrule
+    5                                 & SLOC                                    & Número de linhas do código fonte                                   \\ \midrule
+    6                                 & \multicolumn{1}{l|}{Volume de Halstead} & Combinação entre número de linhas e declarações                    \\ \midrule
+    7                                 & Dificuldade de Hasltead                 & \begin{tabular}[c]{@{}l@{}}Complexidade do código baseada no número de \\ operadores e operandos\end{tabular} \\ \midrule
+    8                                 & Tempo de Halstead                       & Tempo estimado para compilar um código                             \\ \midrule
+    9                                 & Bugs de Halstead                        & Possibilidade de bugs serem gerados                                \\ \midrule
+    10                                & LLOC                                    & Número de linhas lógicas                                           \\ \midrule
+    11                                & Alertas PyLint                          & \begin{tabular}[c]{@{}l@{}}Verdadeiro se PyLint gerou alertas. \\ Caso contrário, falso\end{tabular}\\ \bottomrule
+    \end{tabular}
+    \end{table}
 
     \section{Métodos \emph{ensemble} em Árvores de Decisão}
     \label{ensemble}

@@ -176,6 +176,29 @@
   Testing and Analysis\/}, {\em ISSTA '07\/}, pp. 163--173, ACM: New York, NY,
   USA, 2007.
 
+\bibitem{pylint}
+\enquote{PyLint - Static Analysis Tool for Python}, \\Acessado em janeiro de
+  2016. \url{http://www.pylint.org/}.
+
+\bibitem{cern_recomendations_tools}
+\enquote{CERN IT Security Recomended Tools}, \\Acessado em janeiro de 2016.
+  \url{https://security.web.cern.ch/security/recommendations/en/code_tools.shtml}.
+
+\bibitem{Bessey:2010:FBL:1646353.1646374}
+\MakeUppercase{ Bessey, A., Block, K., Chelf, B., \MakeLowercase{et~al.}},
+  \enquote{A Few Billion Lines of Code Later: Using Static Analysis to Find
+  Bugs in the Real World}, {\em Commun. ACM\/}, v.~53, n.~2, pp.~66--75, Feb.
+  2010.
+
+\bibitem{BRUN}
+\MakeUppercase{ Brun, R., Rademakers, F.}, \enquote{ROOT-an object oriented
+  data analysis framework}.
+\newblock In: {\em World Scientific Publishing\/}, 2005.
+
+\bibitem{coverity_numbers}
+\enquote{Coverity efects at CERN}, \\Acessado em janeiro de 2016.
+  \url{http://www.coverity.com/press-releases/cern-chooses-coverity-to-ensure-accuracy-of-large-hadron-collider-software/}.
+
 \bibitem{Heckman:2011:SLR:1945085.1945215}
 \MakeUppercase{ Heckman, S., Williams, L.}, \enquote{A Systematic Literature
   Review of Actionable Alert Identification Techniques for Automated Static
@@ -272,29 +295,6 @@
   software system's maintainability}.
 \newblock In: {\em Software Maintenance, 1992. Proceerdings., Conference on\/},
   pp. 337--344, Nov 1992.
-
-\bibitem{pylint}
-\enquote{PyLint - Static Analysis Tool for Python}, \\Acessado em janeiro de
-  2016. \url{http://www.pylint.org/}.
-
-\bibitem{cern_recomendations_tools}
-\enquote{CERN IT Security Recomended Tools}, \\Acessado em janeiro de 2016.
-  \url{https://security.web.cern.ch/security/recommendations/en/code_tools.shtml}.
-
-\bibitem{Bessey:2010:FBL:1646353.1646374}
-\MakeUppercase{ Bessey, A., Block, K., Chelf, B., \MakeLowercase{et~al.}},
-  \enquote{A Few Billion Lines of Code Later: Using Static Analysis to Find
-  Bugs in the Real World}, {\em Commun. ACM\/}, v.~53, n.~2, pp.~66--75, Feb.
-  2010.
-
-\bibitem{BRUN}
-\MakeUppercase{ Brun, R., Rademakers, F.}, \enquote{ROOT-an object oriented
-  data analysis framework}.
-\newblock In: {\em World Scientific Publishing\/}, 2005.
-
-\bibitem{coverity_numbers}
-\enquote{Coverity efects at CERN}, \\Acessado em janeiro de 2016.
-  \url{http://www.coverity.com/press-releases/cern-chooses-coverity-to-ensure-accuracy-of-large-hadron-collider-software/}.
 
 \bibitem{Seni:2010:EMD:1841412}
 \MakeUppercase{ Seni, G., Elder, J.}, {\em Ensemble Methods in Data Mining:
