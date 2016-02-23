@@ -30,7 +30,7 @@ Outro objetivo dominante na mineração de códigos é a tentativa de identificar fr
 
 A seção~\ref{categories} aborda quais são os atributos comumente utilizados quando mineração de dados é aplicada a códigos fonte. Esta seção é composta por duas sub-seções (~\ref{static_analysis} e~\ref{halstead}) que abordam em que situações tais características foram utilizadas na aplicação de mineração de códigos neste mestrado; A seção~\ref{code_mining_cern} investiga a aplicação de mineração de dados em códigos fonte no CERN.
 
-    \section{Seleção de atributos}
+    \section{Escolha de atributos}
     \label{categories}
     Uma revisão feita por Heckman~\cite{Heckman:2011:SLR:1945085.1945215} com 21 artigos sobre mineração de dados em códigos fonte, identifica cinco categorias comumente utilizadas como entradas:
     \begin{enumerate}
@@ -109,7 +109,7 @@ A seção~\ref{categories} aborda quais são os atributos comumente utilizados quan
     \label{ensemble}
     Árvore de decisão (DT, do inglês, \emph{Decision Tree})~\cite{Rokach:2008:DMD:1796114} é um algoritmo de aprendizado de máquina supervisionado. O termo ``supervisionado'' indica que, durante a fase de treinamento, as classes (ou alvos) são conhecidas. Desta maneira, o classificador aprende com casos em que se sabe a resposta (\emph{executável}/\emph{não executável}).
 
-    Basicamente, o treinamento de uma árvore de decisão divide e agrupa o conjunto de treino em dois ou mais grupos homogêneos, sucessivamente. Para as divisões, o algoritmo se encarrega de escolher qual é o atributo mais significativo, ou seja, qual atributo irá tornar a divisão o mais homogênea (ou pura) possível. Tal processo consiste no que se conhece como \emph{splitting}.
+    Basicamente, o treinamento de uma árvore de decisão divide e agrupa o conjunto de treino em dois ou mais grupos homogêneos, sucessivamente. Para as divisões, o algoritmo se encarrega de escolher qual é o atributo mais significativo, ou seja, qual atributo irá tornar a divisão o mais homogênea (ou pura) possível. Tal processo consiste no que se conhece como \emph{splitting} e será descrito mais adiante nesta seção.
 
     A figura[XXX] ilustra um exemplo clássico de árvore de decisão. Ele representa uma árvore que decide se uma pessoa vai ou não jogar tênis. Os atributos utilizados são condições do tempo (ensolarado, nublado ou chuvoso), umidade (alta ou baixa) e vento (forte ou fraco).
 
@@ -119,6 +119,11 @@ A seção~\ref{categories} aborda quais são os atributos comumente utilizados quan
         \item{Os nós que continuam dividindo os sub-conjuntos restantes (em cinza) são denominados nós de decisão.}
         \item{Quando a divisão cessa, tem-se folhas (em verde). As folhas indicam a decisão tomada pela árvore treinada.}
     \end{itemize}
+
+    Existem duas operações relacionadas ao treinamento de árvores de decisão. Elas estão descritas a seguir.
+
+    \large{\emph{Splitting}}\\
+    \large{\emph{Pruning}}\\
 
     Uma das vantagens em se utilizar árvores de decisão para classificação é a sua fácil compreensão. Para pessoas sem conhecimentos em inteligência computacional, o treinamento de classificadores e os resultados obtidos são de fácil compreensão. Além disso, a representação gráfica é intuitiva e permite que hipóteses sejam rapidamente relacionadas.
 
