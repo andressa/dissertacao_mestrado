@@ -136,16 +136,14 @@ A seção~\ref{code_mining_cern} investiga a aplicação de mineração de dados em có
 
     Ainda sobre a figura[XXX], o conhecimento de algumas nomenclaturas é necessário. Elas serão referenciadas mais adiante. São elas:
     \begin{itemize}
-        \item{O nó raiz (representado pela cor azul) representa todo o conjunto de treino e é onde as divisões em grupos heterogêneos começa.}
+        \item{O nó raiz (em azul) representa todo o conjunto de treino e é onde as divisões em grupos homogêneos começa.}
         \item{Os nós que continuam dividindo os sub-conjuntos restantes (em cinza) são denominados nós de decisão.}
         \item{Quando a divisão cessa, tem-se folhas (em verde). As folhas indicam a decisão tomada pela árvore treinada.}
     \end{itemize}
 
-    Existem duas operações relacionadas ao treinamento de árvores de decisão. Elas estão descritas a seguir.
-    
-    \\
-    \large{\textbf{Splitting}}\\ \\
-    \large{\textbf{Pruning}}\\
+    Existem duas operações relacionadas ao treinamento de árvores de decisão. Elas estão descritas a seguir.\\ \\
+    \textbf{\large{Splitting}}\\ \\
+    \textbf{\large{Pruning}}\\
 
     Uma das vantagens em se utilizar árvores de decisão para classificação é a sua fácil compreensão. Para pessoas sem conhecimentos em inteligência computacional, o treinamento de classificadores e os resultados obtidos são de fácil compreensão. Além disso, a representação gráfica é intuitiva e permite que hipóteses sejam rapidamente relacionadas.
 
@@ -153,7 +151,7 @@ A seção~\ref{code_mining_cern} investiga a aplicação de mineração de dados em có
 
     \emph{Ensemble} são conjuntos de classificadores que combinam seus resultados individuais (por votação ou média ponderada) para classificar novas amostras~\cite{Seni:2010:EMD:1841412}. Uma das áreas mais ativas na área de aprendizado de máquina supervisionado tem sido \emph{ensemble}~\cite{Dietterich:2000:EMM:648054.743935}. Geralmente, classificadores \emph{ensemble} apresentam maior acurácia que classificadores individuais. A razão estatística para isso é que a variância de um somatório é menor que a variância individual. Computacionalmente, o treinamento pode dar-se de maneira mais rápida, uma vez que, em alguns casos é possível paralelizar a fase de treinamento.
 
-    Classificadores \emph{ensemble} podem ser gerados para qualquer algoritmo, inclusive árvores de decisão. Tais classificadores são descritos nas sub-seções a seguir.
+    Classificadores \emph{ensemble} podem ser gerados com qualquer algoritmo base, inclusive árvores de decisão. Tais classificadores são descritos nas sub-seções a seguir.
 
     \subsection{Bagged Trees (\emph{\textbf{B}ootstrap \textbf{Agg}regating})}
     \label{bagged}
