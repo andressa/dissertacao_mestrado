@@ -71,15 +71,41 @@ As seções~\ref{dataset} e~\ref{selection} descrevem, respectivamente, o conjunto
       \label{fig:finalattributes}
     \end{figure} 
 
-    \section{Aplicação de métodos \emph{ensemble}}
+    \section{Classificadores em \emph{ensemble}}
     \label{training}
 
-    Para o treinamento do classificador de códigos fonte em \emph{executável}/\emph{não executável} proposto nesta dissertação de mestrado, inicialmente utilizou-se uma árvore de decisão.
+    Em Física de Altas Energias, é comum encontrar a aplicação de BDT (\emph{Boosted Decision Tree}, ver seção~\ref{bdt}) para identificação de partículas. No Farmilab, por exemplo, as análises para busca de oscilações de neutrinos deu-se por meio de aplicação de BDT~\cite{Roe2005577}. No CERN existem diversos trabalhos utilizando BDT para identificação do Bóson de Higgs. Portanto, existe um incentivo natural para a aplicação de métodos \emph{ensemble} com árvores neste projeto contextualizado no ambiente do CERN. Como citado, a popularidade de árvores de decisão na comunidade científica vem da sua fácil compreensão.
 
-    [ DESCREVER COMO ARVORE DE DECISAO FOI GERADA ]
+    Com os atributos selecionados (seção~\ref{selection}), classificadores em \emph{ensemble} foram treinados. Para todos os casos, o algoritmo base é uma árvore de decisão, gerada previamente. O objetivo em se treinar mais de um classificador é avaliar se o problema a ser resolvido tem solução. Como saídas, teremos as classes \emph{executável} indicando que provavelmente o código fonte não vai falhar ao ser executado na máquina \emph{slave} ou, caso contrário, \emph{não executável}.
 
-    Em Física de Altas Energias, é comum encontrar a aplicação de BDT para identificação de partículas. [ No farmilab para identificação de neutrinos e no CERN pra identificar o higgs, por exemplo ]. Portanto, existe motivação para a aplicação de métodos \emph{ensemble} para este trabalho de mestrado.
+    Antes de dividir o conjunto de dados em subconjuntos de treino (70\%) e teste (30\%), foi necessário replicar o conjunto com alvo \emph{não executável}, devido a desproporção em número de amostras. É importante ressaltar que os mesmos conjuntos de treino e teste foram utilizados para todos os casos.
+
+    Como avaliação de performance, foram avaliadas as matrizes de confusão e os F1-scores. Em análises estatísticas de classificação binária, o F1-score é uma medida de acurácia. Ela considera tanto precisão quanto sensibilidade, como pode ser observado pela fórmula abaixo:
+
+    \begin{center}
+    $F1_{score} = 2 . \frac{p . r}{p + r}$
+    \end{center}
+    , onde $p$ é precisão e $r$ é sensibilidade.
+
+    Precisão é o número de verdadeiro positivos dividido pelo número total de resultados positivos. Sensibilidade é o número de verdadeiro positivos dividido pelo número de resultados positivos que deveriam ter sido retornados.
+
+    O F1-score pode ser interpretado como uma média ponderada da precisão e sensibilidade, onde o melhor valor para avaliar a acurária é 1 e o pior, 0.
+    \\ \\
+    \textbf{\large{Árvore de decisão}}\\ \\
+    O critério \emph{gini} para divisão da árvore de decisão foi utilizado. Estipulou-se um tamanho máximo igual a três, a fim de evitar \emph{overfitting}. O esperado é que este classificador tenha uma acurácia pior do que os demais. Esta árvore foi utilizada como classificador base nos três métodos \emph{ensemble} utilizados descritos a seguir. 
     \\ \\
     \textbf{\large{Bagged Trees}}\\ \\
+    Utilizando o mesmo conjunto de treino utilizado para treinar o classificador base e, utilizando a árvore de decisão descrita anteriormente, um classificador em \emph{Bagged Tree} foi gerado. No caso, o número de iterações estabelecido é igual a 100. Ou seja, ao final do treinamento, tem-se 100 árvores treinadas. O resultado dá-se por voto majoritário dessas 100 árvores. A cada rodada, 10\% do conjunto de treino foi utilizado como sub-conjunto \emph{boostrap} (o equivalente a cerca de 60 amostras). Isso é o suficiente para garantir que as amostras não sejam repetidas inúmeras vezes, o que mantém a independência dos 100 classificadores gerados pelo método.\\ \\
     \textbf{\large{Random Forest}}\\ \\
-    \textbf{\large{Boosted Decision Trees}}\\
+    Para o classificador em \emph{Random Forest} os mesmos critérios estabelecidos para treinar o \emph{Bagged Tree} se aplicam. Mas, o que difere os dois métodos é a quantidade de atributos utilizados em cada iteração para treinar uma árvore. Em~\cite{Breiman:2001:RF:570181.570182}, o Breiman avalia que empiricamente, um número de atributos próximo a $\sqrt{N}$ (sendo N o número total de atributos) é suficiente para obter melhor acurácia. No caso abordado nesta dissertação, temos um número de atributos pequeno (e igual a 6), de tal forma que $\sqrt{6} = 2.45$. O número de atributos, então, utilizado para treinar o classificador em \emph{Random Forest} é igual a 3. Como o \emph{OOB error} é calculado a cada iteração, uma análise de relevância de atributos também pode ser extraída durante o treinamento deste classificador.\\ \\
+    \textbf{\large{Boosted Decision Trees}}\\ \\
+    Para treinar o classificador BDT o mesmo conjunto de treino foi utilizado. Existem diversos algoritmos que determinam como os pesos que serão atribuídos às amostras erroneamente classificadas em cada iteração são definidos. No caso, o algoritmo \emph{AdaBoost}~\cite{Freund1997} (do inglês, \emph{Adaptative Boosting}) foi utilizado. Inicialmente, os pesos atribuídos equivalem a 1. A cada iteração o percentual de amostras classificadas de maneira equivocada é calculado e o peso que será atribúido a tais amostras é definido baseado neste percentual. O resultado final dependerá também deste peso calculado a cada iteração.
+
+    A figura~\ref{fig:adaboost_pseudocode} ilustra um pseudo-código extraído de~\cite{Freund1997}. Nela é possível entender como o peso $\beta$ é calculado, e também como o resultado final é obtido.
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=8cm]{images/bdt_pseudocode.png}
+      \caption{Pseudo-código do algoritmo \emph{AdaBoost}}
+      \label{fig:adaboost_pseudocode}
+    \end{figure} 

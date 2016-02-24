@@ -53,6 +53,11 @@
 \MakeUppercase{ Griffths, D.}, {\em {Introduction to Elementary Particles}\/}.
 \newblock John Wiley \& Sons, 1987.
 
+\bibitem{NobelPrize}
+\enquote{{The Nobel Prize in Physics 2013}}, \\Acessado em fevereiro de 2016.
+  \\
+  \url{http://www.nobelprize.org/nobel_prizes/physics/laureates/2013/press.pdf}.
+
 \bibitem{ALICE}
 \MakeUppercase{ {The ALICE Collaboration}}, \enquote{The {ALICE} experiment at
   the {CERN} {LHC}}, {\em Journal of Instrumentation\/}, v.~3, n.~08, Aug.
@@ -311,5 +316,17 @@
 \bibitem{Breiman:2001:RF:570181.570182}
 \MakeUppercase{ Breiman, L.}, \enquote{Random Forests}, {\em Mach. Learn.\/},
   v.~45, n.~1, pp.~5--32, Oct. 2001.
+
+\bibitem{Roe2005577}
+\MakeUppercase{ Roe, B.~P., Yang, H.-J., Zhu, J., \MakeLowercase{et~al.}},
+  \enquote{"Boosted decision trees as an alternative to artificial neural
+  networks for particle identification "}, {\em "Nuclear Instruments and
+  Methods in Physics Research Section A: Accelerators, Spectrometers, Detectors
+  and Associated Equipment"\/}, v.~543, n. 2 - 3, pp.~577 -- 584, 2005.
+
+\bibitem{Freund1997}
+\MakeUppercase{ Freund, Y., Schapire, R.~E.}, \enquote{A Decision-Theoretic
+  Generalization of On-Line Learning and an Application to Boosting}, {\em J.
+  Comput. Syst. Sci.\/}, v.~55, n.~1, pp.~119--139, Aug. 1997.
 
 \end{thebibliography}
