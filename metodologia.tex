@@ -37,6 +37,39 @@ As seções~\ref{dataset} e~\ref{selection} descrevem, respectivamente, o conjunto
 
     \section{Análise de atributos}
     \label{selection}
+    A tabela~\ref{tab:initialattributes} descreve os 11 atributos inicialmente extraídos dos códigos fonte disponíveis na base de dados da plataforma Tile-in-ONE. Ao gerar a matriz de correlação entre tais atributos (figura~\ref{fig:initialcorrelation}), percebe-se que os atributos relacionados às medidas e estatísticas de Halstead são fortemente correlacionados.
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=10cm]{images/corr_matrix_11.png}
+      \caption{Matriz de correlação dos 11 atributos extraídos inicialmente}
+      \label{fig:initialcorrelation}
+    \end{figure} 
+
+    O teste $\chi^2$ foi aplicado para entender, dentre os atributos relacionados a Halstead, quais são os dois mais relevantes. Em outras palavras, dentre os atributos correlacionados, deseja-se utilizar os dois mais independentes, segundo o teste $\chi^2$. Para este caso, os atributos vencedores são: \emph{Halstead Volume} e \emph{Required Time}. A nova matriz de correlação calculada (figura~\ref{fig:finalattributes}) demonstra que os 6 atributos selecionados (tabela~\ref{tab:finalattributes}) são suficientemente independentes entre si (com exceção das medidas de Halstead). Observa-se ainda a independência dos atributos selecionados com o alvo, como ilustrado na figura~\ref{fig:finalattributes}.
+
+    \begin{table}[]
+    \centering
+    \caption{Lista de atributos selecionados}
+    \label{tab:finalattributes}
+    \begin{tabular}{@{}|l|c|l|@{}}
+    \toprule
+    \multicolumn{1}{|c|}{\textbf{\#}} & \textbf{Atributo}                       & \multicolumn{1}{c|}{\textbf{Descrição}}                            \\ \midrule
+    1                                 & Complexidade Ciclomática                & Número de declarações                                              \\ \midrule
+    2                                 & Índice de Manutenabilidade              & Corresponde à organização do código                                \\ \midrule
+    3                                 & \multicolumn{1}{l|}{Volume de Halstead} & Combinação entre número de linhas e declarações                    \\ \midrule
+    4                                 & Tempo de Halstead                       & Tempo estimado para compilar um código                             \\ \midrule
+    5                                & LLOC                                    & Número de linhas lógicas                                           \\ \midrule
+    6                                & Alertas PyLint                          & \begin{tabular}[c]{@{}l@{}}Verdadeiro se PyLint gerou alertas. \\ Caso contrário, falso\end{tabular}\\ \bottomrule
+    \end{tabular}
+    \end{table}
+
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=10cm]{images/finalattributes.png}
+      \caption{Matriz de correlação dos 6 atributos selecionados. As correlações com a saída também são calculadas.}
+      \label{fig:finalattributes}
+    \end{figure} 
 
     \section{Aplicação de métodos \emph{ensemble}}
     \label{training}
