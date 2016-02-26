@@ -1,0 +1,139 @@
+This is makeindex, version 2.15 [TeX Live 2015] (kpathsea + Thai support).
+Scanning input file dissertacao.tex...
+!! Input index error (file = dissertacao.tex, line = 1):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = dissertacao.tex, line = 2):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = dissertacao.tex, line = 3):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = dissertacao.tex, line = 5):
+   -- Unknown index keyword \documentclass[msc,numbers].
+!! Input index error (file = dissertacao.tex, line = 6):
+   -- Unknown index keyword \usepackage.
+!! Input index error (file = dissertacao.tex, line = 7):
+   -- Unknown index keyword \usepackage.
+!! Input index error (file = dissertacao.tex, line = 8):
+   -- Unknown index keyword \usepackage[latin1].
+!! Input index error (file = dissertacao.tex, line = 9):
+   -- Unknown index keyword \usepackage[brazil].
+!! Input index error (file = dissertacao.tex, line = 10):
+   -- Unknown index keyword \usepackage.
+!! Input index error (file = dissertacao.tex, line = 11):
+   -- Unknown index keyword \usepackage.
+!! Input index error (file = dissertacao.tex, line = 12):
+   -- Unknown index keyword \usepackage.
+!! Input index error (file = dissertacao.tex, line = 13):
+   -- Unknown index keyword \usepackage.
+!! Input index error (file = dissertacao.tex, line = 14):
+   -- Unknown index keyword \usepackage.
+!! Input index error (file = dissertacao.tex, line = 15):
+   -- Unknown index keyword \usepackage.
+!! Input index error (file = dissertacao.tex, line = 16):
+   -- Unknown index keyword \usepackage.
+!! Input index error (file = dissertacao.tex, line = 17):
+   -- Unknown index keyword \usepackage.
+!! Input index error (file = dissertacao.tex, line = 18):
+   -- Unknown index keyword \usepackage.
+!! Input index error (file = dissertacao.tex, line = 19):
+   -- Unknown index keyword \usetikzlibrary.
+!! Input index error (file = dissertacao.tex, line = 21):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = dissertacao.tex, line = 22):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = dissertacao.tex, line = 24):
+   -- Unknown index keyword \begin.
+!! Input index error (file = dissertacao.tex, line = 25):
+   -- Unknown index keyword \title.
+!! Input index error (file = dissertacao.tex, line = 26):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = dissertacao.tex, line = 27):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = dissertacao.tex, line = 28):
+   -- Unknown index keyword \foreigntitle.
+!! Input index error (file = dissertacao.tex, line = 29):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = dissertacao.tex, line = 30):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = dissertacao.tex, line = 31):
+   -- Unknown index keyword \author.
+!! Input index error (file = dissertacao.tex, line = 32):
+   -- Unknown index keyword \advisor.
+!! Input index error (file = dissertacao.tex, line = 34):
+   -- Unknown index keyword \examiner.
+!! Input index error (file = dissertacao.tex, line = 35):
+   -- Unknown index keyword \examiner.
+!! Input index error (file = dissertacao.tex, line = 36):
+   -- Unknown index keyword \examiner.
+!! Input index error (file = dissertacao.tex, line = 37):
+   -- Unknown index keyword \department.
+!! Input index error (file = dissertacao.tex, line = 38):
+   -- Unknown index keyword \date.
+!! Input index error (file = dissertacao.tex, line = 40):
+   -- Unknown index keyword \keyword.
+!! Input index error (file = dissertacao.tex, line = 41):
+   -- Unknown index keyword \keyword.
+!! Input index error (file = dissertacao.tex, line = 42):
+   -- Unknown index keyword \keyword.
+!! Input index error (file = dissertacao.tex, line = 44):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = dissertacao.tex, line = 46):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = dissertacao.tex, line = 47):
+   -- Unknown index keyword \dedication.
+!! Input index error (file = dissertacao.tex, line = 49):
+   -- Unknown index keyword \chapter*.
+!! Input index error (file = dissertacao.tex, line = 51):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = dissertacao.tex, line = 53):
+   -- Unknown index keyword \begin.
+!! Input index error (file = dissertacao.tex, line = 55):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = dissertacao.tex, line = 57):
+   -- Unknown index keyword \end.
+!! Input index error (file = dissertacao.tex, line = 59):
+   -- Unknown index keyword \begin.
+!! Input index error (file = dissertacao.tex, line = 61):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = dissertacao.tex, line = 63):
+   -- Unknown index keyword \end.
+!! Input index error (file = dissertacao.tex, line = 65):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = dissertacao.tex, line = 66):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = dissertacao.tex, line = 67):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = dissertacao.tex, line = 68):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = dissertacao.tex, line = 69):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = dissertacao.tex, line = 71):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = dissertacao.tex, line = 73):
+   -- Unknown index keyword \input.
+!! Input index error (file = dissertacao.tex, line = 74):
+   -- Unknown index keyword \input.
+!! Input index error (file = dissertacao.tex, line = 75):
+   -- Unknown index keyword \input.
+!! Input index error (file = dissertacao.tex, line = 76):
+   -- Unknown index keyword \input.
+!! Input index error (file = dissertacao.tex, line = 77):
+   -- Unknown index keyword \input.
+!! Input index error (file = dissertacao.tex, line = 78):
+   -- Unknown index keyword \input.
+!! Input index error (file = dissertacao.tex, line = 79):
+   -- Unknown index keyword \input.
+!! Input index error (file = dissertacao.tex, line = 81):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = dissertacao.tex, line = 82):
+   -- Unknown index keyword \bibliographystyle.
+!! Input index error (file = dissertacao.tex, line = 83):
+   -- Unknown index keyword \bibliography.
+!! Input index error (file = dissertacao.tex, line = 85):
+   -- Missing arguments -- need two (premature LFD).
+!! Input index error (file = dissertacao.tex, line = 86):
+   -- Unknown index keyword \input.
+!! Input index error (file = dissertacao.tex, line = 87):
+   -- Unknown index keyword \end.
+done (0 entries accepted, 67 rejected).
+Nothing written in dissertacao.ind.
+Transcript written in dissertacao.ilg.

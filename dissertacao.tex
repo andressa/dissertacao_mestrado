@@ -16,9 +16,12 @@
 \usepackage{textcomp}
 \usepackage{tikz}
 \usepackage{booktabs}
+\usepackage{multirow}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{pdflscape}
 \usetikzlibrary{shapes,arrows}
 
-\makelosymbols
+%\makelosymbols
 \makeloabbreviations
 
 \begin{document}
@@ -65,7 +68,7 @@
   \tableofcontents
   \listoffigures
   \listoftables
-  \printlosymbols
+  %\printlosymbols
   \printloabbreviations
 
   \mainmatter
@@ -76,6 +79,7 @@
   \input{code_mining}
   \input{metodologia}
   \input{resultados}
+  \input{conclusoes}
 
   \backmatter
   \bibliographystyle{coppe-unsrt}
