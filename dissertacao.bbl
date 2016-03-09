@@ -181,6 +181,10 @@
   Testing and Analysis\/}, {\em ISSTA '07\/}, pp. 163--173, ACM: New York, NY,
   USA, 2007.
 
+\bibitem{CERN_SECURITY_RULES}
+\enquote{{CERN Security Rules}}, {\\Acessado em fevereiro de 2016. \\
+  \url{https://security.web.cern.ch/security/rules/en/index.shtml}}.
+
 \bibitem{pylint}
 \enquote{PyLint - Static Analysis Tool for Python}, \\Acessado em janeiro de
   2016. \url{http://www.pylint.org/}.
@@ -300,6 +304,11 @@
   software system's maintainability}.
 \newblock In: {\em Software Maintenance, 1992. Proceerdings., Conference on\/},
   pp. 337--344, Nov 1992.
+
+\bibitem{Shannon:2001:MTC:584091.584093}
+\MakeUppercase{ Shannon, C.~E.}, \enquote{A Mathematical Theory of
+  Communication}, {\em SIGMOBILE Mob. Comput. Commun. Rev.\/}, v.~5, n.~1,
+  pp.~3--55, Jan. 2001.
 
 \bibitem{Seni:2010:EMD:1841412}
 \MakeUppercase{ Seni, G., Elder, J.}, {\em Ensemble Methods in Data Mining:
