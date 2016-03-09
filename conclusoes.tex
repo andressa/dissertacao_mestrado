@@ -1,1 +1,10 @@
 \chapter{Conclusões}
+Independente do desempenho obtido com os 4 classificadores gerados, é possível concluir que o problema de classificação de códigos fonte na plataforma web colaborativa Tile-in-ONE em \emph{executável/não executável} pode ser abordado através de algoritmos de aprendizado de máquina em \emph{ensemble}. Um próximo passo necessário para que tal funcionalidade seja colocada em produção seria analisar os códigos que são recorrentemente classificados de maneira equivocada e até mesmo identificar em qual parte do código exatamente encontra-se o possível \emph{bug}.
+
+Como analisado, existem códigos fonte, dentre os 512 utilizados para compor o conjunto de dados, que acessam fontes externas de dados (APIs e bancos de dados, por exemplo). Este fato pode ser relevante para o sucesso na execução do código e independe das variáveis de entrada que estão sendo consideradas neste projeto. Futuramente, pode-se verificar se esse atributo influencia na performance dos classificadores.
+
+A discussão de resultados permite concluir que é possível aplicar mineração de código em um ambiente de Física de Altas Energias, extraindo-se apenas características de códigos fonte.
+
+Através de um levantamento bibliográfico foi possível extrair 11 atributos relacionados a medidas de estatística e qualidade de códigos, dos quais, os mais independentes possíveis foram selecionados.
+
+Para a classe \emph{não executável} o BDT é o método \emph{ensemble} que possui melhor desempenho, quando o F1-score (que é uma ponderação de precisão e sensibilidade) é observado. É comum a literatura eleger o BDT como melhor algoritmo dentre os quatro treinados neste projeto.
