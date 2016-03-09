@@ -1,10 +1,10 @@
 \chapter{Métodos utilizados e Discussão de resultados}
-As seções~\ref{dataset} e~\ref{selection} descrevem, respectivamente, o conjunto de dados adquiridos e os atributos que foram previamente selecionados; A seção~\ref{ensemble} descreve os algoritmos de máquina de aprendizado utilizados;
+As seções~\ref{dataset} e~\ref{selection} descrevem, respectivamente, o conjunto de dados adquiridos e os atributos que foram previamente selecionados.
 
 Em seguida o capítulo apresenta uma discussão do desempenho obtido pelos classificadores \emph{ensemble}.
 \section{Aquisição de códigos fonte}
     \label{dataset}
-    O Tile-in-ONE encontra-se em produção, sendo utilizado pelos grupos de calibração e qualidade de dados do TileCal desde 2014. Em seu banco de dados, existe um total de 512 códigos de Plugins, desenvolvidos pelos colaboradores através da plataforma web. A figura~\ref{fig:developed_source_codes} corresponde a quantidade de códigos fonte implementados no período de Junho de 2014 a Dezembro de 2015.
+    O Tile-in-ONE encontra-se em produção, sendo utilizado pelos grupos de calibração e qualidade de dados do TileCal desde 2014. Em seu banco de dados, foram selecionados para este projeto um total de 512 códigos de \emph{Plugins}, desenvolvidos pelos colaboradores através da plataforma web. A figura~\ref{fig:developed_source_codes} ilustra a quantidade de códigos fonte implementados no período de Junho de 2014 a Dezembro de 2015.
 
     \begin{figure}[H]
       \centering
@@ -35,7 +35,7 @@ Em seguida o capítulo apresenta uma discussão do desempenho obtido pelos classif
 
     \section{Análise de atributos}
     \label{selection}
-    A tabela~\ref{tab:initialattributes} descreve os 11 atributos inicialmente extraídos dos códigos fonte disponíveis na base de dados da plataforma Tile-in-ONE. Ao gerar a matriz de correlação entre tais atributos (figura~\ref{fig:initialcorrelation}), percebe-se que os atributos relacionados às medidas e estatísticas de Halstead são fortemente correlacionados.
+    A tabela~\ref{tab:initialattributes} descreve os 11 atributos inicialmente extraídos dos códigos fonte disponíveis na base de dados da plataforma Tile-in-ONE. Ao gerar a matriz de correlação entre tais atributos (figura~\ref{fig:initialcorrelation}), percebe-se que os atributos relacionados às medidas e estatísticas de Halstead são fortemente correlacionados. Treinar um modelo de aprendizado de máquina com atributos altamente correlacionados não melhora a performance dos classificadores gerados e pode aumentar o tempo de convergência.
 
     \begin{figure}[H]
       \centering
@@ -44,7 +44,7 @@ Em seguida o capítulo apresenta uma discussão do desempenho obtido pelos classif
       \label{fig:initialcorrelation}
     \end{figure} 
 
-    O teste $\chi^2$ foi aplicado para entender, dentre os atributos relacionados a Halstead, quais são os dois mais relevantes. Em outras palavras, dentre os atributos correlacionados, deseja-se utilizar os dois mais independentes, segundo o teste $\chi^2$. Para este caso, os atributos vencedores são: \emph{Halstead Volume} e \emph{Required Time}. A nova matriz de correlação calculada (figura~\ref{fig:finalattributes}) demonstra que os 6 atributos selecionados (tabela~\ref{tab:finalattributes}) são suficientemente independentes entre si (com exceção das medidas de Halstead). Observa-se ainda a independência dos atributos selecionados com o alvo, como ilustrado na figura~\ref{fig:finalattributes}.
+    O teste $\chi^2$ foi aplicado para entender, dentre os atributos relacionados a Halstead, quais são os dois mais relevantes. Para este teste, os atributos de Halstead mais relevantes são: \emph{Halstead Volume} e \emph{Required Time}. A nova matriz de correlação calculada (figura~\ref{fig:finalattributes}) demonstra que os 6 atributos selecionados (tabela~\ref{tab:finalattributes}) são suficientemente independentes entre si (com exceção das medidas de Halstead). Observa-se ainda a independência dos atributos selecionados com o alvo, como ilustrado na figura~\ref{fig:finalattributes}.
 
     \begin{table}[]
     \centering
@@ -73,25 +73,25 @@ Em seguida o capítulo apresenta uma discussão do desempenho obtido pelos classif
     \section{Avaliação dos Classificadores}
     \label{avaliacao} 
 
-Em Física de Altas Energias, é comum encontrar a aplicação de BDT (\emph{Boosted Decision Tree}, ver seção~\ref{bdt}) para identificação de partículas. No Farmilab, por exemplo, as análises para busca de oscilações de neutrinos deu-se por meio de aplicação de BDT~\cite{Roe2005577}. No CERN existem diversos trabalhos utilizando BDT para identificação do Bóson de Higgs. Portanto, existe um incentivo natural para a aplicação de métodos \emph{ensemble} com árvores neste projeto contextualizado no ambiente do CERN. Como citado, a popularidade de árvores de decisão na comunidade científica vem da sua fácil compreensão.
+Em Física de Altas Energias, é comum encontrar a aplicação de BDT (\emph{Boosted Decision Tree}, ver seção~\ref{bdt}) para identificação de partículas. No Farmilab, por exemplo, as análises para busca de oscilações de neutrinos deu-se por meio de aplicação de BDT~\cite{Roe2005577}. No CERN existem diversos trabalhos utilizando BDT para identificação do partículas (~\cite{1748-0221-10-09-P09018}, ~\cite{Chatrchyan2012284} e ~\cite{JenniferGodfrey2009} por exemplo). Portanto, existe um incentivo natural para a aplicação de métodos \emph{ensemble} com árvores neste projeto contextualizado no ambiente do CERN. Como citado, a popularidade de árvores de decisão na comunidade científica vem da sua fácil compreensão.
 
-    Com os atributos selecionados (seção~\ref{selection}), classificadores em \emph{ensemble} foram treinados. Para todos os casos, o algoritmo base é uma árvore de decisão, gerada previamente. O objetivo em se treinar mais de um classificador é avaliar se o problema a ser resolvido tem solução. Como saídas, teremos as classes \emph{executável} indicando que provavelmente o código fonte não vai falhar ao ser executado na máquina \emph{slave} ou, caso contrário, \emph{não executável}.
+    Com os atributos selecionados (seção~\ref{selection}), classificadores em \emph{ensemble} foram treinados. Para todos os casos, o algoritmo base é uma árvore de decisão, gerada previamente. Como saídas, teremos as classes \emph{executável} indicando que provavelmente o código fonte não vai falhar ao ser executado na máquina \emph{slave} ou, caso contrário, \emph{não executável}.
 
-    Antes de dividir o conjunto de dados em subconjuntos de treino (70\%) e teste (30\%), foi necessário replicar o conjunto com alvo \emph{não executável}, devido a desproporção em número de amostras. É importante ressaltar que os mesmos conjuntos de treino e teste foram utilizados para todos os casos.
+    Antes de dividir o conjunto de dados em subconjuntos de treino (70\%) e teste (30\%), foi necessário replicar o conjunto com alvo \emph{não executável}, devido a desproporção em número de amostras. É importante ressaltar que os mesmos conjuntos de treino e teste foram utilizados para todos os casos. Como medida de incerteza, foi utilizado o erro quadrático médio das 100 iterações realizadas.
 
-    Como avaliação de performance, foram avaliadas as matrizes de confusão e os F1-scores. Em análises estatísticas de classificação binária, o F1-score é uma medida de acurácia. Ela considera tanto precisão quanto sensibilidade, como pode ser observado pela fórmula abaixo:
+    Como avaliação de performance, foram calculados matrizes de confusão e F1-scores. Em análises estatísticas de classificação binária, o F1-score é uma medida de acurácia. Ela considera tanto precisão quanto sensibilidade, como pode ser observado pela fórmula abaixo:
 
     \begin{center}
-    $F1_{score} = 2 . \frac{p . r}{p + r}$
+    $F1_{score} = 2 . \frac{p . r}{p + r}$ (V)
     \end{center}
-    , onde $p$ é precisão e $r$ é sensibilidade.
+    Na fórmula (V) $p$ é precisão e $r$ é sensibilidade (do inglês, \emph{recall}).
 
     Precisão é o número de verdadeiro positivos dividido pelo número total de resultados positivos. Sensibilidade é o número de verdadeiro positivos dividido pelo número de resultados positivos que deveriam ter sido retornados.
 
     O F1-score pode ser interpretado como uma média ponderada da precisão e sensibilidade, onde o melhor valor para avaliar a acurácia é 1 e o pior, 0.
     \\ \\
     \textbf{\large{Árvore de decisão}}\\ \\
-    O critério \emph{gini} para divisão da árvore de decisão foi utilizado. Estipulou-se um tamanho máximo igual a três, a fim de evitar \emph{overfitting}. O esperado é que este classificador tenha uma acurácia pior do que os demais. Esta árvore foi utilizada como classificador base nos três métodos \emph{ensemble} utilizados descritos a seguir. 
+    O critério \emph{índice gini} para divisão da árvore de decisão foi utilizado. Estipulou-se um tamanho máximo igual a três, a fim de evitar \emph{overfitting}. Segundo a literatura, é esperado que este classificador tenha um desempenho pior quando comparado com os métodos em \emph{ensemble}. Esta árvore foi utilizada como classificador base nos três métodos descritos a seguir. 
     \\ \\
     \textbf{\large{Bagged Trees}}\\ \\
     Utilizando o mesmo conjunto de treino utilizado para treinar o classificador base e, utilizando a árvore de decisão descrita anteriormente, um classificador em \emph{Bagged Tree} foi gerado. No caso, o número de iterações estabelecido é igual a 100. Ou seja, ao final do treinamento, tem-se 100 árvores treinadas. O resultado dá-se por voto majoritário dessas 100 árvores. A cada rodada, 10\% do conjunto de treino foi utilizado como sub-conjunto \emph{boostrap} (o equivalente a cerca de 60 amostras). Isso é o suficiente para garantir que as amostras não sejam repetidas inúmeras vezes, o que mantém a independência dos 100 classificadores gerados pelo método.\\ \\
@@ -109,14 +109,12 @@ Em Física de Altas Energias, é comum encontrar a aplicação de BDT (\emph{Boosted
       \label{fig:adaboost_pseudocode}
     \end{figure} 
 
-    Foram gerados, ao todo, 4 classificadores e a comparação dos resultados é feita através de matrizes de confusão e F1-score. A base de dados é composta por códigos submetidos através da plataforma web Tile-in-ONE. Inicialmente, foi necessário fazer o balanceamento das amostras. Além disso, 70\% do conjunto foi separado para treino e 30\% para teste. Alguns dos métodos não permite treinamento por \emph{cross-validation} e para uma avaliação justa, a mesma metodologia foi aplicada em todos os treinamentos.
-
     As figuras~\ref{fig:confusionmatrices} e~\ref{fig:reports} 
     ilustram as matrizes de confusão e algumas medidas de desempenho, respectivamente, que foram geradas utilizando o mesmo conjunto de teste para os 4 classificadores gerados.
 
     No caso da árvore de decisão, é esperado que seu desempenho seja pior comparativamente: o tamanho fixado em três e o número máximo de folhas fixado em cinco impede que ao final, o classificador gerado possua folhas mais puras. A vantagem dessa abordagem é que desta maneira, é mais difícil obter \emph{overfitting}. Por outro lado, uma árvore de decisão é insuficiente para se obter generalização.
 
-    Tais questões são contornadas com a aplicação dos métodos \emph{ensemble}, como previsto na teoria. Dos classificadores gerados por tal método, obtém-se melhor desempenho com o BDT, mesmo que o treinamento não seja feito por \emph{cross-validation}. Percebe-se que o número de iterações estabelecida em 100 já é suficiente para atingir tal desempenho. Como ilustrado na figura~\ref{fig:reportbdt}, o classificador apresenta cerca de 90\% para precisão e sensibilidade nas duas classes (\emph{executável} e \emph{não executável}).
+    Tais questões são contornadas com a aplicação dos métodos \emph{ensemble}, como previsto na teoria. Dos classificadores gerados por tal método, obtém-se melhor desempenho com o BDT para a classe \emph{não executável}. Percebe-se que o número de iterações estabelecido em 100 já é suficiente para atingir tal desempenho. Como ilustrado na figura~\ref{fig:reportbdt}, o classificador em BDT apresenta cerca de 90\% para precisão e sensibilidade nas duas classes (\emph{executável} e \emph{não executável}).
 
     O classificador \emph{Bagged Trees} é capaz de melhorar um pouco a classificação quando comparado com a árvore de decisão gerada. Isto também está coerente com a teoria. Gerar 100 árvores de decisão com sub-conjuntos diferentes aumenta a diversidade dos 70\% do conjunto de treino. Tal procedimento é comparável ao treinamento por \emph{cross-validation}. Isso explica o melhor desempenho deste classificador quando comparado com a árvore de decisão treinada.
 
@@ -193,10 +191,10 @@ Em Física de Altas Energias, é comum encontrar a aplicação de BDT (\emph{Boosted
 \toprule
 \multirow{2}{*}{\textbf{\begin{tabular}[c]{@{}c@{}}Classificador /\\ Classes\end{tabular}}} & \multicolumn{2}{c|}{\textbf{Precisão (Precision)}}                    & \multicolumn{2}{c|}{\textbf{Sensibilidade (Recall)}}                  & \multicolumn{2}{c|}{\textbf{F1-Score}}                                \\ \cmidrule(l){2-7} 
                                                                                               & \multicolumn{1}{l|}{Executável} & \multicolumn{1}{l|}{Não executável} & \multicolumn{1}{l|}{Executável} & \multicolumn{1}{l|}{Não executável} & \multicolumn{1}{l|}{Executável} & \multicolumn{1}{l|}{Não executável} \\ \midrule
-\textbf{Árvore de Decisão}                                                                    & 0.71                            & 0.92                                & 0.96                            & 0.54                                & 0.81                            & 0.64                                \\ \midrule
-\textbf{Bagged Trees}                                                                         & 0.76                            & 0.88                                & 0.92                            & 0.67                                & 0.83                            & 0.76                                \\ \midrule
-\textbf{Random Forest}                                                                        & 0.90                            & 0.86                                & 0.87                            & 0.89                                & 0.89                            & 0.87                                \\ \midrule
-\textbf{Boosted Decision Trees}                                                                & 0.92                            & 0.89                                & 0.90                            & 0.91                                & \textbf{0.91}                   & \textbf{0.90}                       \\ \bottomrule
+\textbf{Árvore de Decisão}                                                                    & 0,71 (0,03)                           & 0,92 (0,09)                               & 0,96 (0,04)                            & 0,54 (0,13)                                & 0,81 (0,03)                           & 0,64 (0,11)                                \\ \midrule
+\textbf{Bagged Trees}                                                                         & 0,76 (0,02)                           & 0,88 (0,05)                               & 0,92 (0,03)                           & 0,67 (0,12)                               & 0,83 (0,02)                           & 0,76 (0,07)                               \\ \midrule
+\textbf{Random Forest}                                                                        & 0,90 (0,01)                            & 0,86 (0,03)                               & 0,87 (0,01)                            & 0,89 (0,01)                               & 0,89 (0,01)                           & 0,87 (0,02)                               \\ \midrule
+\textbf{Boosted Decision Trees}                                                                & 0,92 (0,01)                           & 0,89 (0,02)                               & 0,90 (0,03)                           & 0,91 (0,01)                               & \textbf{0,91 (0,02)}                   & \textbf{0,90 (0,01)}                       \\ \bottomrule
 \end{tabular}
 \end{table}
 \end{landscape}
