@@ -1,4 +1,4 @@
-\chapter{Métodos utilizados e Discussão de resultados}
+\chapter{Métodos e Resultados}
 \label{results}
 As seções~\ref{dataset} e~\ref{selection} descrevem, respectivamente, o conjunto de dados adquiridos e os atributos que foram previamente selecionados.
 
@@ -34,7 +34,7 @@ Em seguida o capítulo apresenta uma discussão do desempenho obtido pelos classif
 
     Em suma, a aplicação do analisador estático não é suficiente para classificar um código como \emph{executável} ou \emph{não executável}. Uma ferramenta adicional faz-se necessária.
 
-    \section{Análise de atributos}
+    \section{Seleção de atributos}
     \label{selection}
     A tabela~\ref{tab:initialattributes} descreve os 11 atributos inicialmente extraídos dos códigos fonte disponíveis na base de dados da plataforma Tile-in-ONE. Ao gerar a matriz de correlação entre tais atributos (figura~\ref{fig:initialcorrelation}), percebe-se que os atributos relacionados às medidas e estatísticas de Halstead são fortemente correlacionados. Treinar um modelo de aprendizado de máquina com atributos altamente correlacionados não melhora a performance dos classificadores gerados e pode aumentar o tempo de convergência.
 
@@ -71,7 +71,7 @@ Em seguida o capítulo apresenta uma discussão do desempenho obtido pelos classif
     \end{figure} 
 
     
-    \section{Avaliação dos Classificadores}
+    \section{Treinamento}
     \label{avaliacao} 
 
 Em Física de Altas Energias, é comum encontrar a aplicação de BDT (\emph{Boosted Decision Tree}, ver seção~\ref{bdt}) para identificação de partículas. No Farmilab, por exemplo, as análises para busca de oscilações de neutrinos deu-se por meio de aplicação de BDT~\cite{Roe2005577}. No CERN existem diversos trabalhos utilizando BDT para identificação do partículas (~\cite{1748-0221-10-09-P09018}, ~\cite{Chatrchyan2012284} e ~\cite{JenniferGodfrey2009} por exemplo). Portanto, existe um incentivo natural para a aplicação de métodos \emph{ensemble} com árvores neste projeto contextualizado no ambiente do CERN. Como citado, a popularidade de árvores de decisão na comunidade científica vem da sua fácil compreensão.
@@ -110,6 +110,7 @@ Em Física de Altas Energias, é comum encontrar a aplicação de BDT (\emph{Boosted
       \label{fig:adaboost_pseudocode}
     \end{figure} 
 
+    \section{Discussão de Resultados}
     As figuras~\ref{fig:confusionmatrices} e~\ref{fig:reports} 
     ilustram as matrizes de confusão e algumas medidas de desempenho, respectivamente, que foram geradas utilizando o mesmo conjunto de teste para os 4 classificadores gerados.
 
