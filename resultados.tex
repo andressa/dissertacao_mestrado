@@ -3,9 +3,9 @@
 As seções~\ref{dataset} e~\ref{selection} descrevem, respectivamente, o conjunto de dados adquiridos e os atributos que foram previamente selecionados.
 
 Em seguida o capítulo apresenta uma discussão do desempenho obtido pelos classificadores \emph{ensemble}.
-\section{Aquisição de códigos fonte}
+\section{Aquisição de Códigos Fonte}
     \label{dataset}
-    O Tile-in-ONE encontra-se em produção, sendo utilizado pelos grupos de calibração e qualidade de dados do TileCal desde 2014. Em seu banco de dados, foram selecionados para este projeto um total de 512 códigos de \emph{Plugins}, desenvolvidos pelos colaboradores através da plataforma web. A figura~\ref{fig:developed_source_codes} ilustra a quantidade de códigos fonte implementados no período de Junho de 2014 a Dezembro de 2015.
+    O Tile-in-ONE encontra-se em fase de teste, sendo utilizado pelos grupos de calibração e qualidade de dados do TileCal desde 2014. Em seu banco de dados, foram selecionados para este projeto um total de 512 códigos de \emph{Plugins}, desenvolvidos pelos colaboradores através da plataforma web. A figura~\ref{fig:developed_source_codes} ilustra a quantidade de códigos fonte implementados no período de Junho de 2014 a Dezembro de 2015.
 
     \begin{figure}[H]
       \centering
@@ -14,7 +14,7 @@ Em seguida o capítulo apresenta uma discussão do desempenho obtido pelos classif
       \label{fig:developed_source_codes}
     \end{figure}
 
-    Dos 512 códigos que compõem o conjunto de dados, quase 30\% não obtiveram sucesso ao serem enviados para uma máquina \emph{slave}. De acordo com a figura~\ref{fig:slave_machine_results}, percebe-se que 8,59\% não retornaram nenhum tipo de resposta para o servidor principal, o que pode significar que a máquina \emph{slave} escolhida para executar o código fonte em questão estava sem comunicação. Isso não significa necessariamente que o código fonte é \emph{não executável}, uma vez que ele nem sequer chegou na máquina \emph{slave}. Os 21,09\% restantes correspondem a programas que falharam durante a tentativa de execução. Mas novamente, não é possível afirmar neste momento que tais códigos são \emph{não executáveis}. Se por ventura, algum desses tentou acessar um banco de dados (externo a plataforma) que no momento da execução estava inacessível, a máquina \emph{slave} retornou falha e, neste caso, o problema não foi o código fonte. Talvez no futuro, esse tipo de informação possa se tornar uma entrada para o classificador: caso o código fonte esteja acessando uma fonte externa ele pode ser penalizado.
+    Dos 512 códigos que compõem o conjunto de dados, quase 30\% não obtiveram sucesso ao serem enviados para uma máquina \emph{slave}. De acordo com a figura~\ref{fig:slave_machine_results}, percebe-se que 8,59\% não retornaram nenhum tipo de resposta para o servidor principal, o que pode significar que a máquina \emph{slave} escolhida para executar o código fonte em questão estava sem comunicação. Isso não significa necessariamente que o código fonte é \emph{não executável}, uma vez que ele nem sequer chegou na máquina \emph{slave}. Os 21,09\% restantes correspondem a programas que falharam durante a tentativa de execução. Mas novamente, não é possível afirmar neste momento que tais códigos são \emph{não executáveis}. Se porventura, algum desses tentou acessar um banco de dados (externo a plataforma) que no momento da execução estava inacessível, a máquina \emph{slave} retornou falha e, neste caso, o problema não foi o código fonte. Talvez no futuro, esse tipo de informação possa se tornar uma entrada para o classificador: caso o código fonte esteja acessando uma fonte externa ele pode ser penalizado.
 
     \begin{figure}[H]
       \centering
@@ -23,7 +23,7 @@ Em seguida o capítulo apresenta uma discussão do desempenho obtido pelos classif
       \label{fig:slave_machine_results}
     \end{figure}
 
-    Após avaliar os 512 códigos, e comparar com a aplicação do analisador estático (PyLint), percebe-se que 82,02\% dos códigos são \emph{executáveis}, mas em quase 20\% dos casos o PyLint gera algum tipo de alerta. Do restante, menos de 1\% é \emph{não executável} devido a erros de sintaxe em Python, mas podem ser facilmente identificados ao executar o analisador estático. Dos outros quase 17\% \emph{não executáveis}, cerca de 5\% não podem ser identificados apenas com a aplicação do Pylint. A figura~\ref{fig:targets} ilustra esses percentuais.
+    Após avaliar os 512 códigos, e comparar com a aplicação do analisador estático (PyLint), percebe-se que 82,03\% dos códigos são \emph{executáveis}, mas em quase 20\% dos casos o PyLint gera algum tipo de alerta. Do restante, 0,39\% é \emph{não executável} devido a erros de sintaxe em Python, mas podem ser facilmente identificados ao aplicar o analisador estático. Dos outros 17,58\% \emph{não executáveis}, cerca de 5\% não podem ser identificados apenas com a aplicação do PyLint. A figura~\ref{fig:targets} ilustra esses percentuais.
 
     \begin{figure}[H]
       \centering
@@ -34,9 +34,9 @@ Em seguida o capítulo apresenta uma discussão do desempenho obtido pelos classif
 
     Em suma, a aplicação do analisador estático não é suficiente para classificar um código como \emph{executável} ou \emph{não executável}. Uma ferramenta adicional faz-se necessária.
 
-    \section{Seleção de atributos}
+    \section{Seleção de Atributos}
     \label{selection}
-    A tabela~\ref{tab:initialattributes} descreve os 11 atributos inicialmente extraídos dos códigos fonte disponíveis na base de dados da plataforma Tile-in-ONE. Ao gerar a matriz de correlação entre tais atributos (figura~\ref{fig:initialcorrelation}), percebe-se que os atributos relacionados às medidas e estatísticas de Halstead são fortemente correlacionados. Treinar um modelo de aprendizado de máquina com atributos altamente correlacionados não melhora a performance dos classificadores gerados e pode aumentar o tempo de convergência.
+    A tabela~\ref{tab:initialattributes} descreve os 11 atributos inicialmente extraídos dos códigos fonte disponíveis na base de dados da plataforma Tile-in-ONE. Ao gerar a matriz de correlação entre tais atributos (figura~\ref{fig:initialcorrelation}), percebe-se que os atributos relacionados às medidas e estatísticas de Halstead são fortemente correlacionados. A matriz foi construída a partir do coeficiente de correlação de Pearson. Treinar um modelo de aprendizado de máquina com atributos altamente correlacionados não melhora a performance dos classificadores gerados e pode aumentar o tempo de convergência.
 
     \begin{figure}[H]
       \centering
@@ -78,7 +78,7 @@ Em Física de Altas Energias, é comum encontrar a aplicação de BDT (\emph{Boosted
 
     Com os atributos selecionados (seção~\ref{selection}), classificadores em \emph{ensemble} foram treinados. Para todos os casos, o algoritmo base é uma árvore de decisão, gerada previamente. Como saídas, teremos as classes \emph{executável} indicando que provavelmente o código fonte não vai falhar ao ser executado na máquina \emph{slave} ou, caso contrário, \emph{não executável}.
 
-    Antes de dividir o conjunto de dados em subconjuntos de treino (70\%) e teste (30\%), foi necessário replicar o conjunto com alvo \emph{não executável}, devido a desproporção em número de amostras. É importante ressaltar que os mesmos conjuntos de treino e teste foram utilizados para todos os casos. Como medida de incerteza, foi utilizado o erro quadrático médio das 100 iterações realizadas.
+    Antes de dividir o conjunto de dados em subconjuntos de treino (70\%) e teste (30\%), foi necessário replicar o conjunto com alvo \emph{não executável}, devido a desproporção em número de amostras com alvos diferentes (cerca de 1/3 das amostras são \emph{não executáveis}). Ao replica-las, foi possível obter uma relação próxima a 1/2: ou seja, aproximadamente metade das amostras possui como alvo \emph{acionável} e a outra metade, \emph{não acionável}. É importante ressaltar que os mesmos conjuntos de treino e teste foram utilizados para todos os algoritmos. Como medida de incerteza, foi utilizado o erro quadrático médio das 100 iterações realizadas.
 
     Como avaliação de performance, foram calculados matrizes de confusão e F1-scores. Em análises estatísticas de classificação binária, o F1-score é uma medida de acurácia. Ela considera tanto precisão quanto sensibilidade, como pode ser observado pela fórmula abaixo:
 
@@ -92,7 +92,7 @@ Em Física de Altas Energias, é comum encontrar a aplicação de BDT (\emph{Boosted
     O F1-score pode ser interpretado como uma média ponderada da precisão e sensibilidade, onde o melhor valor para avaliar a acurácia é 1 e o pior, 0.
     \\ \\
     \textbf{\large{Árvore de decisão}}\\ \\
-    O critério \emph{índice gini} para divisão da árvore de decisão foi utilizado. Estipulou-se um tamanho máximo igual a três, a fim de evitar \emph{overfitting}. Segundo a literatura, é esperado que este classificador tenha um desempenho pior quando comparado com os métodos em \emph{ensemble}. Esta árvore foi utilizada como classificador base nos três métodos descritos a seguir. 
+    O critério \emph{índice gini} para divisão da árvore de decisão foi utilizado. Estipulou-se uma profundidade máxima igual a três, a fim de evitar \emph{overfitting}. Segundo a literatura, é esperado que este classificador tenha um desempenho pior quando comparado com os métodos em \emph{ensemble}. Esta árvore foi utilizada como classificador base nos três métodos descritos a seguir. 
     \\ \\
     \textbf{\large{Bagged Trees}}\\ \\
     Utilizando o mesmo conjunto de treino utilizado para treinar o classificador base e, utilizando a árvore de decisão descrita anteriormente, um classificador em \emph{Bagged Tree} foi gerado. No caso, o número de iterações estabelecido é igual a 100. Ou seja, ao final do treinamento, tem-se 100 árvores treinadas. O resultado dá-se por voto majoritário dessas 100 árvores. A cada rodada, 10\% do conjunto de treino foi utilizado como sub-conjunto \emph{boostrap} (o equivalente a cerca de 60 amostras). Isso é o suficiente para garantir que as amostras não sejam repetidas inúmeras vezes, o que mantém a independência dos 100 classificadores gerados pelo método.\\ \\
@@ -114,7 +114,7 @@ Em Física de Altas Energias, é comum encontrar a aplicação de BDT (\emph{Boosted
     As figuras~\ref{fig:confusionmatrices} e~\ref{fig:reports} 
     ilustram as matrizes de confusão e algumas medidas de desempenho, respectivamente, que foram geradas utilizando o mesmo conjunto de teste para os 4 classificadores gerados.
 
-    No caso da árvore de decisão, é esperado que seu desempenho seja pior comparativamente: o tamanho fixado em três e o número máximo de folhas fixado em cinco impede que ao final, o classificador gerado possua folhas mais puras. A vantagem dessa abordagem é que desta maneira, é mais difícil obter \emph{overfitting}. Por outro lado, uma árvore de decisão é insuficiente para se obter generalização.
+    No caso da árvore de decisão, é esperado que seu desempenho seja pior comparativamente: a profundidade fixada em três e o número máximo de folhas fixado em cinco impede que ao final, o classificador gerado possua folhas mais puras. A vantagem dessa abordagem é que desta maneira, é mais difícil obter \emph{overfitting}. Por outro lado, uma árvore de decisão é insuficiente para se obter generalização.
 
     Tais questões são contornadas com a aplicação dos métodos \emph{ensemble}, como previsto na teoria. Dos classificadores gerados por tal método, obtém-se melhor desempenho com o BDT para a classe \emph{não executável}. Percebe-se que o número de iterações estabelecido em 100 já é suficiente para atingir tal desempenho. Como ilustrado na figura~\ref{fig:reportbdt}, o classificador em BDT apresenta cerca de 90\% para precisão e sensibilidade nas duas classes (\emph{executável} e \emph{não executável}).
 
@@ -122,7 +122,7 @@ Em Física de Altas Energias, é comum encontrar a aplicação de BDT (\emph{Boosted
 
     Além da variação ocorrida no treinamento para gerar o classificador \emph{Bagged Trees}, o \emph{Random Forest} varia também a quantidade de atributos utilizados no momento do treinamento das 100 árvores de decisão em cada iteração. Esse fato, além de melhorar o desempenho da classificação, permite que uma avaliação de atributos mais relevantes seja feita. Em outras palavras, a cada árvore gerada é possível obter o erro \emph{OOB} e, avalia-lo de acordo com os atributos que participaram daquela iteração. A figura~\ref{fig:randomforestfeatures} ilustra através de um gráfico de barras quais são os atributos mais relevantes dos 6 (listados na tabela~\ref{tab:finalattributes}) utilizados para o treinamento da \emph{Random Forest}. É possível perceber que o índice de manutenabilidade é o atributo que mais contribui para o treinamento do classificador. A complexidade ciclomática chega a ser menos relevante até que as medidas de Halstead.
 
-    A tabela~\ref{tab:summary} apresenta as medidas de desempenho dos 4 classificadores gerados. Nela é possível identificar o melhor desempenho pelo F1-score do BDT sob os demais classificadores.
+    A tabela~\ref{tab:summary} apresenta as medidas de desempenho dos 4 classificadores gerados. Nela é possível identificar o melhor desempenho pelo F1-score do BDT sob os demais classificadores, apenas para a classe \emph{não executável}. Para a classe \emph{executável}, se comparado com o Random Forest, não é possível concluir o melhor desempenho do BDT, pois as barras de erro se interceptam. Em relação a Árvore de Decisão gerada e ao Bagged Trees, tanto o BDT quanto Random Forest apresentam melhor desempenho, independente da classe
 
     \begin{figure}[!ht]
       \centering

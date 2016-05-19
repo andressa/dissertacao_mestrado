@@ -1,8 +1,8 @@
 \chapter{Mineração de códigos fonte para identificação de falhas}
 \label{code_mining}
-Em desenvolvimento de software é comum observar que quanto maior for o tempo de permanência de um erro no código, mais custosa torna-se a sua correção e manutenção em um projeto~\cite{IEEE-Software-McConnel}. Falhas em códigos fonte são definidas como ``Imperfeições durante o desenvolvimento de software que, como consequência, impedem que o programa atinja as expectativas desejadas."~\cite{BASKARAN2010}. Entende-se ainda que muitos defeitos são introduzidos durante o processo de desenvolvimento como um todo, não somente no seu início ou fim. Assim sendo, identificar falhas antecipadamente torna-se parte essencial em desenvolvimento de software, que significa qualidade na entrega final do produto.~\cite{ODC1992}.
+Em desenvolvimento de software é comum observar que quanto maior for o tempo de permanência de um erro no código, mais custosa torna-se a sua correção e manutenção em um projeto~\cite{IEEE-Software-McConnel}. Falhas em códigos fonte são definidas como ``Imperfeições durante o desenvolvimento de software que, como consequência, impedem que o programa atinja as expectativas desejadas."~\cite{BASKARAN2010}. Entende-se ainda que a maioria dessas falhas são introduzidas durante o processo de desenvolvimento como um todo, não somente no seu início ou fim. Assim sendo, identifica-las antecipadamente torna-se parte essencial em desenvolvimento de software, que contribui para a qualidade na entrega final do produto.~\cite{ODC1992}.
 
-O SDLC (do inglês, \emph{software development life cycle} ou ciclo de vida do desenvolvimento de software)~\cite{6906040} indica que o desenvolvimento de software pode ser descrito em cinco etapas:
+O modelo simplificado SDLC (do inglês, \emph{software development life cycle} ou ciclo de vida do desenvolvimento de software)~\cite{6906040} indica que o desenvolvimento de software pode ser descrito em cinco etapas:
 \begin{enumerate}
   \item{Levantamento de Requisitos}
   \item{Projeto}
@@ -20,32 +20,32 @@ A figura~\ref{fig:bug_insertion} ilustra em quais etapas do ciclo de vida de des
   \label{fig:bug_insertion}
 \end{figure}
 
-Atualmente, diferentes técnicas têm sido utilizadas para a identificação antecipada de erros em códigos fonte. A análise estática, por exemplo, é bastante utilizada na área de programação desde a década de 80. As características desta análise são abordadas na seção~\ref{static_analysis}. Em conjunto com analisadores estáticos, pode-se aplicar técnicas de mineração de dados, fazendo uma combinação entre a área de engenharia de software e inteligência computacional. No artigo~\cite{4222731} os autores abordam como a mineração de dados pode contribuir com a área de engenharia de software, a medida que técnicas de inteligência computacional, quando aplicadas, melhoram a qualidade de projetos. Nesta mesma direção, a MSR (em inglês, \emph{Mining Software Repositories} ou mineração de repositórios de códigos) passa a ser amplamente abordada devido a disponibilidade gratuita de inúmeros repositórios públicos de controle de versionamento, rastreamento de erros inseridos e até mesmo documentações~\cite{4659248}.
+Atualmente, diferentes técnicas têm sido utilizadas para a identificação antecipada de potenciais erros em códigos fonte. A análise estática, por exemplo, é bastante utilizada na área de programação desde a década de 80. As características desta análise são abordadas na seção~\ref{static_analysis}. Em conjunto com analisadores estáticos, pode-se aplicar técnicas de mineração de dados, fazendo uma combinação entre a área de engenharia de software e inteligência computacional, com intuitos diferentes, descritos ao longo deste Capítulo. No artigo~\cite{4222731} os autores abordam como a mineração de dados pode contribuir com a área de engenharia de software, a medida que técnicas de inteligência computacional, quando aplicadas, melhoram a qualidade de projetos. Nesta mesma direção, a MSR (em inglês, \emph{Mining Software Repositories} ou mineração de repositórios de códigos) passa a ser amplamente abordada devido à disponibilidade gratuita de inúmeros repositórios públicos de controle de versionamento, rastreamento de erros inseridos e até mesmo documentações~\cite{4659248}.
 
 Aplicar mineração de dados em códigos fonte desperta interesse na comunidade científica, uma vez que códigos são tipicamente estruturados e semanticamente ricos em termos de construtores de programação (tais como variáveis, funções, objetos estruturados e rotinas bem definidas), diferente de textos livres, onde existe uma complexidade adicional devido ao tratamento de linguagem natural. Os objetivos são diversos: vão desde a tentativa de descobrir o que um determinado software faz (sem necessariamente executá-lo) até a manutenção de códigos ou análises de desenvolvimento de um projeto~\cite{130589}.
 
-Como citado, a identificação antecipada de erros inseridos durante a implementação de códigos fonte é atraente do ponto de vista de qualidade de produto. A utilização de mineração de códigos é uma das aplicações mais ativas em engenharia de software, atualmente. Neste caso, o objetivo é obter ferramentas que não só identifiquem falhas (ou \emph{bugs}) mas também sua localização exata nas linhas de código do projeto, de tal forma que o seu conserto seja facilitado~\cite{130589}. Para alcançar esse objetivo, uma direção de bastante destaque consiste na mineração de padrões, que uma vez pré-definidos, são aplicados em diversos repositórios de projetos já existentes, com o objetivo de encontrar anomalias comuns que violam regras (~\cite{Li05pr-miner:automatically},~\cite{4222586},~\cite{Chang:2007:FWN:1273463.1273486}).
+Como citado, a identificação antecipada de potenciais erros inseridos durante a implementação de códigos fonte é atraente do ponto de vista de qualidade de produto. A utilização de mineração de códigos é uma das aplicações mais ativas em engenharia de software, atualmente. Neste caso, o objetivo é obter ferramentas que não só identifiquem falhas (ou \emph{bugs}) mas também sua localização exata nas linhas de código do projeto, de tal forma que o seu conserto por parte do programador seja facilitado~\cite{130589}. Para alcançar esse objetivo, uma direção de bastante destaque consiste na mineração de padrões, que uma vez pré-definidos, são aplicados em diversos repositórios de projetos já existentes, com o objetivo de encontrar anomalias comuns que violam regras (~\cite{Li05pr-miner:automatically},~\cite{4222586},~\cite{Chang:2007:FWN:1273463.1273486}).
 
-Outro objetivo dominante na mineração de códigos é a tentativa de identificar fragmentos clonados. A não reutilização de códigos dificulta a manutenção do software e ainda, pode proliferar \emph{bugs} em diferentes partes de um projeto.
+Outro objetivo dominante na mineração de códigos é a tentativa de identificar trechos em códigos que são copiados. A não reutilização de códigos dificulta a manutenção do software e ainda, pode proliferar \emph{bugs} em diferentes partes de um projeto.
 
-A seção~\ref{code_mining_cern} investiga a aplicação de mineração de dados em códigos fonte no CERN. A seção~\ref{categories} aborda quais são os atributos comumente utilizados quando a mineração de dados é aplicada em códigos fonte. Esta seção é composta por duas sub-seções (~\ref{static_analysis} e~\ref{halstead}), que abordam em que situações tais atributos foram utilizados na aplicação de mineração de códigos neste contexto;  Por fim, a seção~\ref{ensemble} descreve os algoritmos de aprendizado de máquina que foram utilizados no trabalho aqui desenvolvido, na tentativa de classificar os códigos fonte em \emph{executáveis/não executáveis}.
+A seção~\ref{code_mining_cern} investiga a aplicação de mineração de dados em códigos fonte no CERN. A seção~\ref{categories} aborda quais são os atributos comumente utilizados quando a mineração de dados é aplicada em códigos fonte. Esta seção é composta por duas sub-seções (~\ref{static_analysis} e~\ref{halstead}), que abordam em que situações tais atributos foram utilizados na aplicação de mineração de códigos neste contexto.  Por fim, a seção~\ref{ensemble} descreve os algoritmos de aprendizado de máquina que foram utilizados no trabalho aqui desenvolvido, na tentativa de classificar os códigos fonte em \emph{executáveis/não executáveis}.
 
-\section{Analisadores estáticos e Mineração de códigos no CERN}
+\section{Analisadores Estáticos e Mineração de Códigos no CERN}
     \label{code_mining_cern}
     O CERN oferece um ambiente para desenvolvimento de software bastante particular. Estima-se que centenas de projetos de software estão sendo desenvolvidos, com propósitos específicos, desde programas que auxiliam o trabalho da equipe de recursos humanos até os que monitoram o desempenho de complexos experimentos que se desenvolvem no CERN. Apesar do setor de TI do CERN ter estipulado algumas regras para a política de segurança~\cite{CERN_SECURITY_RULES}, muitos projetos de software pequenos não as seguem a risca. Isso implica em vulnerabilidades dos programas utilizados em ambientes de produção no CERN.
 
-    As regras de segurança estipuladas não são tão rígidas para estimular o meio acadêmico no avanço das pesquisas científicas. Da mesma maneira, a utilização de analisadores estáticos para assegurar a qualidade no desenvolvimento de códigos livres não são impostos para a comunidade. Existem analisadores estáticos disponíveis gratuitamente e com documentação e suporte oferecidos pela equipe de TI do CERN, mas nenhum projeto é obrigado a utilizá-los. No caso deste projeto, a linguagem computacional escolhida foi Python, sendo o \emph{PyLint}~\cite{pylint} uma ferramenta para análise estática cuja utilização é indicada pelo setor de TI do CERN~\cite{cern_recomendations_tools}.
+    As regras de segurança sugeridas não são rígidas, com o objetivo de estimular o meio acadêmico no avanço das pesquisas científicas. É importante lembrar que o nível de conhecimento em programação varia entre os colaboradores. Regras rígidas induzem colaboradores menos experientes a não implementarem análises desejadas. Dessa maneira, a utilização de analisadores estáticos para assegurar a qualidade no desenvolvimento de códigos livres não é imposto para a comunidade. Existem analisadores estáticos disponíveis gratuitamente e com documentação e suporte oferecidos pela equipe de TI do CERN, mas nenhum projeto é obrigado a utilizá-los. No caso deste projeto, a linguagem computacional escolhida foi Python, sendo o \emph{PyLint}~\cite{pylint} uma ferramenta para análise estática cuja utilização é indicada pelo setor de TI do CERN~\cite{cern_recomendations_tools}.
 
-    Recentemente, o setor de segurança em computação do CERN contratou um serviço (\emph{Coverity}~\cite{Bessey:2010:FBL:1646353.1646374}) para garantir qualidade no desenvolvimento de novas funcionalidades no seu principal produto de análises físicas, o ROOT~\cite{BRUN}. O ROOT é utilizado por cerca de 10.000 pesquisadores e a integridade do software passou a ser vista como algo valioso. Um \emph{bug} perpetuado no ROOT pode ter um impacto muito negativo nas análises de resultados dos dados gerados pelo LHC. Assim que incorporado, o \emph{Coverity} já foi capaz de identificar mais de 40.000 falhas em aproximadamente 50 milhões de linhas de códigos~\cite{coverity_numbers}. Um ponto negativo observado por desenvolvedores do ROOT é o tempo necessário para executar o analisador estático: são 28 horas para cada 2 milhões de linhas de código. É válido observar que a ferramenta escolhida para o ROOT não atende as necessidades do projeto aqui desenvolvido: o \emph{Coverity} atende códigos escritos em linguagem C/C++, enquanto os códigos do Tile-in-ONE (seção~\ref{tio}) são implementados em Python. Além disso, deseja-se aplicar mineração de dados em códigos fonte em um ambiente web, colaborativo. Portanto, não existe um repositório de versionamento.
+    Recentemente, o setor de segurança em computação do CERN contratou um serviço (\emph{Coverity}~\cite{Bessey:2010:FBL:1646353.1646374}) para garantir qualidade no desenvolvimento de novas funcionalidades no seu principal produto de análises físicas, o ROOT~\cite{BRUN}. O ROOT é utilizado por cerca de 10.000 pesquisadores e a integridade do software passou a ser vista como algo valioso. Um \emph{bug} perpetuado no ROOT pode ter um impacto muito negativo nas análises de resultados dos dados gerados pelo LHC. Assim que incorporado, o \emph{Coverity} já foi capaz de identificar mais de 40.000 falhas em aproximadamente 50 milhões de linhas de códigos~\cite{coverity_numbers}. Um ponto negativo observado por desenvolvedores do ROOT é o tempo necessário para aplicar o analisador estático: são 28 horas para cada 2 milhões de linhas de código. É válido observar que a ferramenta escolhida para o ROOT não atende as necessidades do projeto aqui desenvolvido: o \emph{Coverity} atende códigos escritos em linguagem C/C++, enquanto os códigos do Tile-in-ONE (Capítulo~\ref{tio}) são implementados em Python. Uma possível abordagem para esta linguagem de programação seria a aplicação do analisador estático PyLint. Porém, esta ferramenta é cautelosa: existem \emph{bugs} que os alertas gerados não identificam ou ainda, alertas falsos, que não correspondem a falhas. Por outro lado, deseja-se aplicar mineração de dados em códigos fonte em um ambiente web, colaborativo. Portanto, não existe um repositório de versionamento.
 
-    Em física de altas energias não existe literatura sobre a aplicação de mineração de dados em códigos fonte.
+    Em física de altas energias não foi encontrado na literatura materiais relevantes sobre a aplicação de mineração de dados em códigos fonte.
 
-    \section{Avaliação de atributos}
+    \section{Avaliação de Atributos}
     \label{categories}
-    Uma revisão feita por Heckman~\cite{Heckman:2011:SLR:1945085.1945215}, com 21 artigos sobre mineração de dados em códigos fonte, identifica cinco categorias comumente utilizadas como atributos:
+    Uma revisão feita por Heckman~\cite{Heckman:2011:SLR:1945085.1945215}, com 21 artigos sobre mineração de dados em códigos fonte, identifica cinco categorias comumente utilizadas para extração de atributos que podem ser utilizados como entrada em algoritmos de máquina de aprendizado:
     \begin{enumerate}
       \item{\emph{Alert Characteristics} (AC): abordagem que leva em consideração os alertas gerados por analisadores estáticos (sub-seção~\ref{static_analysis});}
-      \item{\emph{Code Characteristics} (CC): abordagem que considera medidas estatísticas e de qualidade do código fonte como atributos de entrada para algoritmos de aprendizado de máquina(sub-seção~\ref{halstead});}
+      \item{\emph{Code Characteristics} (CC): abordagem que considera medidas estatísticas e de qualidade do código fonte como atributos de entrada para algoritmos de aprendizado de máquina (sub-seção~\ref{halstead});}
       \item{\emph{Source code repository metrics} (SCR): atributos retirados de repositórios de códigos. Nesta abordagem, leva-se em consideração versionamentos (histórico de \emph{bugs} inseridos no projeto), comentários de atualizações e documentação sobre requisitos, por exemplo;}
       \item{\emph{Bug database metrics} (BDM): neste caso, existe uma base de dados para o projeto contendo todas as falhas já surgidas e consertadas. O objetivo dessa abordagem é identificar padrões que podem voltar a acontecer no projeto;}
       \item{\emph{Dynamic analyses metric} (DA): esta abordagem armazena resultados obtidos com análise dinâmica de códigos, mediante diversas execuções (ver seção~\ref{static_analysis})}.
@@ -59,21 +59,21 @@ A seção~\ref{code_mining_cern} investiga a aplicação de mineração de dados em có
 
         Em engenharia de software, existem dois tipos de análise (complementares) que podem ser feitas para validar e testar o produto em concepção~\cite{1646907}:
         \begin{itemize}
-          \item{\textbf{Estática}: neste caso, apenas a estrutura do código é analisada, mas o código não é executado;
+          \item{\textbf{Estática}: neste caso, apenas a estrutura do código fonte é analisada, mas o código não é executado. Extrai-se aqui, por exemplo, variáveis utilizadas mas nunca declaradas, nome de variável com menos de 3 letras, laços de repetição recursivos, entre outros;
           }
           \item{\textbf{Dinâmica}: para esta análise, é preciso levantar um plano de testes, executá-lo e avaliar os resultados. Ou seja, é necessário executar o código diversas vezes;
           }
         \end{itemize}
 
-        O objetivo do trabalho aqui exposto é analisar códigos fonte sem executá-los; desta forma, utilizar analisadores estáticos torna-se atraente.
+        O objetivo do trabalho aqui exposto é analisar códigos fonte sem executá-los; desta forma, utilizar analisadores estáticos torna-se mandatório.
 
-        Na década de 80, diversas ferramentas que aplicam análise estática de código começaram a ser desenvolvidas para auxiliar desenvolvedores na implementação de códigos com menos \emph{bugs}~\cite{Tischler:1983:SAP:1006140.1006182}. Mas, logo um inconveniente surge~\cite{YukselS13}: a quantidade de alertas gerados pelas ferramentas de análise estática de código (SCAT, do inglês, \emph{Static Code Analysis Tools}) é grande e muitos deles não são acionáveis. Diz-se acionável um alerta que realmente vai impedir o sucesso na execução de um determinado código~\cite{Heckman:2011:SLR:1945085.1945215}. Essa classificação é feita manualmente pelo desenvolvedor (que, neste caso, é o especialista): se o especialista entende que determinado alerta é importante e precisa ser consertado antes da execução do programa, tal alerta é definido como \emph{acionável}. Caso contrário, ele é definido como \emph{não acionável}(~\cite{4815348},~\cite{Heckman:2008:EBE:1414004.1414013}).
+        Na década de 70, diversas ferramentas que aplicam análise estática de código começaram a ser desenvolvidas para auxiliar desenvolvedores na implementação de códigos com menos \emph{bugs}~\cite{Tischler:1983:SAP:1006140.1006182}. Mas, logo um inconveniente surge~\cite{YukselS13}: a quantidade de alertas gerados pelas ferramentas de análise estática de código (SCAT, do inglês, \emph{Static Code Analysis Tools}) é grande e muitos deles não são acionáveis. Diz-se acionável um alerta que realmente vai impedir o sucesso na execução de um determinado código~\cite{Heckman:2011:SLR:1945085.1945215}. Essa classificação é feita manualmente pelo desenvolvedor (que, neste caso, é o especialista): se o especialista entende que determinado alerta é importante e precisa ser consertado antes da execução do programa, tal alerta é definido como \emph{acionável}. Caso contrário, ele é definido como \emph{não acionável}(~\cite{4815348},~\cite{Heckman:2008:EBE:1414004.1414013}).
 
         Empiricamente, existem cerca de 40 alertas para cada mil linhas de código (KLOC, do inglês, \emph{Kilo Lines of Code})~\cite{Heckman:2008:EBE:1414004.1414013}. Desta estimativa, podem ser não acionáveis 30-100\%, como observado em~\cite{Aggarwal:2006:ISD:1169228.1170032},~\cite{4026864},~\cite{Heckman:2008:EBE:1414004.1414013},~\cite{4228664},~\cite{Kim:2007:WIF:1287624.1287633},~\cite{Kremenek:2003:ZUS:1760267.1760289}. Tais números desestimulam desenvolvedores e projetistas a aplicar ferramentas de análise estática de código no processo de desenvolvimento de software, embora entenda-se a sua importância no quesito qualidade adquirida. Por outro lado, um alerta definido pelo especialista como \emph{acionável} nem sempre vai impedir a execução bem sucedida do código. Ou seja, se, por um lado, os analisadores estáticos geram muitos alertas (\emph{não acionáveis}), nada garante que o alerta \emph{acionável} indica que o programa contém \emph{bugs} e vai falhar durante a tentativa de execução. Em outras palavras, um analisador estático pode não gerar nenhum alerta, e mesmo assim, durante a tentativa de execução, o código pode falhar.
 
         Neste trabalho, um dos atributos utilizados corresponde à geração ou não de alertas pelo analisador estático. Adicionalmente, outras medidas estatísticas e de qualidade, descritas a seguir, compõem a lista inicial de atributos extraídos dos códigos fonte (tabela~\ref{tab:initialattributes}).
 
-        \subsection{Medidas estatísticas e de qualidade}
+        \subsection{Medidas Estatísticas e de Qualidade}
         \label{halstead}
 
         Em computação, ``Halstead Metrics''~\cite{Halstead:1977:ESS:540137} são medidas de qualidade e estatísticas definidas por Maurice Halstead e publicadas em 1977.
@@ -94,10 +94,10 @@ A seção~\ref{code_mining_cern} investiga a aplicação de mineração de dados em có
           \item{Dificuldade: $D = \frac{\eta_1}{2} . \frac{N_2}{\eta_2}$;}
           \item{Esforço: $E = D . V$;}
           \item{Estimativa de tempo de execução (em segundos): $ T = \frac{E}{18}$;}
-          \item{Estimativa de potenciais \emph{bugs}: $ B = \frac{V}{3000} $};
+          \item{Estimativa de potenciais \emph{bugs}: $ B = \frac{V}{3000} $}.
         \end{itemize}
 
-        Outra característica que pode ser extraída de códigos fonte é a sua complexidade. Define-se como ``Cyclomatic Complexity'' (do inglês, complexidade ciclomática)~\cite{maccabe1983structured} o número de decisões que um determinado bloco de código contém mais uma unidade. Este número (também conhecido como \emph{McCabe number}) representa o número de caminhos independentes percorridos durante a execução de um código, quando se monta uma árvore abstrata de sintaxe (AST, do inglês, \emph{abstract syntax tree})~\cite{jones03pattern}.
+        Outra característica que pode ser extraída de códigos fonte é a sua complexidade. Define-se como ``Cyclomatic Complexity'' (do inglês, complexidade ciclomática)~\cite{maccabe1983structured} (também conhecido como \emph{McCabe number}) o número de caminhos independentes percorridos durante a execução de um código, quando se monta uma árvore abstrata de sintaxe (AST, do inglês, \emph{abstract syntax tree})~\cite{jones03pattern} somado a uma unidade.
 
         O índice de manutenabilidade (ou MI, do inglês \emph{Maintainability Index}) é uma medida em software que indica o quão fácil é a manutenção de um determinado código. O MI é calculado de diferentes maneiras, dependendo da abordagem que se deseja utilizar. Entretanto, a fórmula clássica~\cite{242525} (descrita na equação [I]) envolve o número de linhas totais em um código fonte (SLOC, do inglês, \emph{source lines of code}), a complexidade ciclomática (neste contexto, CC) e o volume de Halstead (HV):
         \begin{center}
@@ -106,11 +106,11 @@ A seção~\ref{code_mining_cern} investiga a aplicação de mineração de dados em có
         \end{center}
         Os autores chegaram nesta fórmula através de um número de códigos fornecidos pela HP, escritos em linguagens de programação C e Pascal. Para cada código, um especialista (engenheiro de software) atribuiu uma nota (de 1 a 100) indicando o quão fácil seria fazer alterações ou correções posteriores ao determinado código (quanto maior a nota, mais fácil é sua manutenção). Consequentemente, 40 faixas de valores foram identificadas e através de uma regressão estatística, a fórmula exposta foi encontrada como um índice de manutenabilidade. Existe ainda o LLOC (do inglês, \emph{Logic Lines of Code}), que indica a quantidade de linhas com operadores lógicos no código que é outra medida para a extração como atributo.
 
-        A tabela~\ref{tab:initialattributes} lista os atributos inicialmente extraídos com breve descrição. Uma análise de correlação foi realizada com o objetivo de reduzir o número de atributos utilizados. Os resultados desta análise são discutidos na seção~\ref{selection}. A existência de atributos com correlação alta é redundante para o treinamento de algoritmos de aprendizado de máquina.
+        A tabela~\ref{tab:initialattributes} lista os atributos inicialmente extraídos com breve descrição. Uma análise de correlação de primeira ordem foi realizada, calculando-se o coeficiente de correlação de Pearson durante a execução deste projeto. O objetivo em realizar esta análise é reduzir o número de atributos utilizados. Os resultados desta análise são discutidos na seção~\ref{selection}. A existência de atributos com correlação alta é redundante para o treinamento de algoritmos de aprendizado de máquina, podendo atrasar a convergência.
         
     \begin{table}[]
     \centering
-    \caption{Lista inicial de atributos}
+    \caption{Lista inicial de atributos.}
     \label{tab:initialattributes}
     \begin{tabular}{@{}|l|c|l|@{}}
     \toprule
@@ -129,8 +129,9 @@ A seção~\ref{code_mining_cern} investiga a aplicação de mineração de dados em có
     \end{tabular}
     \end{table}
 
-    \section{Algoritmos de aprendizado conjunto utilizando Árvores de Decisão}
+    \section{Algoritmos de Aprendizado Conjunto Utilizando Árvores de Decisão}
     \label{ensemble}
+    A motivação para a escolha de algoritmos de aprendizado conjunto utilizando como base árvores de decisão é descrita no Capítulo~\ref{results}
     Árvore de decisão (DT, do inglês, \emph{Decision Tree})~\cite{Rokach:2008:DMD:1796114} é um algoritmo de aprendizado de máquina supervisionado. Desta maneira, o classificador aprende com casos em que se sabe a resposta (no caso deste projeto, \emph{executável}/\emph{não executável}).
 
     Basicamente, o treinamento de uma árvore de decisão divide e agrupa o conjunto de treino em dois ou mais grupos homogêneos, sucessivamente. Para as divisões, o algoritmo se encarrega de escolher qual é o atributo mais significativo, ou seja, qual atributo irá tornar a divisão a mais homogênea (ou pura) possível. Tal processo se conhece como \emph{splitting} e será descrito mais adiante nesta seção.
@@ -139,16 +140,16 @@ A seção~\ref{code_mining_cern} investiga a aplicação de mineração de dados em có
 
     \begin{figure}[!ht]
       \mbox{
-        \subfigure[Conjunto de dados utilizados para gerar a árvore de decisão ilustrada ao lado]{
+        \subfigure[Conjunto de dados utilizados para gerar a árvore de decisão ilustrada ao lado.]{
           \includegraphics[width=7cm]{images/dt_dataset.png}
           \label{fig:dt_dataset}
         }
-        \subfigure[Exemplo clássico de árvore de decisão]{
+        \subfigure[Exemplo clássico de árvore de decisão.]{
           \includegraphics[width=7cm]{images/dt_classica.png}
           \label{fig:dt_classica}
         }
       }
-      \caption{Conjunto de dados e árvore de decisão gerada, respectivamente}
+      \caption{Conjunto de dados e árvore de decisão gerada, respectivamente.}
       \label{fig:dt}
     \end{figure}
 
@@ -157,17 +158,17 @@ A seção~\ref{code_mining_cern} investiga a aplicação de mineração de dados em có
         \item{O nó raiz (em azul) representa todo o conjunto de treino e é onde as divisões em grupos homogêneos começam.}
         \item{Os nós que continuam dividindo os sub-conjuntos restantes (em cinza) são denominados nós de decisão.}
         \item{Quando a divisão cessa, tem-se as folhas (em verde). As folhas indicam a decisão tomada pela árvore treinada.}
-       \item{O tamanho da árvore indica quantas divisões foram efetuadas até a obtenção das folhas. No caso da figura~\ref{fig:dt_classica} o tamanho da árvore é 3. Este parâmetro pode ser utilizado como critério de parada durante o treinamento do classificador, e assim sendo, não há garantias de obtenção de folhas puras.
+       \item{A profundidade indica quantas divisões foram efetuadas até a obtenção das folhas. No caso da figura~\ref{fig:dt_classica} a profundidade da árvore é 3. Este parâmetro pode ser utilizado como critério de parada durante o treinamento do classificador, e assim sendo, não há garantias de obtenção de folhas puras.
     \end{itemize}
 
     Existem duas operações relacionadas ao treinamento de árvores de decisão. Elas estão descritas a seguir.\newpage
-    \textbf{\large{Splitting}}\\ \\
+    \textbf{\large{Divisão (\emph{Splitting})}}\\ \\
     Os critérios de divisão consideram quais atributos permitirão que a divisão do conjunto de dados obtida seja a mais pura possível. Desta forma, a escolha dos atributos que serão utilizados para a divisão em sub-conjuntos é feita através de medidas de impureza. Existem duas medidas principais utilizadas por diversos critérios de divisão, de acordo com~\cite{Rokach:2008:DMD:1796114}:
     \begin{itemize}
       \item{Entropia (da informação), segundo Shannon~\cite{Shannon:2001:MTC:584091.584093} identifica o grau de incerteza de uma informação. No contexto deste projeto, quanto menor for a entropia da informação, mais puro é um nó. A entropia é definida de acordo com a fórmula abaixo:
       \begin{center}
         $H(X) = - \sum_{i=1}^{k}p_i log_2 (p_i)$ [II]
-      \end{center} Onde $k$ é a quantidade de respostas de um determinado atributo (no caso do atributo \emph{tempo}, as possíveis respostas seriam \emph{ensolarado}, \emph{nublado} ou \emph{chuvoso} e $k = 3$) e $p_i$ é a probabilidade da resposta $i$ ocorrer dado o conjunto de dados que será dividido.
+      \end{center} onde $k$ é a quantidade de respostas de um determinado atributo (no caso do atributo \emph{tempo}, as possíveis respostas seriam \emph{ensolarado}, \emph{nublado} ou \emph{chuvoso} e $k = 3$) e $p_i$ é a probabilidade da resposta $i$ ocorrer dado o conjunto de dados que será dividido.
       A figura~\ref{fig:entropia_tempo} ilustra o cálculo da entropia para o atributo \emph{tempo} como uma medida de impureza. Como dito, quanto menor o valor da entropia, mais puro é um nó. A figura~\ref{fig:dt_dataset} contém o conjunto de dados utilizado.
       \begin{figure}[htbp]
         \centering
@@ -203,18 +204,18 @@ A seção~\ref{code_mining_cern} investiga a aplicação de mineração de dados em có
           \label{fig:gini_index_formula}
         }
       }
-      \caption{Critérios de divisão encontrados na literatura}
+      \caption{Critérios de divisão encontrados na literatura.}
       \label{fig:splitting_criterios}
     \end{figure}
     \end{itemize}
     Este projeto utiliza o critério Índice Gini, seguindo a tendência na Física de Altas Energias.\\ \\
-    \textbf{\large{Pruning}}\\
-    Esta operação é oposta a operação de divisão. Em máquina de aprendizado, utiliza-se \emph{pruning} para se reduzir o tamanho da árvore de decisão, removendo algumas folhas ou nós após obtenção de folhas 100\% puras. Como consequência é possível aumentar a eficiência da classificação a medida que ocorre redução de \emph{overfitting}. Esta técnica não foi utilizada neste projeto, pois para evitar folhas completamente puras, basta definir a priori o tamanho da árvore. \\
+    \textbf{\large{Poda (\emph{Pruning})}}\\
+    Esta operação é oposta a operação de divisão. Em máquina de aprendizado, utiliza-se \emph{pruning} para se reduzir a profundidade da árvore de decisão, removendo algumas folhas ou nós após obtenção de folhas 100\% puras. Como consequência é possível aumentar a eficiência da classificação à medida que ocorre redução de \emph{overfitting}. Esta técnica não foi utilizada neste projeto, pois para evitar folhas completamente puras, basta definir a priori a profundidade. \\
 
 
-    Uma das vantagens de se utilizar árvores de decisão para classificação é a sua fácil compreensão. Para pessoas sem conhecimentos em inteligência computacional, o treinamento de classificadores e os resultados obtidos são de fácil compreensão. Além disso, a representação gráfica é intuitiva e permite que hipóteses sejam rapidamente relacionadas.
+    Uma das vantagens de se utilizar árvores de decisão para classificação é a sua fácil compreensão. Para pessoas sem conhecimentos em inteligência artificial, o treinamento de classificadores e os resultados obtidos são de intuitivos. Além disso, a representação gráfica permite que hipóteses sejam rapidamente relacionadas.
 
-    Entretanto, existe uma desvantagem que faz com que árvores de decisão não sejam consideradas classificadores fortes: o fato de dividir conjuntos em sub-conjuntos homogêneos faz com que o classificador gerado fique especialista no conjunto de treino (\emph{overfit}). Ou seja, a árvore gerada sempre dependerá do conjunto de treino utilizado. O método de aprendizagem de conjunto (\emph{ensemble learning}) procura contornar essa questão levantada.
+    Entretanto, existe uma desvantagem que faz com que árvores de decisão não sejam consideradas classificadores fortes: o fato de dividir conjuntos em sub-conjuntos homogêneos faz com que o classificador gerado fique especialista no conjunto de treino (\emph{overfit}). Ou seja, a árvore gerada pode depender do conjunto de treino utilizado. O método de aprendizagem de conjunto (\emph{ensemble learning}) procura contornar essa questão levantada.
 
     \emph{Ensemble} são conjuntos de classificadores que combinam seus resultados individuais (por votação, por exemplo) para classificar novas amostras~\cite{Seni:2010:EMD:1841412}. Uma das áreas mais ativas na área de aprendizado de máquina supervisionado tem sido \emph{ensemble}~\cite{Dietterich:2000:EMM:648054.743935}. Geralmente, classificadores \emph{ensemble} apresentam maior acurácia que classificadores individuais. A razão estatística para isso é que a variância de um somatório é menor que a variância individual. Computacionalmente, o treinamento pode dar-se de maneira mais rápida, uma vez que, em alguns casos, é possível paralelizar a fase de treinamento.
 
@@ -236,7 +237,7 @@ A seção~\ref{code_mining_cern} investiga a aplicação de mineração de dados em có
     \label{randomforest}
     Alguns autores consideram \emph{Random Forest} como uma variação de \emph{Bagged Trees}~\cite{Dietterich:2000:EMM:648054.743935}. Este classificador \emph{ensemble} é apresentado por Breiman em~\cite{Breiman:2001:RF:570181.570182}.
 
-    A primeira diferença é que \emph{Random Forest} só utiliza árvores de decisão como algoritmo base. Outra diferença entre os dois algoritmos é a quantidade de atributos utilizados durante o treinamento dos classificadores: neste caso, nem todos os atributos são utilizados. Escolhe-se a quantidade de atributos que será utilizada e a cada nova árvore, um sub-conjunto diferente de atributos é utilizado. Isso permite analisar a contribuição de cada atributo no treinamento de cada árvore.
+    A primeira diferença é que \emph{Random Forest} só utiliza árvores de decisão como algoritmo base. Outra diferença entre os dois algoritmos é a quantidade de atributos utilizados durante o treinamento dos classificadores: neste caso, nem todos os atributos são utilizados. Escolhe-se a priori a quantidade de atributos que será utilizada e a cada nova árvore,  um sub-conjunto diferente de atributos escolhido aleatoriamente é utilizado. Isso permite analisar a contribuição de cada atributo no treinamento de cada árvore.
 
     O termo \emph{Out of Bag (OOB)} também é introduzido por Breiman. Assim, tem-se uma nova medida para erro: cerca de um terço do conjunto de treino é separada e utilizada a cada rodada como um conjunto de teste. É a partir desta medida que a análise de contribuição dos atributos torna-se possível.
 
@@ -250,7 +251,7 @@ A seção~\ref{code_mining_cern} investiga a aplicação de mineração de dados em có
 
     \begin{figure}[!ht]
     \centering
-    \subfigure[Exemplo do que ocorre com o conjunto de treino durante as iterações do BDT]{
+    \subfigure[Exemplo do que ocorre com o conjunto de treino durante as iterações do BDT.]{
       \includegraphics[width=8cm]{images/bdt_example.png}
       \label{fig:bdt_example}
     }

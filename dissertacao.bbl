@@ -60,7 +60,7 @@
 
 \bibitem{CMS}
 \MakeUppercase{ {The CMS Collaboration}}, \enquote{The {CMS} experiment at the
-  {CERN} {LHC}}, {\em Journal of Instrumentation\/}, v.~3, n.~08, Ago 2008.
+  {CERN} {LHC}}, {\em Journal of Instrumentation\/}, v.~3, n.~08, Agosto 2008.
 
 \bibitem{SZUMLAK2010}
 \MakeUppercase{ Szumlak, T.}, \enquote{{The LHCb experiment}}, {\em Acta
@@ -103,7 +103,7 @@
 \MakeUppercase{ Sivolella, A., Maidantchik, C.}, \enquote{The Monitoring and
   Calibration Web Systems for the ATLAS Tile Calorimeter Data Quality
   Analysis}, {\em Journal of Physics: Conference Series 052037, Computing High
-  Energy Physics, New York, USA\/}, v.~396, pp.~8, May 2012.
+  Energy Physics, New York, USA\/}, v.~396, pp.~8, Maio 2012.
 
 \bibitem{DCS-CHEP-2009}
 \MakeUppercase{ Maidantchik, C., Ferreira, F., Grael, F.}, \enquote{DCS Web
@@ -121,13 +121,13 @@
 \bibitem{BASKARAN2010}
 \MakeUppercase{ Kumaresh, S., Baskaran, R.}, \enquote{Defect Analysis and
   Prevention for Software Process Quality Improvement}, {\em International
-  Journal of Computer Applications (0975 - 8887)\/}, v.~8, n.~7, October 2010.
+  Journal of Computer Applications (0975 - 8887)\/}, v.~8, n.~7, Outubro 2010.
 
 \bibitem{ODC1992}
 \MakeUppercase{ Chillarege, R., Bhandari, I., Chaar, J.,
   \MakeLowercase{et~al.}}, \enquote{Orthogonal Defect Classification - A
   Concept for In-Process Measurements}, {\em IEEE Transactions on Software
-  Engineering\/}, v.~18, n.~11, November 1992.
+  Engineering\/}, v.~18, n.~11, Novembro 1992.
 
 \bibitem{6906040}
 \MakeUppercase{ Velmourougan, S., Dhavachelvan, P., Baskaran, R.,
@@ -172,7 +172,7 @@
 \MakeUppercase{ Krishna~Ramanathan, M., Grama, A., Jagannathan, S.},
   \enquote{Path-Sensitive Inference of Function Precedence Protocols}.
 \newblock In: {\em Software Engineering, 2007. ICSE 2007. 29th International
-  Conference on\/}, pp. 240--250, May 2007.
+  Conference on\/}, pp. 240--250, Maio 2007.
 
 \bibitem{Chang:2007:FWN:1273463.1273486}
 \MakeUppercase{ Chang, R.-Y., Podgurski, A., Yang, J.}, \enquote{Finding What's
@@ -206,18 +206,18 @@
 
 \bibitem{coverity_numbers}
 \enquote{Coverity efects at CERN}, \\Acessado em janeiro de 2016.
-  \url{http://www.coverity.com/press-releases/cern-chooses-coverity-to-ensure-accuracy-of-large-hadron-collider-software/}.
+  \url{http://bit.ly/coverity-at-cern}.
 
 \bibitem{Heckman:2011:SLR:1945085.1945215}
 \MakeUppercase{ Heckman, S., Williams, L.}, \enquote{A Systematic Literature
   Review of Actionable Alert Identification Techniques for Automated Static
   Code Analysis}, {\em Inf. Softw. Technol.\/}, v.~53, n.~4, pp.~363--387,
-  April 2011.
+  2011.
 
 \bibitem{Heckman:2008}
 \MakeUppercase{ Heckman, S., Williams, L.}, \enquote{A measurement framework of
   alert characteristics for false positive mitigation models}, {\em North
-  Carolina State University TR-2008- 23\/}, October 2008.
+  Carolina State University TR-2008- 23\/}, Outubro 2008.
 
 \bibitem{1646907}
 \MakeUppercase{ Fairley, R.}, \enquote{Tutorial: Static Analysis and Dynamic
@@ -227,10 +227,10 @@
 \bibitem{Tischler:1983:SAP:1006140.1006182}
 \MakeUppercase{ Tischler, R., Schaufler, R., Payne, C.}, \enquote{Static
   Analysis of Programs As an Aid to Debugging}, {\em SIGSOFT Softw. Eng.
-  Notes\/}, v.~8, n.~4, pp.~155--158, March 1983.
+  Notes\/}, v.~8, n.~4, pp.~155--158, 1983.
 
 \bibitem{YukselS13}
-\MakeUppercase{ Yuksel, U., Sözer, H.}, \enquote{Automated Classification of
+\MakeUppercase{ Yuksel, U., Sozer, H.}, \enquote{Automated Classification of
   Static Code Analysis Alerts: A Case Study.}
 \newblock In: {\em ICSM\/}, pp. 532--535, IEEE Computer Society, 2013.
 
@@ -259,13 +259,13 @@
 \MakeUppercase{ Boogerd, C., Moonen, L.}, \enquote{Prioritizing Software
   Inspection Results using Static Profiling}.
 \newblock In: {\em Source Code Analysis and Manipulation, 2006. SCAM '06. Sixth
-  IEEE International Workshop on\/}, pp. 149--160, Sept 2006.
+  IEEE International Workshop on\/}, pp. 149--160, Setembro 2006.
 
 \bibitem{4228664}
 \MakeUppercase{ Kim, S., Ernst, M.}, \enquote{Prioritizing Warning Categories
   by Analyzing Software History}.
 \newblock In: {\em Mining Software Repositories, 2007. ICSE Workshops MSR '07.
-  Fourth International Workshop on\/}, pp. 27--27, May 2007.
+  Fourth International Workshop on\/}, pp. 27--27, Maio 2007.
 
 \bibitem{Kim:2007:WIF:1287624.1287633}
 \MakeUppercase{ Kim, S., Ernst, M.~D.}, \enquote{Which Warnings Should I Fix
@@ -308,7 +308,7 @@
 \bibitem{Shannon:2001:MTC:584091.584093}
 \MakeUppercase{ Shannon, C.~E.}, \enquote{A Mathematical Theory of
   Communication}, {\em SIGMOBILE Mob. Comput. Commun. Rev.\/}, v.~5, n.~1,
-  pp.~3--55, Jan. 2001.
+  pp.~3--55, 2001.
 
 \bibitem{Seni:2010:EMD:1841412}
 \MakeUppercase{ Seni, G., Elder, J.}, {\em Ensemble Methods in Data Mining:
@@ -324,7 +324,7 @@
 
 \bibitem{Breiman:2001:RF:570181.570182}
 \MakeUppercase{ Breiman, L.}, \enquote{Random Forests}, {\em Mach. Learn.\/},
-  v.~45, n.~1, pp.~5--32, Oct. 2001.
+  v.~45, n.~1, pp.~5--32, 2001.
 
 \bibitem{Roe2005577}
 \MakeUppercase{ Roe, B.~P., Yang, H.-J., Zhu, J., \MakeLowercase{et~al.}},
@@ -334,8 +334,8 @@
   and Associated Equipment"\/}, v.~543, n. 2 - 3, pp.~577 -- 584, 2005.
 
 \bibitem{1748-0221-10-09-P09018}
-\MakeUppercase{ collaboration, T.~A.}, \enquote{Modelling Z → ττ
-  processes in ATLAS with τ-embedded Z → μμ data}, {\em Journal of
+\MakeUppercase{ collaboration, T.~A.}, \enquote{Modelling Z tau tau processes
+  in ATLAS with tau-embedded Z mi mi data}, {\em Journal of
   Instrumentation\/}, v.~10, n.~09, pp.~P09018, 2015.
 
 \bibitem{Chatrchyan2012284}
@@ -352,6 +352,6 @@
 \bibitem{Freund1997}
 \MakeUppercase{ Freund, Y., Schapire, R.~E.}, \enquote{A Decision-Theoretic
   Generalization of On-Line Learning and an Application to Boosting}, {\em J.
-  Comput. Syst. Sci.\/}, v.~55, n.~1, pp.~119--139, Aug. 1997.
+  Comput. Syst. Sci.\/}, v.~55, n.~1, pp.~119--139, Agosto 1997.
 
 \end{thebibliography}
