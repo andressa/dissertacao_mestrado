@@ -14,11 +14,6 @@
   General-Purpose pp Experiment at the Large Hadron Collider at CERN}\/}, Tech.
   rep., CERN, 1994, CERN/LHCC 94--43.
 
-\bibitem{TDR_Tile}
-\MakeUppercase{ {ATLAS/Tile Calorimeter Collaboration}}, {\em {Tile Calorimeter
-  Calorimeter Technical Design Report}\/}, Tech. rep., CERN, 1996, CERN/LHCC
-  96--42.
-
 \bibitem{CHEP2010-DASHBOARD}
 \MakeUppercase{ Balabram, C. M. F. F. F. G. A. S.~L.}, \enquote{Web System for
   Data Quality Assessment of Tile Calorimeter During the ATLAS Operation}, {\em
@@ -72,6 +67,11 @@
   Physica Polonica. Series B: Elementary Particle Physics, Nuclear Physics,
   Statistical Physics, Theory of Relativity, Field Theory\/}, v.~41, n.~7,
   pp.~1661--1668, 2010.
+
+\bibitem{TDR_Tile}
+\MakeUppercase{ {ATLAS/Tile Calorimeter Collaboration}}, {\em {Tile Calorimeter
+  Calorimeter Technical Design Report}\/}, Tech. rep., CERN, 1996, CERN/LHCC
+  96--42.
 
 \bibitem{ATLAS_FACTS}
 \enquote{{ATLAS \emph{Factsheet}}}, {\\Acessado em janeiro de 2016. \\
